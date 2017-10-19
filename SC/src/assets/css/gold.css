@@ -1,0 +1,122 @@
+.gold_view {
+  background: #ffffff;
+  width: 100%;
+  height: 925px;
+  position: relative;
+}
+.gold_view .title {
+  padding: 25px 0px 22px 35px;
+  font-size: 16px;
+  color: #333333;
+  border-bottom: 1px solid #eceef5;
+}
+.gold_info {
+  padding: 45px 50px 105px 50px;
+}
+.gold_info .panel-left {
+  width: 45%;
+  margin-right: 5%;
+}
+.gold_info .panel-right {
+  width: 45%;
+}
+.gold_info .panel-right p {
+  margin-bottom: 10px;
+}
+.gold_info .form-group {
+  margin-bottom: 30px;
+}
+.gold_info .form-group:last-child {
+  margin-bottom: 0px;
+}
+.gold_info .form-group .checkbox {
+  margin-top: 20px;
+}
+.gold_info .form-group p {
+  margin-bottom: 10px;
+}
+.gold_info .unit , .gold_info .units {
+  position: relative;
+}
+.gold_info .unit span {
+  position: absolute;
+  top: 10px;
+  left: 310px;
+  font-size: 12px;
+}
+.gold_info .units span {
+  position: absolute;
+  top: 10px;
+  left: 320px;
+  font-size: 12px;
+}
+.gold_info .pay_setting {
+  position: relative;
+  height: 20px;
+  line-height: 20px;
+  text-indent: 20px;
+  font-size: 15px;
+  color: #333333;
+  margin-bottom: 25px;
+}
+.gold_info .pay_setting .bar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 20px;
+  width: 5px;
+  background: #4cba6b;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+.gold_info .pay_setting .icon-wenhao {
+    margin-left: 11px;
+}
+.gold_info .platform ul {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #dfdfdf;
+}
+.gold_info .platform li {
+  height: 30px;
+  line-height: 30px;
+}
+.gold_info .platform li label {
+  display: block;
+}
+.gold_info .platform li input {
+  margin-left: 45px;
+  margin-right: 10px;
+}
+.gold_info .platform li:first-child {
+  color: #5490ff
+}
+.gold_info .transform {
+  width: 60px;
+  float: left;
+}
+.gold_info .transform p:first-child {
+  margin-top: 59px;
+  margin-bottom: 15px;
+}
+.gold_info .transform i {
+  font-size: 32px;
+}
+.gold_info .Electronic_entry {
+  margin-top: 45px;
+}
+.gold_info .Electronic_entry .icon-wenhao {
+    margin-left: 11px;
+}
+.gold_info #editor {
+  width: 453px;
+  height: 198px;
+  resize: none;
+}
+.gold_info .operate {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  bottom: 0px;
+}

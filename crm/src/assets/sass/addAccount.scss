@@ -1,0 +1,136 @@
+.addAccount {
+  .panel_main {
+    height: 730px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: #ffffff;
+  }
+  .panel_main .bind {
+    margin-bottom: 15px;
+    padding: 0px 44px;
+  }
+  .panel_main .bind label {
+    height: 35px;
+    line-height: 35px;
+    margin-right: 10px;
+  } 
+  .panel_main .bind .customer {
+    width: 250px;
+    height: 35px;
+  }
+  .panel_main .notice {
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 44px;
+  }
+  .panel_main .notice label {
+    color: #adb6bf;
+    font-size: 12px;
+  }
+  .panel_main .notice a {
+    color: #5992fb;
+    font-size: 12px;
+    display: block;
+    height: 28px;
+    border: 1px solid #5992fb;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    width: 85px;
+    line-height: 28px;
+    text-align: center;
+    margin-left: 14px;
+  }
+  .panel_main .baseInfo , .panel_main .financial , .panel_main .Id_info , .panel_main .Account_info{
+    width: 740px;
+    margin: 0px auto;
+  }
+  .panel_main form {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ebebf0;
+    margin-top: 20px;
+  }
+  .panel_main h4 {
+    color: #596778;
+    font-size: 14px;
+    height: 14px;
+    line-height: 14px;
+    padding-top: 20px;
+  }
+  .panel_main .baseInfo h4 {
+    padding-top: 0px;
+  }
+  .panel_main .form-group {
+    height: 50px;
+  }
+  .panel_main .form-group .panel_left, .panel_main .form-group .panel_right {
+    width: 50%;
+  }
+  .panel_main .form-group label {
+    height: 35px;
+    line-height: 35px;
+    color: #adb6bf;
+    font-size: 12px;
+    width: 100px;
+    margin-right: 20px;
+    text-align: right;
+  }
+  .panel_main .form-group input {
+    height: 33px;
+    line-height: 33px;
+    width: 248px;
+    border: 1px solid #ebebf0;
+  }
+  .panel_main .form-group .selected input {
+    width: 250px;
+    height: 35px;
+  }
+  .panel_main .form-group.address input {
+    width: 618px;
+  }
+  .panel_main .form-group input[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 3px;
+  }
+  .panel_main .form-group .checkbox {
+    float: left;
+    width: auto;
+    margin-right: 5px;
+  }
+  .panel_main .success {
+    width: 366px;
+    margin: 0px auto;
+    height: 159px;
+    margin-top: 182px;
+    position: relative;
+  }
+  .panel_main .success .success_icon {
+    width: 50px;
+    height: 50px;
+    margin: 0px auto;
+    margin-top: 22px;
+    margin-bottom: 20px;
+  }
+  .panel_main .success .icon-iconfont07 {
+    font-size: 50px;
+    color: #87c5b6;
+  }
+  .panel_main .success .success_tips h4 {
+    color: #596778;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 7px;
+    font-weight: normal;
+  }
+  .panel_main .success .success_tips p {
+    color: #adb6bf;
+    font-size: 12px;
+    text-align: center;
+    font-weight: normal;
+  }
+  .panel_main .form-group label.el-radio {
+    width: auto;
+  }
+}

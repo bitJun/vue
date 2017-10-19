@@ -1,0 +1,441 @@
+body {
+  background: #eff5fa;
+}
+*{
+  padding: 0px;
+  margin: 0px;
+  font-family: "微软雅黑";
+  font-size: 14px;
+}
+p,h1,h2,h3,h4,h5,h6{
+  margin: 0px;
+  padding: 0px;
+}
+ul {
+  list-style-type: none;
+  margin: 0px;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.unvisible {
+  display: none;
+}
+*:focus { outline: none; }
+table {
+  width: 100%;
+  border:0px;
+  border-collapse:collapse;
+  border-spacing:0;
+}
+table td {
+  font-size: 14px;
+  color: #666c87;
+}
+table thead td {
+  color: #333333;
+}
+.current-page {
+  margin-top: 75px;
+}
+.cantainer {
+  width: 80%;
+  margin: 0px auto;
+  margin-bottom: 80px;
+}
+@media screen and (min-width: 1681px) {
+  .cantainer {
+    width: 65%;
+  }
+}
+::-webkit-scrollbar  
+{  
+    width: 5px;  
+    height: 5px;  
+    background-color: #F5F5F5;  
+}  
+  
+/*定义滚动条轨道 内阴影+圆角*/  
+::-webkit-scrollbar-track  
+{  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
+    border-radius: 5px;  
+    background-color: #F5F5F5;  
+}  
+  
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb  
+{  
+    border-radius: 5px;  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    background-color: #555;  
+}  
+.pages .el-pagination {
+  margin-top: 45px;
+  margin-right: 30px;
+}
+/*header*/
+.topheader {
+  height: 55px;
+  line-height: 55px;
+  background-color: #4275d4;
+  position: fixed;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 990;
+}
+.topheader .logo {
+  width: 17.5%;
+  text-align: center;
+}
+.logo img {
+  margin-top: 10px;
+  width: 72px;
+  height: 34px;
+}
+.topheader .menu {
+  width: 65%;
+}
+.topheader .menu li {
+  float: left;
+  width: 14%;
+  position: relative;
+}
+.topheader .menu li a {
+  color: #b1ccff;
+  font-size: 14px;
+  display: block;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+}
+.topheader .menu li a:hover {
+  background: #285fc5;
+}
+.topheader .menu li a i {
+  color: #b1ccff;
+  margin-right: 10px;
+  font-size: 20px;
+}
+.topheader .submenu {
+  position: absolute;
+  left: 0px;
+  top: 55px;
+  width: 100%;
+  padding: 10px 0px;
+  background: #ffffff;
+  display: none;
+}
+.topheader .submenu li {
+  width: 100%;
+}
+.topheader .submenu li a {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #596778;
+  text-align: center;
+}
+.topheader .submenu li a:hover{
+  background: #4275d4;
+  color: #ffffff;
+}
+.topheader .menu .router-link-exact-active {
+  background: #285fc5;
+  color: #b1ccff;
+}
+.topheader .submenu .router-link-exact-active,
+.topheader .munelist .router-link-exact-active {
+  background: #4275d4;
+  color: #ffffff !important;
+}
+.topheader .menu li:hover .submenu {
+  display: block;
+}
+.topheader .operates {
+  width: 17.5%;
+}
+.topheader .operates li {
+  float: left;
+  position: relative;
+}
+.topheader .operates li a {
+  display: block;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+}
+.topheader .operates li .icon-lingsheng {
+  color: #ffffff;
+}
+.topheader .operates li a label {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  background: #fb4c4c;
+}
+.topheader .operates li img {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+}
+.topheader .operates li.person:hover .person_logo,
+.topheader .operates li.msg:hover .messagelist {
+  background: #285fc5;
+}
+.topheader .operates li.person:hover .munelist,
+.topheader .operates li.msg:hover .msglist {
+  display: block;
+}
+.topheader .operates li .munelist {
+  position: absolute;
+  width: 155px;
+  right: 0px;
+  top: 55px;
+  background: #ffffff;
+  display: none;
+}
+.topheader .operates li .munelist a {
+  display: block;
+  width: 155px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #333333;
+  text-align: left;
+  text-indent: 25px;
+}
+.topheader .operates li .munelist li:first-child {
+  border-bottom: 1px solid #e9eef6;
+}
+.topheader .operates li .munelist li:last-child {
+  border-top: 1px solid #e9eef6;
+}
+.topheader .operates li .munelist li .menu_item:hover {
+  background: #4275d4;
+  color: #ffffff;
+}
+.topheader .operates li .msglist {
+  position: absolute;
+  width: 280px;
+  right: 0px;
+  top: 55px;
+  background: #ffffff;
+  display: none;
+}
+.topheader .operates li .msglist li {
+  border-bottom: 1px solid #e9eef6;
+}
+.topheader .operates li .msglist li:first-child a {
+  text-align: left;
+  text-indent: 25px;
+}
+.topheader .operates li .msglist li:first-child a,
+.topheader .operates li .msglist li:last-child a {
+  display: block;
+  width: 280px;
+  padding: 0px;
+  height: 40px;
+  line-height: 40px;
+  color: #596778;
+}
+.topheader .operates li .msglist li:last-child {
+  border-bottom: 0px;
+}
+.topheader .operates li .msglist .item a {
+  display: block;
+  width: 228px;
+  padding: 20px 26px 30px 26px;
+}
+.topheader .operates li .msglist .item a p:first-child {
+  height: 12px;
+  font-size: 12px;
+  color: #adb6bf;
+}
+.topheader .operates li .msglist .item a p:first-child span {
+  font-size: 12px;
+  height: 12px;
+  line-height: 12px;
+}
+.topheader .operates li .msglist .item a p.content {
+  margin-top: 15px;
+  height: 30px;
+  line-height: 15px;
+  font-size: 12px;
+  color: #596778;
+  text-align: left;
+}
+.topheader .operates li .msglist .item a:hover {
+  background: #4275d4;
+}
+.topheader .operates li .msglist .item a:hover p:first-child {
+  color: #b1ccff
+}
+.topheader .operates li .msglist .item a:hover .content {
+  color: #ffffff;
+}
+.topheader .operates li .msglist li:last-child:hover a {
+  background: #4275d4;
+  color: #ffffff;
+}
+/*footer*/
+.footer {
+  height: 30px;
+  line-height: 30px;
+  background: #4275d4;
+  width: 100%;
+  z-index: 990;
+}
+.footer p {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #b1ccff;
+  font-size: 12px;
+}
+/*dialog*/
+.must {
+  color: #f45149;
+  font-size: 12px;
+  margin-right: 4px;
+}
+.notify .notify-main {
+  border: 0px;
+}
+.notify .notify-alert h2.notice-title {
+  height: 0px;
+  display: none;
+}
+.dialog .panel_title {
+  height: 50px;
+  background: #4275d4;
+  position: relative;
+}
+.dialog .panel_title h4 {
+  color: #fffefe;
+  font-size: 16px;
+  text-indent: 30px;
+  padding-top: 15px;
+}
+.dialog .panel_title .icon-guanbi {
+  position: absolute;
+  font-size: 24px;
+  right: 34px;
+  top: 13px;
+  color: #fffefe;
+  cursor: pointer;
+}
+.dialog .panel_footer {
+  height:70px;
+  background: #eff5fa
+}
+.dialog .panel_footer .operate {
+  min-width: 110px;
+  float: right;
+  height: 35px;
+  padding-top: 21px;
+  margin-right: 32px;
+}
+.dialog .panel_footer .operate li {
+  width: 110px;
+  float: left;
+  margin-right: 22px;
+}
+.dialog .panel_footer .operate li:last-child {
+  margin-right: 0px;
+}
+.dialog .panel_footer .operate li a {
+  display: block;
+  line-height: 35px;
+  height: 35px;
+  text-align: center;
+  border-radius: 17px;
+  -webkit-border-radius: 17px;
+  -moz-border-radius: 17px;
+  background: #5992fb;
+  color: #e9eef6;
+}
+.dialog .panel_footer .operate li a.cancel {
+  background: #ffffff;
+  color: #adb6bf;
+}
+.dialog .el-input__icon+.el-input__inner {
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+}
+/*element-ui reset*/
+.el-pagination .btn-prev , .el-pagination .btn-next , .el-pager li {
+  border: 0px;
+}
+.el-pager li {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+.el-pager li:last-child {
+  border: 0px;
+}
+.el-input__icon+.el-input__inner {
+  border-radius: 17px;
+  -webkit-border-radius: 17px;
+  -moz-border-radius: 17px;
+  color: #596778;
+  font-size: 14px;
+}
+.el-input__inner {
+  height: 35px;
+}
+.el-select-dropdown .el-select-dropdown__item {
+  padding: 0px;
+  line-height: 36px;
+  text-indent: 10px;
+}
+.el-select-dropdown .el-select-dropdown__item a {
+  display: block;
+  height: 36px;
+  line-height: 36px;
+  color: #333333;
+  text-indent: 10px;
+}

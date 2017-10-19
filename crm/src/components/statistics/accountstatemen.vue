@@ -1,0 +1,143 @@
+<template>
+  <div class="history cantainer">
+    <div class="filiter">
+      <p>
+        统计报表
+        <el-select v-model="sheet_value" placeholder="请选择" class="chooseItem">
+          <el-option v-for="item in sheet" :key="item.value" :label="item.label" :value="item.value">
+            <router-link v-bind:to="item.link">{{item.label}}</router-link>
+          </el-option>
+        </el-select>
+      </p>
+    </div>
+    <p class="time">最后更新：{{time | time}}<i class="iconfont icon-shuaxin1" @click="update()"></i></p>
+    <div class="select clearfix">
+      <el-select v-model="attach_value" placeholder="请选择" class="level pull-left">
+        <el-option v-for="item in attach" :key="item.value" :label="item.label" :value="item.value"></el-option>
+      </el-select>
+      <div class="ascription pull-right clearfix">
+        <el-select v-model="search_account_value" placeholder="请选择" class="ascription_type pull-left">
+          <el-option v-for="item in search_account" :key="item.value" :label="item.label" :value="item.value"></el-option>
+        </el-select>
+        <input type="text" class="keyword">
+        <i class="iconfont icon-search"></i>
+      </div>
+    </div>
+    <div class="list accountstatemen">
+      <div class="operates clearfix">
+        <span>账户综合报表</span>
+        <ul class="operate_btns pull-right clearfix">
+          <li>
+            <a class="add" @click="add()">
+              <img src="../../assets/images/04download.png">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <td v-bind:style="{width:'13%'}">账户归属</td>
+            <td v-bind:style="{width:'13%'}">账号</td>
+            <td v-bind:style="{width:'13%'}">账户名称</td>
+            <td v-bind:style="{width:'13%'}">客户名称</td>
+            <td v-bind:style="{width:'10%'}">入金</td>
+            <td v-bind:style="{width:'10%'}">出金</td>
+            <td v-bind:style="{width:'10%'}">佣金</td>
+            <td v-bind:style="{width:'10%'}">利息</td>
+            <td v-bind:style="{width:'8%'}">盈亏</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in json">
+            <td v-bind:style="{width:'13%'}"><p>{{item.belong}}</p></td>
+            <td v-bind:style="{width:'13%'}"><p>{{item.account}}</p></td>
+            <td v-bind:style="{width:'13%'}"><p>{{item.name}}</p></td>
+            <td v-bind:style="{width:'13%'}"><p>{{item.accountname}}</p></td>
+            <td v-bind:style="{width:'10%'}"><p>{{item.deposit}}</p></td>
+            <td v-bind:style="{width:'10%'}"><p>{{item.gold}}</p></td>
+            <td v-bind:style="{width:'10%'}"><p>{{item.gommission}}</p></td>
+            <td v-bind:style="{width:'10%'}"><p>{{item.interest}}</p></td>
+            <td v-bind:style="{width:'8%'}">
+              <p v-if="Number(item.profit)>=0" class="profit">{{item.profit}}</p>
+              <p v-if="Number(item.profit)<0" class="loss">{{item.profit}}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pages clearfix">
+        <el-pagination layout="prev, pager, next" :total="1000" class="pull-right"></el-pagination>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  let json = []
+  let $self = ''
+  for (let i = 0; i < 10; i++) {
+    let data = {
+      id: i,
+      belong: '高育良',
+      account: '015749' + i + i * 5,
+      name: '赵东来',
+      accountname: '赚他一个亿公司',
+      deposit: '5000.00',
+      gold: '100.00',
+      gommission: '0.00',
+      interest: '25.50',
+      profit: '65000.00'
+    }
+    if (i % 2 === 0) {
+      data.profit = '-' + data.profit
+    }
+    json.push(data)
+  }
+  import sheet from '../../assets/js/sheet'
+  import attach from '../../assets/js/attach'
+  import searchAccount from '../../assets/js/search_account'
+  export default {
+    name: 'accountstatemen',
+    data () {
+      return {
+        ids: [],
+        checkAll: false,
+        json: json,
+        time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
+        attach: attach,
+        attach_value: '1',
+        search_account: searchAccount,
+        search_account_value: 'a1',
+        sheet: sheet,
+        sheet_value: 'b5'
+      }
+    },
+    created () {
+      $self = this
+    },
+    'methods': {
+      'select': function (id, event) {
+        if (event.currentTarget.checked) {
+          console.log($self.ids)
+          if ($self.ids.length === $self.json.length) {
+            $self.checkAll = true
+          }
+        } else {
+          $self.checkAll = false
+        }
+      },
+      'selectAll': function (event) {
+        if (!event.currentTarget.checked) {
+          $self.ids = []
+        } else {
+          $self.ids = []
+          $self.json.forEach(function (item, i) {
+            $self.ids.push(item.id)
+          })
+        }
+      }
+    }
+  }
+</script>
+<style lang="scss" scoped>
+  @import "../../assets/sass/statistics.scss"
+</style>

@@ -1,0 +1,227 @@
+.setting_view {
+  padding-top: 50px;
+  .filiter {
+    color: #4275d4;
+    margin-bottom: 8px;
+  }
+  .filiter p {
+    font-size: 24px;
+  }
+  .time {
+    color: #adb6bf;
+    margin-bottom: 30px;
+    font-size: 12px;
+  }
+  .list {
+    background: #ffffff;
+    padding-bottom: 45px;
+    position: relative;
+  }
+  .list h5 {
+    height: 68px;
+    line-height: 68px;
+    font-size: 16px;
+    color: #333333;
+    text-indent: 45px;
+    font-weight: normal;
+  }
+  .list .add {
+    position: absolute;
+    right: 45px;
+    top: 19px;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background: #87c5b6;
+    text-align: center;
+    line-height: 35px;
+    display: block;
+  }
+  .list .add img {
+    width: 16px;
+    height: 16px;
+  }
+  .list table thead td {
+    height: 45px;
+    line-height: 45px;
+    font-size: 12px;
+    color: #333333;
+  }
+  .list table td:first-child {
+    text-indent: 45px;
+  }
+  .list table td:last-child p {
+    padding-right: 45px;
+    text-align: right;
+  }
+  .list table tbody td {
+    height: 70px;
+    line-height: 70px;
+    border-bottom: 1px solid #e9eef6;
+    font-size: 14px;
+    color: #596778;
+  }
+  .list table tbody td p {
+    white-space:nowrap; 
+    overflow:hidden; 
+    text-overflow:ellipsis;
+  }
+  .list table tbody td .user,
+  .list table tbody td .under,
+  .list table tbody td .show {
+    width: 65px;
+    height: 25px;
+    line-height: 25px;
+    background: #55a8fd;
+    color: #ecf5ff;
+    display: inline-table;
+    text-align: center;
+  }
+  .list table tbody td .show {
+    width: 120px;
+  }
+  .list table tbody td span {
+    margin-right: 30px;
+  }
+  .list table tbody td span:last-child {
+    margin-right: 0px;
+  }
+  .list table tbody td ul li {
+    float: left;
+    margin-right: 15px;
+  }
+  .list table tbody td ul li:last-child {
+    margin-right: 0px;
+  }
+  .list table tbody td ul li a {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: block;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background: #eff5fa;
+  }
+  .list table tbody td a i {
+    font-size: 16px;
+    color: #596778;
+  }
+  .list table tbody td a:hover {
+    background: #87c5b6;
+  }
+}
+.operatelog {
+  padding-top: 50px;
+  .filiter {
+    color: #4275d4;
+    margin-bottom: 8px;
+  }
+  .filiter p {
+    font-size: 24px;
+  }
+  .filiter .time {
+    color: #adb6bf;
+    margin-bottom: 30px;
+    font-size: 12px;
+  }
+  .filiter .time .icon-shuaxin1 {
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  .select {
+    margin-bottom: 30px;
+  }
+  .ascription {
+    width: 250px;
+    height: 35px;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    border: 1px solid #bfcbd9;
+    background: #ffffff;
+    position: relative;
+  }
+  .ascription .ascription_type {
+    width: 110px;
+  }
+  .ascription .ascription_type input {
+    border: 0px;
+  }
+  .ascription .keyword {
+    width: 140px;
+    height: 35px;
+    border: 0px;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    line-height: 35px;
+  }
+  .ascription .icon-search {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 15px;
+    color: #55a8fd;
+    cursor: pointer;
+  }
+  .level {
+    width: 180px;
+  }
+  .level , .roles {
+    margin-right: 25px;
+  }
+  .timeselect {
+    width: 280px;
+    height: 35px;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    border: 1px solid #bfcbd9;
+    background: #ffffff;
+  }
+  .timeselect label {
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+    color: #596778;
+    text-indent: 10px;
+    font-size: 14px;
+  }
+  .el-date-editor--daterange.el-input {
+    width: 190px;
+    cursor: pointer;
+  }
+  .el-date-editor--daterange.el-input input {
+    border: 0px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .list {
+    background: #ffffff;
+    padding-bottom: 45px;
+  }
+  .list h5 {
+    text-indent: 45px;
+    font-size: 14px;
+    color: #333333;
+    height: 68px;
+    line-height: 68px;
+    font-weight: normal;
+  }
+  .list table td:first-child {
+    text-indent: 45px;
+  }
+  .list table thead td {
+    height: 45px;
+    line-height: 45px;
+  }
+  .list table tbody td {
+    height: 70px;
+    line-height: 70px;
+    border-bottom: 1px solid #e9eef6;
+  }
+}

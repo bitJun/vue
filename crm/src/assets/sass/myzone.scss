@@ -1,0 +1,403 @@
+.myzone {
+  padding-top: 50px;
+  .filiter {
+    color: #4275d4;
+    margin-bottom: 8px;
+  }
+  .filiter p {
+    font-size: 24px;
+  }
+  .filiter .time {
+    color: #adb6bf;
+    margin-bottom: 30px;
+    font-size: 12px;
+  }
+  .filiter .time .icon-shuaxin1 {
+    margin-left: 15px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .js_tab li {
+    float: left;
+    margin-right: 20px;
+  }
+  .js_tab li:last-child {
+    margin-right: 0px;
+  }
+  .js_tab li a {
+    width: 98px;
+    height: 28px;
+    border: 1px dashed #55a8fd;
+    color: #596778;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+    display: block;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+  }
+  .js_tab li a:hover,
+  .js_tab li a.router-link-exact-active {
+    border: 1px solid #55a8fd;
+    color: #fefeff;
+    background: #55a8fd;
+  }
+  .main {
+    background: #ffffff;
+    margin-top: 34px;
+    min-height: 670px;
+  }
+  .main h5 {
+    padding-top: 25px;
+    text-indent: 45px;
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 40px;
+    font-weight: normal;
+  }
+  .main h5 i {
+    margin-left: 15px;
+    font-size: 16px;
+  }
+  .main .form-group {
+    min-height: 50px;
+  }
+  .main .form-group .label-control {
+    width: 160px;
+    text-align: right;
+    margin-right: 20px;
+    height: 35px;
+    line-height: 35px;
+    color: #596778;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  .main .form-group .info-control {
+    width: 250px;
+    height: 35px;
+    text-indent: 16px;
+    font-size: 12px;
+    color: #596778;
+    line-height: 35px;
+  }
+  .main .form-group .input-control {
+    width: 248px;
+    height: 33px;
+    line-height: 33px;
+    border: 1px solid #ebebf0;
+    text-indent: 16px;
+    font-size: 12px;
+    color: #596778;
+  }
+  .main .form-group .select {
+    width: 250px;
+  }
+  .main .form-group .select .el-input__icon+.el-input__inner {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+  }
+  .main .form-group .input-control.address {
+    width: 678px;
+  }
+  .main .list {
+    width: 100%;
+  }
+  .main .list li {
+    height: 35px;
+    line-height: 35px;
+    width: 100%;
+  }
+  .main .list li .linkname {
+    width: 20%;
+    margin-right: 10%;
+    text-indent: 45px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+  .main .list li .link {
+    width: 40%;
+    margin-right: 10%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+  .main .list li .linkcopy {
+    width: 20%;
+    display: none;
+  }
+  .main .list li .linkcopy a {
+    display: block;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: #55a8fd;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    font-size: 12px;
+    color: #ffffff;
+  }
+  .main .list li .linkcopy a i {
+    font-size: 16px;
+  }
+  .main .list li:hover {
+    cursor: pointer;
+  }
+  .main .list li:hover .linkcopy {
+    display: block;
+  }
+  .operate_btn {
+    padding-left: 180px;
+    margin-top: 10px;
+  }
+  .operate_btn li,
+  .msg_operate li {
+    float: left;
+    margin-right: 30px;
+  }
+  .operate_btn li:last-child,
+  .msg_operate li:last-child {
+    margin-right: 0px;
+  }
+  .operate_btn li a,
+  .msg_operate li a {
+    display: block;
+    text-align: center;
+    height: 33px;
+    width: 98px;
+    line-height: 33px;
+    font-size: 12px; 
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+  }
+  .operate_btn li a.save {
+    background: #55a8fd;
+    border: 1px solid #55a8fd;
+    color: #ffffff;
+  }
+  .operate_btn li a.cancel {
+    background: #f0f5fb;
+    border: 1px solid #f0f5fb;
+    color: #adb6bf;
+  }
+  .msg_operate li a.unread {
+    background: #55a8fd;
+    border: 1px solid #55a8fd;
+    color: #ffffff;
+  }
+  .msg_operate li a.read {
+    background: #eff5fa;
+    border: 1px dashed #55a8fd;
+    color: #596778;
+  }
+  .msg_operate li a.allread {
+    background: #55a8fd;
+    border: 1px solid #55a8fd;
+    color: #ffffff;
+  }
+  .msg_operate li a.add {
+    background: #87c5b6;
+    border: 1px solid #87c5b6;
+    color: #ffffff;
+  }
+  .msg_operate li a.add i {
+    margin-right: 10px;
+  }
+  .msg_operate li a {
+    position: relative;
+  }
+  .msg_operate li a label {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    background: #fc6868;
+    position: absolute;
+    top: 6px;
+    right: 18px;
+  }
+  .msg_list {
+    margin-top: 33px;
+  }
+  .msg_list li {
+    height: 100px;
+    background: #ffffff;
+    margin-bottom: 6px;
+    z-index: 900;
+  }
+  .msg_list li:hover {
+    cursor: pointer;
+  }
+  .msg_list li .role {
+    position: relative;
+    width: 25%;
+  }
+  .msg_list li .role .role_name {
+    padding-left: 70px;
+  }
+  .msg_list li .role .role_name p {
+    margin-top: 35px;
+    font-size: 14px;
+    color: #333333;
+  }
+  .msg_list li .role .role_name span {
+    color: #adb6bf;
+    font-size: 12px;
+  }
+  .msg_list li .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    left: 20px;
+    top: 30px;
+  }
+  .msg_list li .icon.admin {
+    background: #00b7ee
+  }
+  .msg_list li .icon.notice {
+    background: #ffba42
+  }
+  .msg_list li .icon.message {
+    background: #32b16c
+  }
+  .msg_list li .content {
+    width: 60%;
+  }
+  .msg_list li .content p {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #596778;
+  }
+  .msg_list li .content p:first-child {
+    margin-top: 35px;
+  }
+  .msg_list li .item_operate {
+    width: 15%;
+  }
+  .msg_list li .item_operate ul {
+    margin-top: 35px;
+    height: 30px;
+  }
+  .msg_list li .item_operate li {
+    float: left;
+    margin-right: 15px;
+    height: 30px;
+  }
+  .msg_list li .item_operate li:last-child {
+    margin-right: 30px;
+  }
+  .msg_list li .item_operate a {
+    display: block;
+    width: 63px;
+    height: 28px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    font-size: 12px;
+    z-index: 999;
+  }
+  .msg_list li .item_operate a.del {
+    border: 1px solid #f9aaaa;
+    color: #f9aaaa;
+  }
+  .msg_list li .item_operate a.hasread {
+    border: 1px solid #55a8fd;
+    color: #55a8fd;
+  }
+  .msg_list li .item_operate a.del:hover {
+    background: #f9aaaa;
+    color: #ffffff;
+  }
+  .msg_list li .item_operate a.hasread:hover {
+    background: #55a8fd;
+    color: #ffffff;
+  }
+}
+.msgdetail {
+  h5 {
+    font-size: 16px;
+    color: #333333;
+    height: 16px;
+    line-height: 16px;
+    margin-top: 17px;
+    margin-bottom: 7px;
+  }
+  .time {
+    color: #adb6bf;
+    font-size: 12px;
+    height: 12px;
+    line-height: 12px;
+  }
+  .role {
+    color: #adb6bf;
+    font-size: 12px;
+    height: 12px;
+    line-height: 12px;
+  }
+  .content {
+    margin-top: 10px;
+    border-top: 1px solid #e9eef6;
+    padding: 25px 30px;
+    height: 240px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .content span {
+    font-size: 14px;
+    height: 14px;
+    line-height: 14px;
+    color: #596778;
+  }
+  .content p {
+    margin-top: 16px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #596778;
+  }
+}
+.addmsg {
+  .panel_main {
+    padding: 25px 30px;
+  }
+  .panel_main .form-group {
+    min-height: 55px;
+  }
+  .panel_main .label-control {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    margin-right: 10px;
+    text-align: right;
+    font-size: 12px;
+    color: #adb6bf;
+  }
+  .panel_main .input-control, 
+  .panel_main .textarea-control {
+    width: 488px;
+    border: 1px solid #ebebf0;
+  }
+  .panel_main .input-control {
+    height: 33px;
+    line-height: 33px;
+  }
+  .panel_main .textarea-control {
+    height: 243px;
+    resize: none;
+  }
+}

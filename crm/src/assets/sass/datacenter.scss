@@ -1,0 +1,82 @@
+.datacenter {
+  padding-top: 90px;
+  .js_tab {
+    margin-bottom: 20px;
+  }
+  .js_tab li {
+    float: left;
+    background: #ffffff;
+    width: 24%;
+    margin-right: 1.333%;
+    height: 145px;
+  }
+  .js_tab li:last-child {
+    margin-right: 0px;
+  }
+  .js_tab li a {
+    display: block;
+  }
+  .js_tab li a .content , .js_tab li a .icon {
+    width: 50%;
+    text-align: center;
+  }
+  .js_tab li a .icon img {
+    margin-top: 50px;
+    width: 46px;
+    height: 46px;
+  }
+  .js_tab li:first-child a .icon img {
+    width: 64px;
+  }
+  .js_tab li a .content h4 {
+    margin-top: 45px;
+    font-size: 40px;
+    height: 45px;
+    line-height: 45px;
+    margin-bottom: 10px; 
+    font-weight: normal;
+  }
+  .js_tab li a .content p {
+    color: #adb6bf;
+    font-size: 14px;
+    height: 14px;
+    line-height: 14px;
+  }
+  .bars li {
+    width: 50%;
+    float: left;
+    margin-bottom: 20px;
+  }
+  .bars li .ve-bar {
+    width: 100%;
+  }
+  .bars li:nth-child(2n+1) .barInfo {
+    padding-right: 15px;
+  }
+  .bars li:nth-child(2n) .barInfo {
+    padding-left: 15px;
+  }
+  .bars li section {
+    background: #ffffff;
+    padding: 30px 35px;
+  }
+  .line {
+    background: #ffffff;
+    padding: 35px 30px;
+    margin-bottom: 20px;
+  }
+  .el-select {
+    width: 100px;
+  }
+  .el-select .el-input__icon+.el-input__inner {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-color: #296ded;
+    color: #4c89fb;
+    padding-right: 30px;
+  }
+  .el-select .el-input__icon {
+    color: #4c89fb;
+  }
+}

@@ -1,0 +1,54 @@
+.download_view {
+  background: #ffffff;
+  width: 100%;
+  min-height: 885px;
+}
+.download_view .title {
+  height: 60px;
+  line-height: 60px;
+  text-indent: 50px;
+  border-bottom: 1px solid #eceef5;
+  margin-bottom: 25px;
+}
+.download_view .addLink {
+  display: block;
+  margin-left: 50px;
+  width: 120px;
+  height: 35px;
+  line-height: 35px;
+  background: #4cba6b;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+}
+.download_view table td {
+  font-size: 14px;
+  color: #666c87;
+}
+.download_view table td:first-child {
+  text-indent: 65px;
+}
+.download_view table tr {
+  border-bottom: 1px solid #eceef5;
+}
+.download_view table thead td {
+  color: #333333;
+}
+.download_view table tr {
+  height: 65px;
+  line-height: 65px;
+}
+.download_view table td .del , .download_view table td .edit {
+  width: 88px;
+  height: 34px;
+  display: block;
+  line-height: 34px;
+  text-align: center;
+}
+.download_view table td .del:hover {
+  border-color: #87c5b6;
+  color: #87c5b6;
+}
+.download_view table td .edit {
+  margin-right: 15px;
+}

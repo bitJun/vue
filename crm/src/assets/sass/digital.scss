@@ -1,0 +1,128 @@
+.digital {
+  padding-top: 50px;
+  .filiter {
+    color: #4275d4;
+    margin-bottom: 8px;
+  }
+  .filiter p {
+    font-size: 24px;
+  }
+  .NewOpen .time {
+    color: #adb6bf;
+    margin-bottom: 30px;
+    font-size: 12px;
+  }
+  .NewOpen .time .icon-shuaxin1 {
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  .NewOpen .select {
+    margin-bottom: 30px;
+  }
+  .NewOpen .addType {
+    width: 150px;
+    height: 35px;
+    margin-right: 25px;
+  }
+  .NewOpen .timeselect , .NewOpen .ascription {
+    width: 250px;
+    height: 35px;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    border: 1px solid #bfcbd9;
+    background: #ffffff;
+  }
+  .NewOpen .timeselect {
+    width: 280px;
+  }
+  .NewOpen .ascription {
+    position: relative;
+  }
+  .NewOpen .ascription .ascription_type {
+    width: 110px;
+  }
+  .NewOpen .timeselect label {
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+    color: #596778;
+    text-indent: 10px;
+    font-size: 14px;
+  }
+  .NewOpen .ascription .ascription_type input {
+    border: 0px;
+  }
+  .NewOpen .el-date-editor--daterange.el-input {
+    width: 190px;
+    cursor: pointer;
+  }
+  .NewOpen .el-date-editor--daterange.el-input input {
+    border: 0px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .NewOpen .ascription .keyword {
+    width: 140px;
+    height: 35px;
+    border: 0px;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    line-height: 35px;
+  }
+  .NewOpen .ascription .icon-search {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 15px;
+    color: #55a8fd;
+    cursor: pointer;
+  }
+  .NewOpen h4 {
+    font-size: 16px;
+    height: 16px;
+    line-height: 16px;
+    padding-top: 28px;
+    padding-bottom: 25px;
+    text-indent: 45px;
+    color: #333333;
+    font-weight: normal;
+  }
+  .NewOpen .list {
+    padding-bottom: 45px;
+    background: #ffffff;
+  }
+  .NewOpen .list table {
+    margin-bottom: 20px;
+  }
+  .NewOpen .list tbody tr {
+    border-bottom: 1px solid #e9eef6;
+    cursor: pointer;
+  }
+  .NewOpen .list td {
+    width: 25%;
+    height: 70px;
+    line-height: 70px;
+    color: #596778;
+    font-size: 14px;
+  }
+  .NewOpen .list td:first-child {
+    text-indent: 45px;
+  }
+  .NewOpen .list td:last-child {
+    text-align: center;
+  }
+  .NewOpen .list td p {
+    width: 80px;
+    height: 25px;
+    background: #ecf5ff;
+    line-height: 25px;
+    text-indent: 17px;
+    color: #596778;
+  }
+  .NewOpen .list tr:hover p {
+    background: #55a8fd;
+    color: #ffffff;
+  }
+}

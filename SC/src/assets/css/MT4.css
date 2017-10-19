@@ -1,0 +1,24 @@
+.MT_account .MT_tab {
+  width: auto;
+  position: fixed;
+  top: 0px;
+  z-index: 980;
+}
+.MT_account .MT_tab li {
+  float: left;
+  font-size: 14px;
+  margin-right: 100px;
+}
+.MT_account .MT_tab li a {
+  display: block;
+  height: 49px;
+  line-height: 49px;
+  color: #a3a7b9;
+}
+.MT_account .MT_tab li a.active {
+  color: #5490ff;
+  border-bottom: 1px solid #5490ff;
+}
+.MT_account .MT_tab li:last-child {
+  margin-right: 0px;
+}

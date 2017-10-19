@@ -1,0 +1,215 @@
+.user {
+  padding-top: 50px;
+  h4 {
+    color: #4275d4;
+    font-size: 24px;
+    margin-bottom: 9px;
+  }
+  .time {
+    color: #adb6bf;
+    margin-bottom: 30px;
+    font-size: 12px;
+  }
+  .time .icon-shuaxin1 {
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  .select {
+    margin-bottom: 30px;
+  }
+  .ascription {
+    width: 250px;
+    height: 35px;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    border: 1px solid #bfcbd9;
+    background: #ffffff;
+    position: relative;
+  }
+  .ascription .ascription_type {
+    width: 110px;
+  }
+  .ascription .ascription_type input {
+    border: 0px;
+  }
+  .ascription .keyword {
+    width: 140px;
+    height: 35px;
+    border: 0px;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    line-height: 35px;
+  }
+  .ascription .icon-search {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 15px;
+    color: #55a8fd;
+    cursor: pointer;
+  }
+  .level , .roles , .topclass {
+    width: 150px;
+  }
+  .level , .roles {
+    margin-right: 25px;
+  }
+  .list {
+    background: #ffffff;
+    padding: 20px 0px 45px 0px;
+  }
+  .operates {
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 25px;
+  }
+  .operates span {
+    margin-left: 45px;
+  }
+  .operates .operate_btns {
+    width: 155px;
+    margin-right: 45px;
+  }
+  .operates .operate_btns li {
+    float: left;
+    width: 35px;
+    margin-right: 25px;
+  }
+  .operates .operate_btns li:last-child {
+    margin-right: 0px;
+  }
+  .operates .operate_btns li a {
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    display: block;
+  }
+  .operates .operate_btns li a.del {
+    background: #faaaab;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+  }
+  .operates .operate_btns li a.change {
+    background: #55a8fd;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+  }
+  .operates .operate_btns li a.add {
+    background: #87c5b6;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+  }
+  .operates .operate_btns li img {
+    width: 17px;
+    height: 17px;
+    margin-top: 9px;
+  }
+  .list table tbody tr:hover {
+    cursor: pointer;
+  }
+  .list table tbody tr td {
+    height: 70px;
+    line-height: 70px;
+    color: #596778;
+  }
+  .list table tbody tr td.connect p {
+    height: 17px;
+    line-height: 17px;
+    font-size: 14px;
+  }
+  .list table tbody tr td.connect p:first-child {
+    margin-top: 18px;
+  }
+  .list table tbody tr td.name p {
+    height: 17px;
+    line-height: 17px;
+    font-size: 12px;
+    height: 25px;
+    width: 70px;
+    text-align: center;
+    color: #adb6bf;
+  }
+  .list table tbody tr td.name p:first-child {
+    margin-top: 13px;
+    height: 25px;
+    width: 70px;
+    line-height: 25px;
+    background: #ecf5ff;
+    color: #333333;
+    text-align: center;
+  }
+  .list table tbody tr {
+    border-bottom: 1px solid #e9eef6;
+  }
+  .list table td:first-child {
+    text-indent: 45px;
+  }
+  .list table td p.under {
+    background: #ecf5ff;
+    width: 30px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #333333;
+  }
+  .list table tbody tr:hover td p.under, .list table tbody tr:hover td.name p:first-child {
+    background: #55a8fd;
+    color: #ffffff;
+  }
+  .list table td:last-child p {
+    padding-right: 45px;
+    text-align: right;
+  }
+}
+.userdialog {
+  section {
+    padding: 0px 30px;
+  }
+  section:first-child {
+    border-bottom: 1px solid #e9eef6;
+    margin-top: 10px;
+  }
+  section h5 {
+    padding-top: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #333333;
+  }
+  .form-group {
+    min-height: 50px;
+  }
+  .label-control {
+    width: 80px;
+    height: 35px;
+    line-height: 35px;
+    margin-right: 20px;
+    font-size: 12px;
+    color: #adb6bf;
+    text-align: right;
+  }
+  .input-control {
+    height: 33px;
+    width: 248px;
+    border: 1px solid #ebebf0;
+  }
+  .input-control.address {
+    width: 618px;
+  }
+  .textarea-control {
+    width: 618px;
+    height: 68px;
+    border: 1px solid #ebebf0;
+    resize: none;
+    margin-bottom: 15px;
+  }
+  .radios-group {
+    height: 35px;
+    line-height: 35px;
+  }
+}

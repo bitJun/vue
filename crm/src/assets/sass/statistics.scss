@@ -1,0 +1,232 @@
+.history {
+  padding-top: 50px;
+  .filiter {
+    color: #4275d4;
+    margin-bottom: 8px;
+  }
+  .filiter p {
+    font-size: 24px;
+  }
+  .time {
+    color: #adb6bf;
+    margin-bottom: 30px;
+    font-size: 12px;
+  }
+  .time .icon-shuaxin1 {
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  .select {
+    margin-bottom: 30px;
+  }
+  .timeselect {
+    width: 280px;
+    height: 35px;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    border: 1px solid #bfcbd9;
+    background: #ffffff;
+  }
+  .ascription {
+    position: relative;
+  }
+  .ascription label {
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+    color: #596778;
+    text-indent: 10px;
+    font-size: 14px;
+  }
+  .el-date-editor--daterange.el-input {
+    width: 150px;
+    cursor: pointer;
+  }
+  .el-date-editor--daterange.el-input input {
+    border: 0px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .ascription {
+    width: 250px;
+    height: 35px;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    border: 1px solid #bfcbd9;
+    background: #ffffff;
+    position: relative;
+  }
+  .ascription .ascription_type {
+    width: 100px;
+  }
+  .ascription .ascription_type input {
+    border: 0px;
+  }
+  .ascription .keyword {
+    width: 140px;
+    height: 35px;
+    border: 0px;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    line-height: 35px;
+  }
+  .ascription .icon-search {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 15px;
+    color: #55a8fd;
+    cursor: pointer;
+  }
+  .level {
+    width: 180px;
+  }
+  .level , .roles {
+    margin-right: 25px;
+  }
+  .list {
+    background: #ffffff;
+    padding: 20px 0px 45px 0px;
+  }
+  .operates {
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 25px;
+  }
+  .operates span {
+    margin-left: 45px;
+    font-size: 16px;
+    color: #333333;
+  }
+  .operates .operate_btns {
+    width: 105px;
+    margin-right: 45px;
+  }
+  .accountstatemen .operates .operate_btns , .withdrawrecord .operates .operate_btns {
+    width: 35px;
+  }
+  .operates .operate_btns li {
+    float: left;
+    width: 35px;
+    margin-right: 25px;
+  }
+  .operates .operate_btns li:last-child {
+    margin-right: 0px;
+  }
+  .operates .operate_btns li a {
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    display: block;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+  }
+  .operates .operate_btns li a.del {
+    background: #faaaab;
+  }
+  .operates .operate_btns li a.change {
+    background: #55a8fd;
+  }
+  .operates .operate_btns li a.add {
+    background: #87c5b6;
+  }
+  .operates .operate_btns li a.download {
+    background: #87c5b6;
+  }
+  .operates .operate_btns li img {
+    width: 17px;
+    height: 17px;
+    margin-top: 9px;
+  }
+  .list table tbody tr:hover {
+    cursor: pointer;
+  }
+  .list table tbody tr td {
+    height: 70px;
+    line-height: 70px;
+    color: #596778;
+    font-size: 12px;
+  }
+  .list table tbody tr td p {
+    height: 17px;
+    line-height: 17px;
+    font-size: 12px;
+  }
+  .list table tbody tr td p:first-child {
+    margin-top: 18px;
+  }
+  .list table tbody tr {
+    border-bottom: 1px solid #e9eef6;
+  }
+  .list table thead td:first-child {
+    text-indent: 45px;
+  }
+  .list table td:first-child p {
+    padding-left: 45px;
+    margin-top: 10px;
+  }
+  .profit {
+    color: #faaaab;
+  }
+  .loss {
+    color: #87c5b6;
+  }
+  .list table tbody tr td a {
+    color: #596778;
+  }
+  .list table tbody td .detail {
+    color: #55a8fd;
+    height: 23px;
+    width: 53px;
+    border: 1px solid #55a8fd;
+    border-radius: 17px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    display: block;
+    line-height: 23px;
+    text-align: center;
+    margin-top: 22.5px;
+  }
+}
+.mmissiondetail {
+  .panel_main {
+    padding: 0px 30px;
+  }
+  .panel_main .title {
+    height: 73px;
+    font-weight: 12px;
+    line-height: 73px;
+  }
+  .panel_main .title  span {
+    margin-left: 20px;
+    color: #87c5b6;
+  }
+  .panel_main .list {
+    border: 1px solid #ebebf0;
+    margin-bottom: 193px;
+  }
+  .panel_main table thead td {
+    color: #333333;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
+  .panel_main table tbody td {
+    color: #596778;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+  }
+  .panel_main table tfoot td {
+    width: 12%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #87c5b6;
+  }
+}

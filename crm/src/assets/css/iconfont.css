@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 252421 */
+  src: url('//at.alicdn.com/t/font_252421_5kuppoomjbvjkyb9.eot');
+  src: url('//at.alicdn.com/t/font_252421_5kuppoomjbvjkyb9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_252421_5kuppoomjbvjkyb9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_252421_5kuppoomjbvjkyb9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_252421_5kuppoomjbvjkyb9.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-jinzhi:before { content: "\e600"; }
+
+.icon-iconfont07:before { content: "\e605"; }
+
+.icon-guanbi:before { content: "\e603"; }
+
+.icon-search:before { content: "\e679"; }
+
+.icon-duigou:before { content: "\e606"; }
+
+.icon-user:before { content: "\e604"; }
+
+.icon-copy:before { content: "\e778"; }
+
+.icon-icon:before { content: "\e65b"; }
+
+.icon-tishi:before { content: "\e672"; }
+
+.icon-shape:before { content: "\e67c"; }
+
+.icon-yonghusuoyou:before { content: "\e675"; }
+
+.icon-shezhishedingpeizhibanshou:before { content: "\e80e"; }
+
+.icon-ai-user:before { content: "\e60c"; }
+
+.icon-gerenzhongxin:before { content: "\e62a"; }
+
+.icon-bianji:before { content: "\e6aa"; }
+
+.icon-shezhi-copy-copy:before { content: "\e636"; }
+
+.icon-edit:before { content: "\e6fc"; }
+
+.icon-shenherenwu:before { content: "\e63f"; }
+
+.icon-shuaxin1:before { content: "\e61f"; }
+
+.icon-zanwu2:before { content: "\e61d"; }
+
+.icon-shujuzhongxin:before { content: "\e621"; }
+
+.icon-yunxu:before { content: "\e648"; }
+
+.icon-shujutongji:before { content: "\e7be"; }
+
+.icon-xiala:before { content: "\e63a"; }
+
+.icon-arrow:before { content: "\e63b"; }
+
+.icon-xiaoxi:before { content: "\e60d"; }
+
+.icon-wenhao:before { content: "\e601"; }
+
+.icon-del:before { content: "\e63c"; }
+
+.icon-yonghuxinxi:before { content: "\e735"; }
+
+.icon-menu:before { content: "\e681"; }
+
+.icon-kaiguan-copy-copy-copy-copy-copy:before { content: "\e602"; }
+
+.icon-xialajiantou:before { content: "\e69f"; }
+
+.icon-lingsheng:before { content: "\e612"; }

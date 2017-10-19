@@ -1,0 +1,149 @@
+.MT_account .info {
+  width: 100%;
+  min-height: 900px;
+  padding-top: 25px;
+  background: #ffffff;
+  position: relative;
+}
+.MT_account .info h4 {
+  text-indent: 45px;
+  padding-bottom: 22px;
+  color: #333333;
+  font-size: 16px;
+  border-bottom: 1px solid #eceef5;
+}
+.MT_account .info .panel {
+  padding: 36px 50px 105px 50px;
+}
+.MT_account .info .panel-left , .MT_account .info .panel-right {
+  width: 45%;
+}
+.MT_account .info .info_type {
+  position: relative;
+  height: 20px;
+  line-height: 20px;
+  text-indent: 20px;
+  font-size: 15px;
+  color: #333333;
+  margin-bottom: 30px;
+}
+.MT_account .info .info_type .icon-wenhao {
+  margin-left: 11px;
+}
+.MT_account .info .platform .bar , .MT_account .info .Jurisdiction .bar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 20px;
+  width: 5px;
+  background: #4cba6b;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.MT_account .info .form-group {
+  margin-bottom: 30px;
+}
+.MT_account .info .form-group:last-child {
+  margin-bottom: 0px;
+}
+.MT_account .info .form-group p {
+  height: 14px;
+  line-height: 14px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #666c87;
+}
+.MT_account .info .form-group p span {
+  color: #adb6bf;
+  font-size: 12px;
+}
+.MT_account .info .form-group p span.must {
+  color: #ff9090;
+}
+.MT_account .info .form-group .platform_logo .preview {
+  height: 100px;
+  width: 348px;
+  background-size: 100% 100% !important;
+}
+.MT_account .info .form-group textarea {
+  height: 98px;
+  width: 348px;
+  border: 1px solid #dfdfdf;
+  resize: none;
+}
+.MT_account .info .authority {
+  width: 460px;
+}
+.MT_account .info .authority_list {
+  width: 200px;
+}
+.MT_account .info .authority_list:first-child {
+  margin-right: 60px;
+}
+.MT_account .info .authority_list li {
+  /*margin-bottom: 25px;*/
+  height: 35px;
+  line-height: 35px;
+  margin-bottom: 5px;
+}
+.MT_account .info .authority_list label input {
+  margin-right: 10px;
+}
+.MT_account .info .authority_list li .lever_list li:last-child a {
+  border-bottom: 0px;
+}
+.MT_account .info .authority_list li .choose span {
+  margin-left: 10px;
+}
+.MT_account .info .authority_list li .choose .icon-xiala-copy {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+}
+.MT_account .operate {
+  border-top: 1px solid #eceef5;
+  padding: 32px 0px 28px 50px; 
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  bottom: 0px;
+}
+.MT_account #operate {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+}
+.MT_account .operate a {
+  display: block;
+  width: 98px;
+  height: 33px;
+  line-height: 33px;
+  float: left;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+.MT_account .operate a.save {
+  background: #4cba6b;
+  border: 1px solid #4cba6b;
+  color: #ffffff;
+  margin-right: 20px;
+}
+.MT_account .operate a.save:hover {
+  background: #2c9349;
+}
+.MT_account .operate a.reset {
+  border: 1px solid #dadde7;
+  color: #666c87;
+}
+.MT_account .operate a.reset:hover {
+  background: #dadde7;
+}
+.MT_account .info .lever {
+  width: 400px;
+}
