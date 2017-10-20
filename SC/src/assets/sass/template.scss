@@ -1,0 +1,39 @@
+.template {
+  .template_panel {
+    padding: 30px 40px;
+  }
+  .group {
+    min-height: 55px;
+  }
+  .group .group-label {
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    color: #666c87;
+    text-align: left;
+  }
+  .group .group-input {
+    width: 298px;
+    height: 33px;
+    line-height: 33px;
+    text-indent: 14px;
+    border: 1px solid #dadde7;
+  }
+}
+.previewTemplate {
+  .template_panel {
+    padding: 35px 40px 70px 40px;
+  }
+  h5 {
+    font-size: 16px;
+    color: #666c87;
+  }
+  .content {
+    width: 100%;
+    height: 350px;
+    border: 1px solid #dadde7;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}

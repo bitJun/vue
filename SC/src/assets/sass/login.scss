@@ -1,0 +1,98 @@
+body {
+  background: #f7f8fc;
+}
+.login {
+  position: relative;
+  .main {
+    position: absolute;
+    width: 1000px;
+    height: 500px;
+    background: url('../images/login.png');
+    background-size:cover;
+  }
+  .container {
+    padding: 16px 0px 0px 65px;
+  }
+  .logo {
+    width: 350px;
+    height: 100px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    background: url('../images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .form {
+    width: 348px;
+  }
+  .form-group {
+    position: relative;
+    height: 48px;
+    margin-bottom: 30px;
+  }
+  .Captcha {
+    margin-bottom: 0px;
+  }
+  .form-group input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #dadde7;
+    text-indent: 94px;
+    vertical-align: middle;
+    color: #333333;
+    font-size: 14px;
+  }
+  .form-group span {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    color: #a3a7b9;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+  }
+  .form-group span i {
+    font-size: 18px;
+    margin-right: 7px;
+  }
+  .form-group .code {
+    width: 148px;
+    margin-right: 10px;
+    text-indent: 18px;
+  }
+  .form-group .codeImg {
+    width: 188px;
+    height: 100%;
+  }
+  .form-group .codeImg img {
+    width: 100%;
+    height: 50px;
+  }
+  .form .operate {
+    padding-top: 60px;
+    position: relative;
+  }
+  .form .operate .submit {
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    background: #5490ff;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 50px;
+  }
+  .form .operate p {
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background: #ff9090;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+  }
+}

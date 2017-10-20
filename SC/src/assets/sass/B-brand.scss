@@ -1,0 +1,126 @@
+.B-brand {
+  .content {
+    background: #ffffff;
+    width: 100%;
+    min-height: 925px;
+    position: relative;
+  }
+  .content h4 {
+    height: 60;
+    line-height: 60px;
+    text-indent: 45px;
+    font-size: 16px;
+    color: #333333;
+  }
+  .brand_info {
+    padding: 0px 50px 105px 50px;
+  }
+  .brand_info .panel-left {
+    width: 45%;
+    margin-right: 5%;
+  }
+  .brand_info .panel-right {
+    width: 45%;
+  }
+  .brand_info .panel_title {
+    text-indent: 20px;
+  }
+  .brand_info .panel_title label {
+    left: 0px;
+  }
+  .brand_info .form-group {
+    margin-bottom: 30px;
+  }
+  .brand_info .form-group:last-child {
+    margin-bottom: 0px;
+  }
+  .brand_info .form-group p {
+    height: 14px;
+    line-height: 14px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #666c87;
+  }
+  .brand_info .form-group p span {
+    color: #adb6bf;
+    font-size: 12px;
+  }
+  .brand_info .form-group p span.must {
+    margin-right: 12px;
+    color: #ff9090;
+  }
+  .brand_info .form-group .site_logo .preview {
+    height: 60px;
+    width: 348px;
+  }
+  .brand_info .form-group .site_icon .preview {
+    width: 78px;
+    height: 78px;
+  }
+  .brand_info .form-group .wap_logo .preview {
+    width: 148px;
+    height: 148px;
+  }
+  .brand_info .form-group .company_site {
+    position: relative;
+  }
+  .brand_info .form-group .check_site {
+    position: absolute;
+    left: 370px;
+    top: 0px;
+    width: 98px;
+    height: 33px;
+    border: 1px solid #4cba6b;
+    background: #ffffff;
+    color: #4cba6b;
+    text-align: center;
+    font-size: 14px;
+    line-height: 33px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+  }
+  .brand_info .form-group .check_site:hover {
+    background: #4cba6b;
+    color: #ffffff;
+  }
+  .operate {
+    border-top: 1px solid #eceef5;
+    padding: 33px 0px 28px 50px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+  }
+  .operate a {
+    display: block;
+    width: 98px;
+    height: 33px;
+    line-height: 33px;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+  }
+  .operate a.save {
+    background: #4cba6b;
+    border: 1px solid #4cba6b;
+    color: #ffffff;
+    margin-right: 20px;
+  }
+  .operate a.save:hover {
+    background: #2c9349;
+  }
+  .operate a.reset {
+    border: 1px solid #dadde7;
+    color: #666c87;
+  }
+  .operate a.reset:hover {
+    background: #dadde7;
+  }
+  .site_logo .preview {
+    background-size: 15%;
+  }
+}

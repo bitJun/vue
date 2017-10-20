@@ -1,6 +1,7 @@
 import Vue from 'vue'
 Vue.filter('time', function (value) {
   let date = new Date(value)
+  console.log(date)
   let Y = date.getFullYear()
   let m = date.getMonth() + 1
   let d = date.getDate()
@@ -22,37 +23,6 @@ Vue.filter('time', function (value) {
   if (s < 10) {
     s = '0' + s
   }
-  let t = Y + '-' + m + '-' + d + ' ' + H + ':' + i + ':' + s
-  return t
-})
-Vue.filter('time_Ymd', function (value) {
-  let date = new Date(value)
-  let Y = date.getFullYear()
-  let m = date.getMonth() + 1
-  let d = date.getDate()
-  if (m < 10) {
-    m = '0' + m
-  }
-  if (d < 10) {
-    d = '0' + d
-  }
-  let t = Y + '-' + m + '-' + d
-  return t
-})
-Vue.filter('datetime', function (value) {
-  let date = new Date(value)
-  let Y = date.getFullYear()
-  let m = date.getMonth() + 1
-  let d = date.getDate()
-  if (d < 11) {
-    d = '上旬'
-  }
-  if (d >= 11 && d <= 21) {
-    d = '中旬'
-  }
-  if (d > 21) {
-    d = '下旬'
-  }
-  let t = Y + '年' + m + '月' + d
+  let t = Y + '年' + m + '月' + d + '日' +  + ' ' + H + ':' + i
   return t
 })

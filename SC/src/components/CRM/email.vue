@@ -8,7 +8,6 @@
         <a @click="tab($event, 'EmailTemplate')">邮件模板</a>
       </li>
     </ul>
-
     <div class="main_container">
       <div class="main_content clearfix">
         <component :is="currentView" keep-alive></component>

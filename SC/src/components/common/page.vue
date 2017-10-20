@@ -21,9 +21,9 @@
     <el-pagination
       @current-change="handleCurrentChange"
       :current-page="currentPage4"
-      :page-size="10"
+      :page-size="pages.size"
       layout="total, prev, pager, next, jumper"
-      :total="400">
+      :total="pages.totalnum">
     </el-pagination>
   </center>
 </template>
@@ -51,6 +51,7 @@
     'methods': {
       'handleCurrentChange': function (val) {
         console.log(`当前页: ${val}`)
+        $self.$parent.nowpage = val
       },
       'resize': function (current) {
         $self.pagesize = []

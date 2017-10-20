@@ -34,6 +34,13 @@ module.exports = {
             pathRewrite: { //需要rewrite重写的, 如果在服务器端做了处理则可以不要这段
                 '^/support-center': ''
             }
+        },
+        '/dafeige': {
+            target: 'http://172.16.200.209:8080/',
+            changeOrigin: true,
+            pathRewrite: { //需要rewrite重写的, 如果在服务器端做了处理则可以不要这段
+                '^/dafeige': ''
+            }
         }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

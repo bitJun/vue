@@ -14,14 +14,14 @@
       </thead>
       <tbody>
         <tr v-for="(item,index) in json">
-          <td class="">{{item.name}}</td>
-          <td class="">{{item.SMTP}}</td>
-          <td class="">{{item.account}}</td>
-          <td class="">{{item.email}}</td>
-          <td class="">{{item.ename}}</td>
+          <td class="">{{item.providerName}}</td>
+          <td class="">{{item.smtpAddress}}</td>
+          <td class="">{{item.mailAccount}}</td>
+          <td class="">{{item.sendMail}}</td>
+          <td class="">{{item.sender}}</td>
           <td class="clearfix">
             <a class="edit pull-left" @click="editEmail(item.id)">编辑</a>
-            <a class="del pull-left" @click="del(index)">删除</a>
+            <a class="del pull-left" @click="del(item.id)">删除</a>
           </td>
         </tr>
       </tbody>
@@ -30,42 +30,94 @@
   </div>
 </template>
 <script>
-  let jsondata = []
-  let data = {
-    id: 0,
-    name: '张三丰',
-    SMTP: 'qweqweqwe',
-    account: '阿萨德拉斯柯达',
-    email: '123@qq.com',
-    ename: '驱蚊器翁'
-  }
-  for (let i = 0; i < 10; i++) {
-    data.id = i
-    jsondata.push(data)
-  }
-  let pages = {
-    totalnum: 116,
-    current: 1,
-    totalpage: 12,
-    size: 10
-  }
-  import AddEmail from './addEmail.vue'
+  let $self = ''
+  import AddEmail from '../common/addEmail.vue'
   import PageNav from '../common/page.vue'
+  import {toast} from '../../assets/js/tool'
   export default {
     name: 'emailList',
     data () {
       return {
-        json: jsondata,
-        pages: pages,
-        pageshow: true
+        json: [],
+        pages: {},
+        pageshow: true,
+        nowpage: 1,
+        type: 1
       }
     },
+    created () {
+      $self = this
+      let nowpage = $self.nowpage
+      $self.init(nowpage)
+    },
     'methods': {
-      'del': function (index) {
-        alert(index)
+      'init': function (nowpage) {
+        let params = {
+          brokerId: '1',
+          page: nowpage,
+          size: 10,
+          type: 1
+        }
+        $self.$http.get('/dafeige/mailConfigure/list',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'charset': 'utf-8'
+            },
+            params,
+            emulateJSON: true
+          }).then((res) => {
+            if (res.body.code === 20000) {
+              $self.$router.push({ path: '/login' })
+            }
+            if (res.body.code === 10000) {
+              $self.json = res.body.result.list
+              let pages = {
+                totalnum: res.body.result.totalnum,
+                current: res.body.result.current,
+                totalpage: res.body.result.totalpage,
+                size: res.body.result.size
+              }
+               $self.pages = pages
+            } else {
+              toast(res.data.msg, 2000, 'error')
+            }
+          }, (error) => {
+            console.log('error', error)
+          })
       },
-      'edit': function (index) {
-        alert(index)
+      'del': function (index) {
+        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          let params = {
+            id: index
+          }
+          $self.$http.get('/dafeige/mailConfigure/delete',
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                'charset': 'utf-8'
+              },
+              params,
+              emulateJSON: true
+            }).then((res) => {
+              if (res.data.code === 20000) {
+                $self.$router.push({ path: '/login' })
+              }
+              if (res.data.code === 10000) {
+                $self.init()
+                toast('删除成功', 2000, 'success')
+              } else {
+                toast(res.data.msg, 2000, 'error')
+              }
+            }, (error) => {
+              console.log('error', error)
+            })
+        }).catch(() => {
+        })
       },
       'editEmail': function (index) {
         this.download_id = index
@@ -82,6 +134,13 @@
     },
     components: {
       'PageNav': PageNav
+    },
+    watch: {
+      'nowpage' (val, oldVal) {
+        if (val !== oldVal) {
+          $self.init(val)
+        }
+      }
     }
   }
 </script>
