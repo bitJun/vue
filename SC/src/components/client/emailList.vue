@@ -58,7 +58,7 @@
           size: 10,
           type: 2
         }
-        $self.$http.get('/dafeige/mailConfigure/list',
+        $self.$http.get('/support-center/mailConfigure/list',
           {
             headers: {
               'Content-Type': 'application/json',
@@ -95,7 +95,7 @@
           let params = {
             id: index
           }
-          $self.$http.get('/dafeige/mailConfigure/delete',
+          $self.$http.get('/support-center/mailConfigure/delete',
             {
               headers: {
                 'Content-Type': 'application/json',

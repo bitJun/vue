@@ -56,7 +56,7 @@
           size: 10,
           type: 1
         }
-        $self.$http.get('/dafeige/mailTemplate/list',
+        $self.$http.get('/support-center/mailTemplate/list',
           {
             headers: {
               'Content-Type': 'application/json',

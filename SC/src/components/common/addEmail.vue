@@ -89,7 +89,7 @@
           let params = {
             id: $self.$parent.download_id
           }
-          $self.$http.get('/dafeige/mailConfigure/detail',
+          $self.$http.get('/support-center/mailConfigure/detail',
             {
               headers: {
                 'Content-Type': 'application/json',
@@ -123,7 +123,7 @@
         let id = $self.$parent.download_id
         let params = $self.params
         if (id === '') {
-          $self.$http.post('/dafeige/mailConfigure/add',
+          $self.$http.post('/support-center/mailConfigure/add',
             params,
             {
               headers: {
@@ -146,7 +146,7 @@
               console.log('error', error)
             })
         } else {
-          $self.$http.post('/dafeige/mailConfigure/update',
+          $self.$http.post('/support-center/mailConfigure/update',
             params,
             {
               headers: {

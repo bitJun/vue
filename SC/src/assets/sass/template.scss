@@ -20,6 +20,25 @@
     text-indent: 14px;
     border: 1px solid #dadde7;
   }
+  .ql-editor {
+    height: 200px;
+  }
+  .notice {
+    margin-top: 20px;
+  }
+  .support {
+    font-size: 14px;
+    color: #666c87;
+    line-height: 18px;
+  }
+  .support i {
+    font-size: 18px;
+  }
+  .parameter p {
+    font-size: 12px;
+    line-height: 14px;
+    color: #a3a7b9;
+  }
 }
 .previewTemplate {
   .template_panel {
@@ -35,5 +54,21 @@
     border: 1px solid #dadde7;
     overflow-y: scroll;
     overflow-x: hidden;
+  }
+  .notice {
+    margin-top: 20px;
+  }
+  .support {
+    font-size: 14px;
+    color: #666c87;
+    line-height: 18px;
+  }
+  .support i {
+    font-size: 18px;
+  }
+  .parameter p {
+    font-size: 12px;
+    line-height: 14px;
+    color: #a3a7b9;
   }
 }

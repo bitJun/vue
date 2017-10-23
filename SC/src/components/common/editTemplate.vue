@@ -11,8 +11,18 @@
           <label class="group-label pull-left">邮件主题:</label>
           <input class="group-input pull-left" type="text" v-model="json.mailTheme">
         </div>
-        <quill-editor v-model="json.mailContent" ref="myQuillEditor" :options="editorOption" v-bind:style="{height: '250px'}"></quill-editor>
+        <quill-editor v-model="json.mailContent" ref="myQuillEditor" :options="editorOption"></quill-editor>
       </form>
+      <div class="notice clearfix">
+        <div class="pull-left support">
+          <i class="iconfont icon-gantanhao"></i>
+          模版支持参数:
+        </div>
+        <div class="pull-right parameter">
+          <p>${name}: 用户名 / ${login}: 登录名 / ${password}: 登录密码</p>
+          <p>${password_investor}: 只读密码 / ${CompanyName}: 公司名称</p>
+        </div>
+      </div>
     </div>
     <div class="btns-group">
       <ul class="clearfix">
@@ -57,7 +67,7 @@
         let params = {
           id: $self.$parent.template_id
         }
-        $self.$http.get('/dafeige/mailTemplate/preview',
+        $self.$http.get('/support-center/mailTemplate/preview',
           {
             headers: {
               'Content-Type': 'application/json',
@@ -87,7 +97,7 @@
         delete params.isDel
         delete params.createUser
         delete params.modifyUser
-        $self.$http.post('/dafeige/mailTemplate/update',
+        $self.$http.post('/support-center/mailTemplate/update',
           params,
           {
             headers: {

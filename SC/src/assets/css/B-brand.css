@@ -51,14 +51,17 @@
 .B-brand .brand_info .form-group .site_logo .preview {
   height: 60px;
   width: 348px;
+  background-size: 348px 60px;
 }
 .B-brand .brand_info .form-group .site_icon .preview {
   width: 78px;
   height: 78px;
+  background-size: 78px 78px;
 }
 .B-brand .brand_info .form-group .wap_logo .preview {
   width: 148px;
   height: 148px;
+  background-size: 148px 148px;
 }
 .B-brand .brand_info .form-group .company_site {
   position: relative;

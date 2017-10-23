@@ -8,6 +8,16 @@
        <span></span>
       </p>
       <div class="content" v-html="json.mailContent">{{json.mailContent}}</div>
+      <div class="notice clearfix">
+        <div class="pull-left support">
+          <i class="iconfont icon-gantanhao"></i>
+          模版支持参数:
+        </div>
+        <div class="pull-right parameter">
+          <p>${name}: 用户名 / ${login}: 登录名 / ${password}: 登录密码</p>
+          <p>${password_investor}: 只读密码 / ${CompanyName}: 公司名称</p>
+        </div>
+      </div>
     </div>
     <div class="btns-group">
       <ul class="clearfix">
@@ -37,7 +47,7 @@
           id: $self.$parent.template_id,
           type: $self.$parent.type
         }
-        $self.$http.get('/dafeige/mailTemplate/preview',
+        $self.$http.get('/support-center/mailTemplate/preview',
           {
             headers: {
               'Content-Type': 'application/json',
