@@ -40,7 +40,7 @@
       return {
         json: [],
         pages: {},
-        pageshow: true,
+        pageshow: false,
         nowpage: 1,
         type: 2
       }
@@ -78,7 +78,10 @@
                 totalpage: res.body.result.totalpage,
                 size: res.body.result.size
               }
-               $self.pages = pages
+              $self.pages = pages
+              if ($self.json.length > 0) {
+                $self.pageshow = true
+              }
             } else {
               toast(res.data.msg, 2000, 'error')
             }
