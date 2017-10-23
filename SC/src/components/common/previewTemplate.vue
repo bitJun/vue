@@ -7,7 +7,7 @@
        <span>{{json.modifyDate | time}}</span>
        <span></span>
       </p>
-      <div class="content">{{json.mailContent}}</div>
+      <div class="content" v-html="json.mailContent">{{json.mailContent}}</div>
     </div>
     <div class="btns-group">
       <ul class="clearfix">
