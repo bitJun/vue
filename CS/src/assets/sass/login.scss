@@ -1,0 +1,81 @@
+.login_view {
+  .login {
+    width: 1000px;
+    height: 600px;
+    position: absolute;
+    background: url('../../assets/images/login-bg.png') no-repeat;
+    background-size: contain;
+  }
+  .login_template {
+    background: #ffffff;
+    float: right;
+    width: 575px;
+    height: 600px;
+    form {
+      padding: 100px 115px 0px 110px;
+    }
+    h4 {
+      font-size: 30px;
+      color: #3c4259;
+      height: 30px;
+      line-height: 30px;
+      margin-bottom: 35px;
+    }
+    h4 span {
+      font-size: 20px;
+      color: #5fb897;
+      margin-left: 10px;
+    }
+    .form-group {
+      min-height: 60px;
+      position: relative;
+    }
+    .form-group input {
+      width: 348px;
+      height: 38px;
+      border: 1px solid #dadada;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      text-indent: 58px;
+    }
+    .form-group span {
+      position: absolute;
+      left: 15px;
+      top: 13px;
+      height: 14px;
+      line-height: 14px;
+      font-size: 14px;
+      color: #999999;
+    }
+    .Captcha .code {
+      width: 178px;
+      margin-right: 20px;
+    }
+    .Captcha .codeImg {
+      width: 150px;
+      height: 40px;
+    }
+    .btn_1 {
+      display: block;
+      height: 40px;
+      width: 348px;
+      line-height: 38px;
+      text-align: center;
+      font-size: 14px;
+      color: #ffffff;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+    }
+    .login, .register {
+      background: #5fb897;
+      border: 1px solid #5fb897;
+    }
+    .doregister, .dologin {
+      background: #ffffff;
+      border: 1px solid #5fb897;
+      color: #5fb897;
+    }
+  }
+}

@@ -1,23 +1,41 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <TopBar v-if="flag"></TopBar>
+    <div class="current-page" v-bind:style="height ? `min-height: ${height}px`: ''">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
-
 <script>
+import TopBar from './components/common/top.vue'
 export default {
-  name: 'app'
+  name: 'app',
+  data () {
+    return {
+      flag: true,
+      height: 0
+    }
+  },
+  created () {
+    if (this.$route.name === 'login') {
+      this.flag = false
+    }
+    this.height = document.documentElement.clientHeight - 85
+  },
+  components: {
+    'TopBar': TopBar
+  },
+  watch: {
+    '$route' (to, from) {
+      if (to.name !== 'login') {
+        this.flag = true
+      } else if (to.name === 'login') {
+        this.flag = false
+      }
+    }
+  }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+  @import "./assets/css/common.css";
 </style>
