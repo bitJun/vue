@@ -4,7 +4,7 @@
       <router-link to="/" class="logo pull-left">Spire Trader</router-link>
       <ul class="navbar pull-right clearfix">
         <li>
-          <router-link to="/" class="item" exact>账户总览</router-link>
+          <router-link to="/accountoverview" class="item" exact>账户总览</router-link>
         </li>
         <li>
           <router-link to="/" class="item" exact>账户管理</router-link>

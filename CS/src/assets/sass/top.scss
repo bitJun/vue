@@ -4,6 +4,7 @@
   left: 0px;
   z-index: 999;
   width: 100%;
+  background: #3c4259;
   .main {
     width: 1200px;
     margin: 0px auto;
@@ -57,5 +58,8 @@
   .navbar .exit a i {
     font-size: 18px;
     color: #ffffff;
+  }
+  .navbar .router-link-active {
+    background: #182040;
   }
 }
