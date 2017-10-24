@@ -59,5 +59,9 @@ export default new Router({
       name: 'download',
       component: Download
     }
-  ]
+  ],
+  scrollBehavior: function (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  },
+  mode: 'history'
 })
