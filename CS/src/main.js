@@ -3,8 +3,18 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueResource from 'vue-resource'
+import layer from 'vue-layer'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+import './assets/js/filiter'
+import VueClipboards from 'vue-clipboards'
 
 Vue.config.productionTip = false
+Vue.use(VueResource)
+Vue.use(ElementUI)
+Vue.use(VueClipboards)
+Vue.prototype.$layer = layer(Vue)
 
 /* eslint-disable no-new */
 new Vue({

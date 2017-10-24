@@ -1,0 +1,83 @@
+.accountoverview {
+  width: 1200px;
+  margin: 0px auto;
+  .last_login {
+    padding-top: 40px;
+    margin-bottom: 15px;
+    color: #999999;
+    font-size: 14px;
+  }
+  .last_login span {
+    color: #b9b9b9;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+  .realaccount {
+    background: #ffffff;
+    height: 200px;
+    padding: 0px 45px 0px 35px;
+  }
+  .tipbar {
+    width: 70px;
+    height: 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    background: #5fb897;
+    color: #fffefe;
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 27px;
+  }
+  .title {
+    font-size: 14px;
+    color: #999999;
+  }
+  .balance {
+    height: 95px;
+    border-right: 1px solid #eeeeee;
+    width: 200px;
+    padding-right: 20px;
+  }
+  .balance_num {
+    font-size: 30px;
+    color: #5fb897;
+    margin-top: 15px;
+  }
+  .infomation {
+    width: 660px;
+    margin: 0px 60px;
+  }
+  .infomation li {
+    float: left;
+    width: 25%;
+  }
+  .info_detail {
+    font-size: 22px;
+    color: #666666;
+    margin-top: 15px;
+  }
+  .btns {
+    display: block;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+    float: left;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+  }
+  .Login {
+    background: #5fb897;
+    color: #ffffff;
+  }
+  .Logined {
+    color: #999999;
+    background: #e8e8e8;
+  }
+}
