@@ -48,13 +48,39 @@
       font-size: 14px;
       color: #999999;
     }
-    .Captcha .code {
-      width: 178px;
-      margin-right: 20px;
+    .Captcha {
+      .code {
+        width: 178px;
+        margin-right: 20px;
+      }
+      .codeImg {
+        width: 150px;
+        height: 40px;
+      }
     }
-    .Captcha .codeImg {
-      width: 150px;
-      height: 40px;
+    .operate {
+      height: 20px;
+      line-height: 20px;
+      margin-bottom: 15px;
+      .choose {
+        color: #333333;
+        font-size: 14px;
+        height: 20px;
+        line-height: 20px;
+      }
+      .choose input {
+        width: 18px;
+        height: 18px;
+        border: 1px solid #dadada;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        margin-right: 10px;
+      }
+      .forget_pwd {
+        color: #999999;
+        font-size: 14px;
+      }
     }
     .btn_1 {
       display: block;
@@ -68,14 +94,28 @@
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
     }
-    .login, .register {
+    .login, .register, .next, .reset {
       background: #5fb897;
       border: 1px solid #5fb897;
+    }
+    .login:hover, .register:hover, .next:hover, .reset:hover, .getcode:hover {
+      background: #46987a;
     }
     .doregister, .dologin {
       background: #ffffff;
       border: 1px solid #5fb897;
       color: #5fb897;
+    }
+    .doregister:hover, .dologin:hover {
+      background: #5fb897;
+      border: 1px solid #5fb897;
+      color: #ffffff;
+    }
+    .getcode {
+      width: 148px;
+      height: 38px;
+      background: #5fb897;
+      border: 1px solid #5fb897;
     }
   }
 }

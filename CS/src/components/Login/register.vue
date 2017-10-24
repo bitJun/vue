@@ -24,7 +24,7 @@
           <div class="form-group Captcha clearfix">
             <input class="code pull-left" type="text">
             <span>验证码</span>
-            <a class="getcode">获取验证码</a>
+            <a class="btn_1 getcode pull-left">获取验证码</a>
             <p class="tips"></p>
           </div>
           <div class="form-group clearfix">

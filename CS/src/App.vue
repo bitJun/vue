@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TopBar v-if="flag"></TopBar>
-    <div class="current-page" v-bind:style="height ? `min-height: ${height}px`: ''">
+    <div class="current-page" v-bind:class="bgcolor" v-bind:style="height ? `min-height: ${height}px`: ''">
       <router-view></router-view>
     </div>
   </div>
@@ -13,14 +13,19 @@ export default {
   data () {
     return {
       flag: true,
-      height: 0
+      height: 0,
+      bgcolor: ''
     }
   },
   created () {
     if (this.$route.name === 'login') {
       this.flag = false
+      this.bgcolor = ''
+      this.height = document.documentElement.clientHeight
+    } else {
+      this.bgcolor = 'container'
+      this.height = document.documentElement.clientHeight - 60
     }
-    this.height = document.documentElement.clientHeight - 85
   },
   components: {
     'TopBar': TopBar
@@ -38,4 +43,5 @@ export default {
 </script>
 <style scoped>
   @import "./assets/css/common.css";
+  @import "./assets/css/iconfont.css";
 </style>
