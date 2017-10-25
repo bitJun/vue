@@ -12,6 +12,9 @@ import Awithdraw from '@/components/account/withdraw'
 import Aadjustlever from '@/components/account/adjustlever'
 import Achangepwd from '@/components/account/changepwd'
 import Atransfer from '@/components/account/transfer'
+import Adepositrecord from '@/components/account/depositrecord'
+import Awithdrawrecord from '@/components/account/withdrawrecord'
+import Atransferrecord from '@/components/account/transferrecord'
 
 Vue.use(Router)
 
@@ -81,6 +84,21 @@ export default new Router({
       path: '/account/transfer',
       name: 'transfer',
       component: Atransfer
+    },
+    {
+      path: '/account/depositrecord',
+      name: 'depositrecord',
+      component: Adepositrecord
+    },
+    {
+      path: '/account/withdrawrecord',
+      name: 'withdrawrecord',
+      component: Awithdrawrecord
+    },
+    {
+      path: '/account/transferrecord',
+      name: 'transferrecord',
+      component: Atransferrecord
     }
   ],
   scrollBehavior: function (to, from, savedPosition) {

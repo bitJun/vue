@@ -14,7 +14,7 @@
         <router-link to="/account/transfer" exact>转账汇款</router-link>
       </li>
       <li>
-        <router-link to="/" exact>资金流水</router-link>
+        <router-link to="/account/depositrecord" exact>资金流水</router-link>
       </li>
       <li>
         <router-link to="/account/changepwd" exact>修改密码</router-link>
