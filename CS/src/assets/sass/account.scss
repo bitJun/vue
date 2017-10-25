@@ -1,0 +1,156 @@
+.account_view {
+  .main_content {
+    padding-bottom: 40px;
+  }
+  h4 {
+    font-size: 24px;
+    line-height: 24px;
+    height: 24px;
+    color: #333333;
+    margin-bottom: 25px;
+    padding-left: 50px;
+    padding-top: 50px;
+  }
+  .filiter_bar {
+    padding: 0px 50px;
+    margin-bottom: 30px;
+  }
+  .account_select {
+    position: relative;
+    width: 200px;
+  }
+  .account_type {
+    position: absolute;
+    right: 45px;
+    top: 10px;
+    font-size: 12px;
+    color: #5fb897;
+  }
+  .filiter_bar ul li {
+    float: left;
+  }
+  .filiter_bar ul li:first-child {
+    margin-right: 20px;
+  }
+  .list table td {
+    height: 50px;
+    line-height: 50px;
+    font-size: 12px;
+    color: #333333;
+  }
+  .list table tbody tr:hover {
+    cursor: pointer;
+    td {
+      height: 80px;
+      line-height: 80px;
+    }
+    td p:first-child {
+      margin-top: 15px;
+    }
+  }
+  .list table td img {
+    margin-left: 5px;
+  }
+  .list table td:first-child {
+    text-indent: 50px;
+  }
+  .list table tbody td p {
+    height: 25px;
+    line-height: 25px;
+  }
+  .list table tbody td:last-child p, .list table thead td:last-child p {
+    height: 50px;
+    line-height: 50px;
+    padding-right: 50px;
+    text-align: right;
+  }
+  .list table tbody tr:nth-child(2n), .list table thead tr {
+    background: #f4f8fb;
+  }
+  .list table tbody td.profit {
+    color: #5fb897;
+  }
+  .list .total {
+    margin-bottom: 30px;
+  }
+  .list .total p {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    color: #5fb897;
+  }
+  .list .total p:first-child {
+    text-indent: 50px;
+  }
+}
+.deposit_view {
+  h4 {
+    font-size: 24px;
+    line-height: 24px;
+    height: 24px;
+    color: #333333;
+    margin-bottom: 15px;
+    padding-left: 145px;
+    padding-top: 65px;
+  }
+  form {
+    padding-left: 145px;
+    padding-bottom: 200px;
+  }
+  .account_select {
+    position: relative;
+    width: 200px;
+    margin-bottom: 35px;
+  }
+  .account_type {
+    position: absolute;
+    right: 45px;
+    top: 10px;
+    font-size: 12px;
+    color: #5fb897;
+  }
+  .tli {
+    color: #666666;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .form-group {
+    padding-bottom: 30px;
+  }
+  input[type="text"], input[type="password"] {
+    width: 298px;
+    height: 38px;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    text-indent: 15px;
+  }
+  .notice {
+    margin-left: 15px;
+    color: #999999;
+    font-size: 12px;
+  }
+  textarea {
+    width: 448px;
+    height: 78px;
+    border: 1px solid #dadada;
+    resize: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+  }
+  .submit {
+    display: block;
+    width: 115px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #5fb897;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+  }
+}

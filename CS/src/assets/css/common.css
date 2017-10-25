@@ -58,4 +58,22 @@ table {
 .container {
   background: #eef4f9;
   margin-top: 60px;
+  padding-bottom: 95px;
+}
+.main_content {
+  background: #ffffff;
+  width: 1200px;
+  margin: 0px auto;
+}
+.must {
+  color: #f85151;
+  font-size: 14px !important;
+}
+.dialog_view {
+  padding: 30px 35px;
+}
+/*element-ui reset*/
+.el-select-dropdown__item a {
+  font-size: 14px;
+  color: #333333;
 }

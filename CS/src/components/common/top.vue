@@ -7,7 +7,7 @@
           <router-link to="/accountoverview" class="item" exact>账户总览</router-link>
         </li>
         <li>
-          <router-link to="/" class="item" exact>账户管理</router-link>
+          <router-link to="/account/history" class="item" exact>账户管理</router-link>
         </li>
         <li>
           <router-link to="/" class="item" exact>开户申请</router-link>
