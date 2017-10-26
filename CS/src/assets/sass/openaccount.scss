@@ -1,0 +1,66 @@
+.openaccount_view {
+  .content {
+    width: 1200px;
+    margin: 0px auto
+  }
+  section {
+    padding-top: 30px;
+    .tli {
+      font-size: 14px;
+      color: #999999;
+      height: 14px;
+      line-height: 14px;
+      margin-bottom: 9px;
+    }
+    .item {
+      background: #ffffff;
+      height: 200px;
+      .P_logo {
+        width: 223px;
+        height: 128px;
+        margin-left: 37px;
+        margin-top: 43px;
+      }
+      .btn_groups {
+        width: 540px;
+        margin-right: 45px;
+        margin-top: 75px;
+      }
+      .btn_groups li {
+        float: left;
+        margin-right: 30px;
+      }
+      .btn_groups li a {
+        display: block;
+        width: 148px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        border: 1px solid #5fb897;
+        color: #5fb897;
+        padding: 0px;
+        background: #ffffff;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+      }
+      .btn_groups li a .iconfont {
+        font-size: 25px;
+      }
+      .btn_groups li a:hover {
+        background: #5fb897;
+        color: #ffffff;
+      }
+      .btn_groups li a.status {
+        background: #5fb897;
+        color: #ffffff;
+      }
+      .btn_groups li a.status .iconfont {
+        font-size: 21px;
+      }
+      .btn_groups li a.status:hover {
+        background: #46987a;
+      }
+    }
+  }
+}

@@ -31,5 +31,5 @@ export default {
 }
 </script>
 <style lang="sass" scoped>
-@import "../../assets/sass/submenu.scss"
+@import "../../assets/sass/account.scss"
 </style>

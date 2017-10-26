@@ -1,5 +1,5 @@
 <template>
-  <div class="deposit_view">
+  <div class="account_view deposit_view">
     <filiter></filiter>
     <div class="main_content">
       <h4>申请出金</h4>

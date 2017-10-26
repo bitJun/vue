@@ -15,6 +15,12 @@ import Atransfer from '@/components/account/transfer'
 import Adepositrecord from '@/components/account/depositrecord'
 import Awithdrawrecord from '@/components/account/withdrawrecord'
 import Atransferrecord from '@/components/account/transferrecord'
+import Basicinfo from '@/components/accountinfo/basicinfo'
+import Financeinfo from '@/components/accountinfo/financeinfo'
+import IDinfo from '@/components/accountinfo/IDinfo'
+import Ubasicinfo from '@/components/userinfo/basicinfo'
+import Ubankinfo from '@/components/userinfo/bankinfo'
+import openaccount from '@/components/openaccount/openaccount'
 
 Vue.use(Router)
 
@@ -99,6 +105,36 @@ export default new Router({
       path: '/account/transferrecord',
       name: 'transferrecord',
       component: Atransferrecord
+    },
+    {
+      path: '/accountinfo/basicinfo',
+      name: 'basicinfo',
+      component: Basicinfo
+    },
+    {
+      path: '/accountinfo/financeinfo',
+      name: 'financeinfo',
+      component: Financeinfo
+    },
+    {
+      path: '/accountinfo/IDinfo',
+      name: 'IDinfo',
+      component: IDinfo
+    },
+    {
+      path: '/userinfo/basicinfo',
+      name: 'Ubasicinfo',
+      component: Ubasicinfo
+    },
+    {
+      path: '/userinfo/bankinfo',
+      name: 'Ubankinfo',
+      component: Ubankinfo
+    },
+    {
+      path: '/openaccount',
+      name: 'openaccount',
+      component: openaccount
     }
   ],
   scrollBehavior: function (to, from, savedPosition) {

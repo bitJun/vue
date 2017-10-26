@@ -1,5 +1,5 @@
 <template>
-  <div class="deposit_view">
+  <div class="account_view deposit_view">
     <filiter></filiter>
     <div class="main_content">
       <h4>调整杠杆<span>MT4 真实</span></h4>

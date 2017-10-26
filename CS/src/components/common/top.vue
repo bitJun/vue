@@ -3,20 +3,8 @@
     <div class="main">
       <router-link to="/" class="logo pull-left">Spire Trader</router-link>
       <ul class="navbar pull-right clearfix">
-        <li>
-          <router-link to="/accountoverview" class="item" exact>账户总览</router-link>
-        </li>
-        <li>
-          <router-link to="/account/history" class="item" exact>账户管理</router-link>
-        </li>
-        <li>
-          <router-link to="/" class="item" exact>开户申请</router-link>
-        </li>
-        <li>
-          <router-link to="/" class="item" exact>账户资料</router-link>
-        </li>
-        <li>
-          <router-link to="/" class="item" exact>用户资料</router-link>
+        <li v-for="item in routes">
+          <router-link v-bind:to="item.link" v-bind:class="{active: item.link.split('/')[1] === data}" class="item" exact>{{item.name}}</router-link>
         </li>
         <li>
           <a to="/" class="user">{{username}}</a>
@@ -33,9 +21,36 @@
 <<script>
 export default {
   name: 'topbar',
+  props: {
+    data: {
+      type: String
+    }
+  },
   data () {
     return {
-      username: '叶茂科技'
+      username: '叶茂科技',
+      routes: [
+        {
+          name: '账户总览',
+          link: '/accountoverview'
+        },
+        {
+          name: '账户管理',
+          link: '/account/history'
+        },
+        {
+          name: '开户申请',
+          link: '/openaccount'
+        },
+        {
+          name: '账户资料',
+          link: '/accountinfo/basicinfo'
+        },
+        {
+          name: '用户资料',
+          link: '/userinfo/basicinfo'
+        }
+      ]
     }
   }
 }

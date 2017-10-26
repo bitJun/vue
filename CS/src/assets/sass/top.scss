@@ -26,9 +26,9 @@
     width: 140px;
     height: 60px;
     line-height: 60px;
-    text-align: center;
     color: #ffffff;
     font-size: 14px;
+    text-align: center;
   }
   .navbar li .item:hover {
     background: #182040;
@@ -59,7 +59,7 @@
     font-size: 18px;
     color: #ffffff;
   }
-  .navbar .router-link-active {
+  .navbar .active {
     background: #182040;
   }
 }

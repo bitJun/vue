@@ -1,5 +1,5 @@
 <template>
-  <div class="deposit_view">
+  <div class="account_view deposit_view">
     <filiter></filiter>
     <div class="main_content">
       <h4>修改密码<span>MT4</span></h4>
