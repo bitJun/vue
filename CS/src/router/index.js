@@ -21,6 +21,11 @@ import IDinfo from '@/components/accountinfo/IDinfo'
 import Ubasicinfo from '@/components/userinfo/basicinfo'
 import Ubankinfo from '@/components/userinfo/bankinfo'
 import openaccount from '@/components/openaccount/openaccount'
+import applylive from '@/components/openaccount/applylive'
+import bindaccount from '@/components/openaccount/bindaccount'
+import applydemo from '@/components/openaccount/applydemo'
+import accountconfirm from '@/components/openaccount/accountconfirm'
+import checkinfo from '@/components/openaccount/checkinfo'
 
 Vue.use(Router)
 
@@ -135,6 +140,31 @@ export default new Router({
       path: '/openaccount',
       name: 'openaccount',
       component: openaccount
+    },
+    {
+      path: '/openaccount/applylive',
+      name: 'applylive',
+      component: applylive
+    },
+    {
+      path: '/openaccount/bindaccount',
+      name: 'bindaccount',
+      component: bindaccount
+    },
+    {
+      path: '/openaccount/applydemo',
+      name: 'applydemo',
+      component: applydemo
+    },
+    {
+      path: '/openaccount/accountconfirm',
+      name: 'accountconfirm',
+      component: accountconfirm
+    },
+    {
+      path: '/openaccount/checkinfo',
+      name: 'checkinfo',
+      component: checkinfo
     }
   ],
   scrollBehavior: function (to, from, savedPosition) {

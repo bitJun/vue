@@ -7,30 +7,30 @@
           <img class="P_logo pull-left" src="../../assets/images/plogo.png">
           <ul class="btn_groups pull-right claerfix">
             <li>
-              <a class="status btn" v-if="item.status == 0">
+              <router-link to="/openaccount/applylive" class="status btn" v-if="item.status == 0">
                 <i class="iconfont icon-headlines"></i>
                 开通真实账户
-              </a>
-              <a class="status btn" v-if="item.status == 1">
+              </router-link>
+              <router-link to="/openaccount/checkinfo" class="status btn" v-if="item.status == 1">
                 <i class="iconfont icon-time1"></i>
                 审核中
-              </a>
-              <a class="status btn" v-if="item.status == 2">
+              </router-link>
+              <router-link to="/openaccount/applylive" class="status btn" v-if="item.status == 2">
                 <i class="iconfont icon-p"></i>
                 同名账户
-              </a>
+              </router-link>
             </li>
             <li>
-              <a class="btn">
+              <router-link to="/openaccount/applydemo" class="btn">
                 <i class="iconfont icon-dynamic"></i>
-                开头模拟账户
-              </a>
+                开通模拟账户
+              </router-link>
             </li>
             <li>
-              <a class="btn">
+              <router-link to="/openaccount/bindaccount" class="btn">
                 <i class="iconfont icon-xnmm"></i>
                 绑定账户
-              </a>
+              </router-link>
             </li>
           </ul>
         </div>

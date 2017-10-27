@@ -59,12 +59,17 @@
       .control-input {
         width: 298px;
         height: 38px;
-        border: 1px solid #eef4f9;
-        background: #eef4f9;
+        border: 1px solid #f3f3f3;
+        background: #ffffff;
         border-radius: 5px;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         margin-right: 25px;
+        text-indent: 15px;
+      }
+      .control-input:focus {
+        background: #eef4f9;
+        border: 1px solid #eef4f9;
       }
       .btn {
         display: block;
