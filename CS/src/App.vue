@@ -33,7 +33,7 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      this.to = to.fullPath.split('/')[1]
+      this.to = to.fullPath.split('/')[1].split('-')[0]
       if (to.name !== 'login') {
         this.flag = true
       } else if (to.name === 'login') {

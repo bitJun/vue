@@ -6,7 +6,20 @@
       </router-link>
     </div>
     <ul class="menu pull-left clearfix">
-      <li>
+      <li v-for="item in route">
+        <router-link v-bind:to="item.link" v-if="item.sub.length === 0">
+          <i class="iconfont" v-bind:class="item.icon"></i>{{item.name}}
+        </router-link>
+        <a v-if="item.sub.length > 0" v-bind:class="{active: item.link.split('/')[1] === data}" class="item">
+          <i class="iconfont icon-shujutongji"></i>统计报表
+        </a>
+        <ul class="submenu" v-if="item.sub.length > 0">
+          <li v-for="data in item.sub">
+            <router-link v-bind:to="data.link">{{data.name}}</router-link>
+          </li>
+        </ul>
+      </li>
+      <!-- <li>
         <router-link to="/datacenter" exact>
           <i class="iconfont icon-shujuzhongxin"></i>数据中心
         </router-link>
@@ -62,7 +75,7 @@
             <router-link to="/system/operatelog" exact>操作日志</router-link>
           </li>
         </ul>
-      </li>
+      </li> -->
     </ul>
     <ul class="operates pull-left clearfix">
       <li class="msg">
@@ -128,9 +141,84 @@
   }
   export default {
     name: 'top',
+    props: {
+      data: {
+        type: String
+      }
+    },
     data () {
       return {
-        msg: json
+        msg: json,
+        route: [
+          {
+            link: '/datacenter',
+            name: '数据中心',
+            icon: 'icon-shujuzhongxin',
+            sub: []
+          },
+          {
+            link: '/user',
+            name: '用户管理',
+            icon: 'icon-user',
+            sub: []
+          },
+          {
+            link: '/account',
+            name: '账户管理',
+            icon: 'icon-yonghuxinxi',
+            sub: []
+          },
+          {
+            link: '/customer',
+            name: '客户管理',
+            icon: 'icon-yonghusuoyou',
+            sub: []
+          },
+          {
+            link: '/statistics',
+            name: '统计报表',
+            icon: 'icon-shujutongji',
+            sub: [
+              {
+                name: '账户报表',
+                link: '/statistics/history'
+              },
+              {
+                name: '返佣报表',
+                link: '/statistics/despositcommission'
+              }
+            ]
+          },
+          {
+            link: '/mission',
+            name: '任务管理',
+            icon: 'icon-shenherenwu',
+            sub: []
+          },
+          {
+            link: '/system',
+            name: '系统设置',
+            icon: 'icon-shezhi-copy-copy',
+            sub: [
+              {
+                name: '用户设置',
+                link: '/system/role'
+              },
+              {
+                name: '账户设置',
+                link: '/system/account'
+              },
+              {
+                name: '返佣设置',
+                link: '/system/hierarchy'
+              },
+              {
+                name: '操作日志',
+                link: '/system/operatelog'
+              }
+            ]
+          }
+        ]
       }
     }
   }

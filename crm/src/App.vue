@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TopBar></TopBar>
+    <TopBar v-if="flag" :data="to"></TopBar>
     <div class="current-page" v-bind:style="height ? `min-height: ${height}px`: ''">
       <router-view></router-view>
     </div>
@@ -15,7 +15,8 @@ export default {
   data () {
     return {
       flag: true,
-      height: 0
+      height: 0,
+      to: '/datacenter'
     }
   },
   created () {
@@ -30,6 +31,7 @@ export default {
   },
   watch: {
     '$route' (to, from) {
+      this.to = to.fullPath.split('/')[1]
       if (to.name !== 'login') {
         this.flag = true
       } else if (to.name === 'login') {
