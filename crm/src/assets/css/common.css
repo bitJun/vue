@@ -426,6 +426,7 @@ table thead td {
   -webkit-border-radius: 17px;
   -moz-border-radius: 17px;
   color: #596778;
+  border: 0px;
   font-size: 14px;
 }
 .el-input__inner {
