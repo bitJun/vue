@@ -5,7 +5,7 @@
       <div class="operate">
         <a class="addBank" @click="edit('')">添加银行卡</a>
       </div>
-      <ul class="banklist clearfix">
+      <ul class="banklist clearfix" v-if="bank.length > 0">
         <li v-for="item in bank">
           <a class="item">
             <div class="bank">
@@ -35,6 +35,10 @@
           </a>
         </li>
       </ul>
+      <div class="no_result" v-if="bank.length == 0">
+        <img src="../../assets/images/no_bank.png">
+        <p>当前暂无银行卡</p>
+      </div>
     </div>
   </div>
 </template>
@@ -52,22 +56,25 @@ export default {
   },
   created () {
     $self = this
-    for (let i = 0; i < 6; i++) {
-      let data = {
-        id: i,
-        account: '**** **** **** **** 9384',
-        payee: '景田',
-        SWIFT: 'HSHS',
-        branch: '高新支行',
-        address: '杭州文二西路'
-      }
-      $self.bank.push(data)
-    }
+    $self.init()
   },
   components: {
     'filiter': filiter
   },
   'methods': {
+    'init': function () {
+      for (let i = 0; i < 6; i++) {
+        let data = {
+          id: i,
+          account: '**** **** **** **** 9384',
+          payee: '景田',
+          SWIFT: 'HSHS',
+          branch: '高新支行',
+          address: '杭州文二西路'
+        }
+        $self.bank.push(data)
+      }
+    },
     'edit': function (id) {
       $self.$layer.iframe({
         title: '',

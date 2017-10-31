@@ -4,7 +4,7 @@
       <p class="tli">
         最近登录<span>{{time | time}}</span>
       </p>
-      <div class="realaccount clearfix">
+      <div class="realaccount clearfix" v-if="name != ''">
         <label class="tipbar">真实账户</label>
         <div class="info clearfix">
           <div class="balance pull-left">
@@ -33,10 +33,14 @@
           <a class="Logined btns" v-if="status == 1">已登录</a>
         </div>
       </div>
+      <div class="no_result" v-if="name == ''">
+        <img src="../assets/images/no_login.png">
+        <p>最近无登录</p>
+      </div>
     </section>
     <section>
       <p class="tli">真实账户</p>
-      <div class="list">
+      <div class="list" v-if="json.length>0">
         <table>
           <thead>
             <tr>
@@ -62,10 +66,14 @@
           </tbody>
         </table>
       </div>
+      <div class="no_result" v-if="json.length == 0">
+        <img src="../assets/images/no_account.png">
+        <p>当前暂无账户</p>
+      </div>
     </section>
     <section>
       <p class="tli">模拟账户</p>
-      <div class="list">
+      <div class="list" v-if="json.length>0">
         <table>
           <thead>
             <tr>
@@ -90,6 +98,10 @@
             </tr>
           </tbody>
         </table>
+      </div>
+      <div class="no_result" v-if="json.length == 0">
+        <img src="../assets/images/no_account.png">
+        <p>当前暂无账户</p>
       </div>
     </section>
   </div>

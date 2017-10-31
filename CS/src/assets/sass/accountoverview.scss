@@ -131,4 +131,20 @@
     background: #5fb897;
     color: #ffffff;
   }
+  .no_result {
+    height: 200px;
+    background: #ffffff;
+    text-align: center;
+    img {
+      width: 116px;
+      height: 84px;
+      margin-top: 50px;
+    }
+    p {
+      color: #adc3e8;
+      margin-top: 16px;
+      font-size: 14px;
+      text-indent: 15px;
+    }
+  }
 }

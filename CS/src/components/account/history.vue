@@ -22,10 +22,8 @@
            <li>
              <label>报表类型</label>
              <el-select v-model="trade_value" placeholder="请选择">
-              <el-option v-for="item in trade" :key="item.value" :label="item.label" :value="item.value">
-                <router-link v-bind:to="item.link">{{item.label}}</router-link>
-              </el-option>
-            </el-select>
+                <el-option v-for="item in trade" :key="item.value" :label="item.label" :value="item.value"></el-option>
+              </el-select>
            </li>
          </ul>
       </div>
@@ -47,7 +45,7 @@
               <td v-bind:style="{width:'100px'}"><p>盈利</p></td>
             </tr>
           </thead>
-          <tbody>
+          <tbody v-if="json.length > 0">
             <tr v-for="item in json">
               <td v-bind:style="{width:'120px'}">{{item.orderId}}</td>
               <td v-bind:style="{width:'120px'}">{{item.varieties}}</td>
@@ -77,14 +75,18 @@
             </tr>
           </tbody>
         </table>
-        <div class="total clearfix">
+        <div class="total clearfix" v-if="json.length > 0">
           <p v-bind:style="{width:'300px'}">合计</p>
           <p v-bind:style="{width:'640px'}">200.00</p>
           <p v-bind:style="{width:'80px'}">0.00</p>
           <p v-bind:style="{width:'80px'}">2.10</p>
           <p v-bind:style="{width:'50px','padding-right': '50px','text-align': 'right'}">40.00</p>
         </div>
-        <Pages></Pages>
+        <Pages v-if="json.length > 0"></Pages>
+        <div class="no_result" v-if="json.length == 0">
+          <img v-bind:src='loading_error.img'>
+          <p>{{loading_error.tip}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -97,6 +99,10 @@ let $self = ''
 export default {
   data () {
     return {
+      loading_error: {
+        img: require('../../assets/images/no_result.png'),
+        tip: '暂无数据'
+      },
       options: [{
         value: '14000027',
         label: 'MT4 真实'
@@ -151,35 +157,40 @@ export default {
   name: 'history',
   created () {
     $self = this
-    for (let i = 0; i < 10; i++) {
-      let data = {
-        id: i,
-        orderId: '755521' + i,
-        varieties: 'USDEUR' + i,
-        type: 1,
-        volume: '200.00',
-        O_price: '1.52302',
-        E_price: '1.52302',
-        O_time: new Date(),
-        E_time: new Date(),
-        stop: '1.52302',
-        profit: '0.12345',
-        commission: '0.00',
-        interest: '2.10',
-        yprofit: '40.00'
-      }
-      if (i % 2 === 0) {
-        data.type = 0
-        data.yprofit = '+' + data.yprofit
-      } else {
-        data.yprofit = '-' + data.yprofit
-      }
-      $self.json.push(data)
-    }
+    $self.init()
   },
   components: {
     'filiter': filiter,
     'Pages': Pages
+  },
+  'methods': {
+    'init': function () {
+      for (let i = 0; i < 10; i++) {
+        let data = {
+          id: i,
+          orderId: '755521' + i,
+          varieties: 'USDEUR' + i,
+          type: 1,
+          volume: '200.00',
+          O_price: '1.52302',
+          E_price: '1.52302',
+          O_time: new Date(),
+          E_time: new Date(),
+          stop: '1.52302',
+          profit: '0.12345',
+          commission: '0.00',
+          interest: '2.10',
+          yprofit: '40.00'
+        }
+        if (i % 2 === 0) {
+          data.type = 0
+          data.yprofit = '+' + data.yprofit
+        } else {
+          data.yprofit = '-' + data.yprofit
+        }
+        $self.json.push(data)
+      }
+    }
   },
   watch: {
     'value' (val, oldVal) {
@@ -187,6 +198,22 @@ export default {
         if ($self.options[i].value === val) {
           $self.account_type = $self.options[i].label
         }
+      }
+    },
+    'trade_value' (val, oldVal) {
+      switch (val) {
+        case 't1':
+          $self.$router.push('/account/history')
+          break
+        case 't2':
+          $self.$router.push('/account/pendingorder')
+          break
+        case 't3':
+          $self.$router.push('/account/position')
+          break
+        default:
+          $self.$router.push('/account/history')
+          break
       }
     }
   }

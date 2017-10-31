@@ -22,7 +22,6 @@
            <li class="single">
               <el-select v-model="record_value" placeholder="请选择">
                 <el-option v-for="item in record" :key="item.value" :label="item.label" :value="item.value">
-                  <router-link v-bind:to="item.link">{{item.label}}</router-link>
                 </el-option>
               </el-select>
            </li>
@@ -54,7 +53,7 @@
               <td><p>备注</p></td>
             </tr>
           </thead>
-          <tbody>
+          <tbody v-if="json.length > 0">
             <tr v-for="item in json">
               <td>{{item.applyId}}</td>
               <td>{{item.entry}}</td>
@@ -70,7 +69,11 @@
             </tr>
           </tbody>
         </table>
-        <Pages></Pages>
+        <Pages v-if="json.length > 0"></Pages>
+        <div class="no_result" v-if="json.length == 0">
+          <img v-bind:src='loading_error.img'>
+          <p>{{loading_error.tip}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -84,6 +87,10 @@ export default {
   name: 'depositrecord',
   data () {
     return {
+      loading_error: {
+        img: require('../../assets/images/no_result.png'),
+        tip: '暂无数据'
+      },
       options: [{
         value: '14000027',
         label: 'MT4 真实'
@@ -169,32 +176,37 @@ export default {
   },
   created () {
     $self = this
-    for (let i = 0; i < 10; i++) {
-      let data = {
-        id: i,
-        applyId: '755521' + i,
-        entry: '100.00',
-        Ctime: new Date(),
-        pay: '2048.00',
-        pay_status: 0,
-        apply_status: 0,
-        dealTime: new Date()
-      }
-      if (i % 2 === 0) {
-        data.pay_status = 1
-      }
-      if (i % 3 === 1) {
-        data.apply_status = 1
-      }
-      if (i % 3 === 2) {
-        data.apply_status = 2
-      }
-      $self.json.push(data)
-    }
+    $self.init()
   },
   components: {
     'filiter': filiter,
     'Pages': Pages
+  },
+  'methods': {
+    'init': function () {
+      for (let i = 0; i < 10; i++) {
+        let data = {
+          id: i,
+          applyId: '755521' + i,
+          entry: '100.00',
+          Ctime: new Date(),
+          pay: '2048.00',
+          pay_status: 0,
+          apply_status: 0,
+          dealTime: new Date()
+        }
+        if (i % 2 === 0) {
+          data.pay_status = 1
+        }
+        if (i % 3 === 1) {
+          data.apply_status = 1
+        }
+        if (i % 3 === 2) {
+          data.apply_status = 2
+        }
+        $self.json.push(data)
+      }
+    }
   },
   watch: {
     'value' (val, oldVal) {
@@ -202,6 +214,22 @@ export default {
         if ($self.options[i].value === val) {
           $self.account_type = $self.options[i].label
         }
+      }
+    },
+    'record_value' (val, oldVal) {
+      switch (val) {
+        case 'r1':
+          $self.$router.push('/account/depositrecord')
+          break
+        case 'r2':
+          $self.$router.push('/account/withdrawrecord')
+          break
+        case 'r3':
+          $self.$router.push('/account/transferrecord')
+          break
+        default:
+          $self.$router.push('/account/depositrecord')
+          break
       }
     }
   }

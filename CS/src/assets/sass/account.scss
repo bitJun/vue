@@ -144,6 +144,22 @@
   .completed {
     background: #5fb897;
   }
+  .no_result {
+    height: 500px;
+    background: #ffffff;
+    text-align: center;
+    img {
+      width: 177px;
+      height: 128px;
+      margin-top: 145px;
+    }
+    p {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #adc3e8;
+      text-indent: 15px;
+    }
+  }
 }
 .deposit_view {
   h4 {

@@ -103,13 +103,13 @@ table {
 .dialog .panel_title {
   height: 50px;
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 .dialog .panel_title label {
   width: 3px;
   height: 15px;
   position: absolute;
-  bottom: 0px;
+  top: 30px;
   left: 35px;
   background: #5fb897;
 }
@@ -118,8 +118,9 @@ table {
   font-size: 16px;
   text-indent: 30px;
   position: absolute;
+  width: 100%;
   left: 0px;
-  bottom: 0px;
+  top: 30px;
   text-indent: 50px;
   height: 16px;
   line-height: 16px;
@@ -129,7 +130,7 @@ table {
   position: absolute;
   font-size: 16px;
   right: 15px;
-  top: 15px;
+  top: 30px;
   color: #dadada;
   cursor: pointer;
 }
@@ -141,7 +142,7 @@ table {
   min-width: 100px;
   float: right;
   height: 35px;
-  margin-right: 70px;
+  margin-right: 35px;
 }
 .dialog .panel_footer .operate li {
   width: 110px;

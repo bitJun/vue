@@ -31,13 +31,14 @@
           <p class="tli">备注</p>
           <textarea></textarea>
         </div>
-        <a class="submit">提交</a>
+        <a class="submit" @click="comfirm()">提交</a>
       </form>
     </div>
   </div>
 </template>
 <script>
 import filiter from './filiter.vue'
+import Confirm from './sureDeposit.vue'
 let $self = ''
 export default {
   name: 'deposit',
@@ -68,6 +69,22 @@ export default {
   },
   created () {
     $self = this
+  },
+  'methods': {
+    'comfirm': function () {
+      $self.$layer.iframe({
+        title: '',
+        content: {
+          content: Confirm,
+          parent: $self,
+          data: {
+            name: '11',
+            age: '22'
+          }
+        },
+        area: ['700px', 'auto']
+      })
+    }
   },
   watch: {
     'value' (val, oldVal) {
