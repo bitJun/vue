@@ -48,7 +48,7 @@
             <td v-bind:style="{width:'8%'}"><p>交易状态</p></td>
           </tr>
         </thead>
-        <tbody>
+        <tbody v-if="json.length>0">
           <tr v-for="(item, index) in json">
             <td v-bind:style="{width:'8%'}">
               <input type="checkbox" name="checkbox" :value="item.id" v-model="ids" @click="select(item.id, $event)">
@@ -74,40 +74,30 @@
           </tr>
         </tbody>
       </table>
-      <div class="pages clearfix">
+      <div class="pages clearfix" v-if="json.length>0">
         <el-pagination layout="prev, pager, next" :total="1000" class="pull-right"></el-pagination>
+      </div>
+      <div class="no_result" v-if="json.length == 0">
+        <img v-bind:src="loading_error.img">
+        <p>{{loading_error.tip}}</p>
       </div>
     </div>
   </div>
 </template>
 <script>
-  let json = []
   let $self = ''
-  for (let i = 0; i < 10; i++) {
-    let data = {
-      id: i,
-      account: '015749' + i + i * 5,
-      name: '赵东来',
-      from: 'ADMIN',
-      balance: '1' + i * 6,
-      value: '2' + i * 7,
-      accountname: '赚他一个亿公司',
-      group: '00' + i,
-      level: '1' + ':' + i * 1,
-      time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
-      authority: '1',
-      status: '1'
-    }
-    json.push(data)
-  }
   import AddDialog from './add.vue'
   export default {
     name: 'account',
     data () {
       return {
+        loading_error: {
+          img: require('../../assets/images/no_result.png'),
+          tip: '暂无数据'
+        },
         ids: [],
         checkAll: false,
-        json: json,
+        json: [],
         time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
         level: [{
           value: '1',
@@ -138,8 +128,28 @@
     },
     created () {
       $self = this
+      $self.init()
     },
     'methods': {
+      'init': function () {
+        for (let i = 0; i < 10; i++) {
+          let data = {
+            id: i,
+            account: '015749' + i + i * 5,
+            name: '赵东来',
+            from: 'ADMIN',
+            balance: '1' + i * 6,
+            value: '2' + i * 7,
+            accountname: '赚他一个亿公司',
+            group: '00' + i,
+            level: '1' + ':' + i * 1,
+            time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
+            authority: '1',
+            status: '1'
+          }
+          $self.json.push(data)
+        }
+      },
       'select': function (id, event) {
         if (event.currentTarget.checked) {
           console.log($self.ids)

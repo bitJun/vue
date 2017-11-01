@@ -14,7 +14,7 @@
                 <td v-bind:style="{width:'25%'}">操作</td>                                              
               </tr>
             </thead>
-            <tbody>
+            <tbody v-if="json.length > 0">
               <tr v-for="(item,index) in json">
                 <td class="">{{item.urlName}}</td>
                 <td class="">{{item.characters}}</td>
@@ -27,6 +27,10 @@
             </tbody>
           </table>
           <!-- <PageNav :pages="pages" v-if="pageshow == true & pages.totalnum != 0"></PageNav> -->
+          <div class="no_result" v-if="json.length == 0">
+            <img v-bind:src="loading_error.img">
+            <p>{{loading_error.tip}}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -47,6 +51,10 @@
     name: 'download',
     data () {
       return {
+        loading_error: {
+          img: require('../../assets/images/no_result.png'),
+          tip: '暂无数据'
+        },
         json: [],
         pages: pages,
         pageshow: true,

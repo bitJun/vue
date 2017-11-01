@@ -12,7 +12,7 @@
           <td v-bind:style="{width:'18%'}">操作</td>                                              
         </tr>
       </thead>
-      <tbody>
+      <tbody v-if="json.length > 0">
         <tr v-for="(item,index) in json">
           <td class="">{{item.providerName}}</td>
           <td class="">{{item.smtpAddress}}</td>
@@ -27,6 +27,10 @@
       </tbody>
     </table>
     <PageNav :pages="pages" v-if="pageshow == true & pages.totalnum != 0"></PageNav>
+    <div class="no_result" v-if="json.length == 0">
+      <img v-bind:src="loading_error.img">
+      <p>{{loading_error.tip}}</p>
+    </div>
   </div>
 </template>
 <script>
@@ -38,6 +42,10 @@
     name: 'emailList',
     data () {
       return {
+        loading_error: {
+          img: require('../../assets/images/no_result.png'),
+          tip: '暂无数据'
+        },
         json: [],
         pages: {},
         pageshow: false,

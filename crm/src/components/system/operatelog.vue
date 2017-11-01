@@ -24,7 +24,7 @@
     </div>
     <div class="list">
       <h5>操作记录</h5>
-      <table>
+      <table v-if="json.length > 0">
         <thead>
           <tr>
             <td>操作时间</td>
@@ -44,31 +44,47 @@
           </tr>
         </tbody>
       </table>
-      <div class="pages clearfix">
+      <div class="pages clearfix" v-if="json.length > 0">
         <el-pagination layout="prev, pager, next" :total="1000" class="pull-right"></el-pagination>
+      </div>
+      <div class="no_result" v-if="json.length == 0">
+        <img v-bind:src="loading_error.img">
+        <p>{{loading_error.tip}}</p>
       </div>
     </div>
   </div>
 </template>
 <script>
-  let json = []
-  for (let i = 0; i < 10; i++) {
-    let data = {
-      i: i,
-      time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
-      user: 'Admin',
-      IP: '127.0.0.1',
-      type: '修改',
-      content: '修改用户信息'
-    }
-    json.push(data)
-  }
+  let $self = ''
   export default {
     name: 'operatelog',
     data () {
       return {
-        json: json,
+        loading_error: {
+          img: require('../../assets/images/no_result.png'),
+          tip: '暂无数据'
+        },
+        json: [],
         time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)'
+      }
+    },
+    created () {
+      $self = this
+      $self.init()
+    },
+    'methods': {
+      'init': function () {
+        for (let i = 0; i < 10; i++) {
+          let data = {
+            i: i,
+            time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
+            user: 'Admin',
+            IP: '127.0.0.1',
+            type: '修改',
+            content: '修改用户信息'
+          }
+          $self.json.push(data)
+        }
       }
     }
   }

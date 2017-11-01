@@ -45,7 +45,7 @@
             <td v-bind:style="{width: '10%'}"><span>操作</span></td>
           </tr>
         </thead>
-        <tbody>
+        <tbody v-if="json.length > 0">
           <tr v-for="item in json">
             <td v-bind:style="{width: '5%'}">
               <input type="checkbox" name="checkbox" :value="item.id" v-model="ids" @click="select(item.id, $event)">
@@ -73,36 +73,18 @@
           </tr>
         </tbody>
       </table>
-      <div class="pages clearfix">
+      <div class="pages clearfix" v-if="json.length > 0">
         <el-pagination layout="prev, pager, next" :total="1000" class="pull-right"></el-pagination>
+      </div>
+      <div class="no_result" v-if="json.length == 0">
+        <img v-bind:src="loading_error.img">
+        <p>{{loading_error.tip}}</p>
       </div>
     </div>
   </div>
 </template>
 <script>
-  let json = []
   let $self = ''
-  for (let i = 0; i < 10; i++) {
-    let data = {
-      id: i,
-      NO: '012' + i * 6 - 4,
-      customer: '堆伤',
-      account: '25461799' + i,
-      type: 1,
-      time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
-      status: 0,
-      Otime: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)'
-    }
-    if (i % 3 === 1) {
-      data.type = 2
-      data.status = 1
-    }
-    if (i % 3 === 2) {
-      data.type = 3
-      data.status = 2
-    }
-    json.push(data)
-  }
   import task from '../../assets/js/task'
   import openaccount from './openaccount.vue'
   import samename from './samename.vue'
@@ -114,9 +96,13 @@
     name: 'mission',
     data () {
       return {
+        loading_error: {
+          img: require('../../assets/images/no_result.png'),
+          tip: '暂无数据'
+        },
         ids: [],
         checkAll: false,
-        json: json,
+        json: [],
         time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
         task: task.task,
         task_value: 't1',
@@ -157,8 +143,32 @@
     },
     created () {
       $self = this
+      $self.init()
     },
     'methods': {
+      'init': function () {
+        for (let i = 0; i < 10; i++) {
+          let data = {
+            id: i,
+            NO: '012' + i * 6 - 4,
+            customer: '堆伤',
+            account: '25461799' + i,
+            type: 1,
+            time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
+            status: 0,
+            Otime: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)'
+          }
+          if (i % 3 === 1) {
+            data.type = 2
+            data.status = 1
+          }
+          if (i % 3 === 2) {
+            data.type = 3
+            data.status = 2
+          }
+          $self.json.push(data)
+        }
+      },
       'select': function (id, event) {
         if (event.currentTarget.checked) {
           console.log($self.ids)

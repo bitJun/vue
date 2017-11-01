@@ -58,7 +58,7 @@
             <td v-bind:style="{width:'12%'}"><p>登录权限</p></td>
           </tr>
         </thead>
-        <tbody>
+        <tbody v-if="json.length>0">
           <tr v-for="(item, index) in json">
             <td v-bind:style="{width:'8%'}">
                 <input type="checkbox" name="checkbox" :value="item.id" v-model="ids" @click="select(item.id, $event)">
@@ -79,43 +79,30 @@
           </tr>
         </tbody>
       </table>
-      <div class="pages clearfix">
+      <div class="pages clearfix" v-if="json.length>0">
         <el-pagination layout="prev, pager, next" :total="1000" class="pull-right"></el-pagination>
+      </div>
+      <div class="no_result" v-if="json.length == 0">
+        <img v-bind:src="loading_error.img">
+        <p>{{loading_error.tip}}</p>
       </div>
     </div>
   </div>
 </template>
 <script>
-  let json = []
   let $self = ''
-  for (let i = 0; i < 10; i++) {
-    let data = {
-      id: i,
-      uid: '0' + i + i * 5,
-      name: '赵东来',
-      role: '系统管理员',
-      topclass: '一级',
-      top: '沙瑞金',
-      under: '3',
-      tel: '1336578016',
-      email: '15976454@qq.com',
-      city: '浙江 杭州',
-      time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
-      authority: '1'
-    }
-    if (i % 3 === 2) {
-      data.authority = '0'
-    }
-    json.push(data)
-  }
   import AddDialog from './addUser.vue'
   export default {
     name: 'user',
     data () {
       return {
+        loading_error: {
+          img: require('../../assets/images/no_result.png'),
+          tip: '暂无数据'
+        },
         ids: [],
         checkAll: false,
-        json: json,
+        json: [],
         time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
         ascription: [{
           value: '1',
@@ -159,8 +146,31 @@
     },
     created () {
       $self = this
+      $self.init()
     },
     'methods': {
+      'init': function () {
+        for (let i = 0; i < 10; i++) {
+          let data = {
+            id: i,
+            uid: '0' + i + i * 5,
+            name: '赵东来',
+            role: '系统管理员',
+            topclass: '一级',
+            top: '沙瑞金',
+            under: '3',
+            tel: '1336578016',
+            email: '15976454@qq.com',
+            city: '浙江 杭州',
+            time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
+            authority: '1'
+          }
+          if (i % 3 === 2) {
+            data.authority = '0'
+          }
+          $self.json.push(data)
+        }
+      },
       'select': function (id, event) {
         if (event.currentTarget.checked) {
           console.log($self.ids)

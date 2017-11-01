@@ -335,6 +335,21 @@ table thead td {
   color: #b1ccff;
   font-size: 12px;
 }
+/*no_result*/
+.no_result {
+  height: 500px;
+  background: #ffffff;
+  text-align: center;
+}
+.no_result img {
+  width: 80px;
+  margin-bottom: 20px;
+  margin-top: 190px;
+}
+.no_result p {
+  font-size: 14px;
+  color: #b5cff4;
+}
 /*dialog*/
 .must {
   color: #f45149;

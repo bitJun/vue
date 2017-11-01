@@ -53,3 +53,18 @@
   line-height: 65px;
   border-bottom: 1px solid #eceef5;
 }
+.B-email .no_result {
+  height: 500px;
+  background: #ffffff;
+  text-align: center;
+}
+.B-email .no_result img {
+  width: 132px;
+  height: 82px;
+  margin-top: 190px;
+  margin-bottom: 22px;
+}
+.B-email .no_result p {
+  font-size: 14px;
+  color: #c0c5cc;
+}

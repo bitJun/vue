@@ -28,7 +28,7 @@
             <td v-bind:style="{width:'15%'}"><p>操作</p></td>
           </tr>
         </thead>
-        <tbody>
+        <tbody v-if="json.length > 0">
           <tr v-for="item in json">
             <td v-bind:style="{width:'15%'}"><p>{{item.groupId}}</p></td>
             <td v-bind:style="{width:'20%'}">{{item.name}}</td>
@@ -53,31 +53,28 @@
           </tr>
         </tbody>
       </table>
-      <div class="pages clearfix">
+      <div class="pages clearfix" v-if="json.length > 0">
         <el-pagination layout="prev, pager, next" :total="1000" class="pull-right"></el-pagination>
+      </div>
+      <div class="no_result" v-if="json.length == 0">
+        <img v-bind:src="loading_error.img">
+        <p>{{loading_error.tip}}</p>
       </div>
     </div>
   </div>  
 </template>
 <script>
-  let json = []
   let $self = ''
-  for (let i = 0; i < 10; i++) {
-    let data = {
-      i: i,
-      groupId: '011' + i,
-      name: 'TW邀请注册链接',
-      websit: 'http://trade.lwork.com?id=2132&pid=2JHI',
-      type: '用户编号'
-    }
-    json.push(data)
-  }
   import system from '../../assets/js/system'
   export default {
     name: 'referrallink',
     data () {
       return {
-        json: json,
+        loading_error: {
+          img: require('../../assets/images/no_result.png'),
+          tip: '暂无数据'
+        },
+        json: [],
         time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
         account: system.role,
         account_value: 'r2'
@@ -85,9 +82,22 @@
     },
     created () {
       $self = this
-      console.log($self)
+      $self.init()
     },
-    'methods': {}
+    'methods': {
+      'init': function () {
+        for (let i = 0; i < 10; i++) {
+          let data = {
+            i: i,
+            groupId: '011' + i,
+            name: 'TW邀请注册链接',
+            websit: 'http://trade.lwork.com?id=2132&pid=2JHI',
+            type: '用户编号'
+          }
+          $self.json.push(data)
+        }
+      }
+    }
   }
 </script>
 <style lang="scss" scoped>

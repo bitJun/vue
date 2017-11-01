@@ -27,7 +27,7 @@
             <td v-bind:style="{width:'25%'}"><p>操作</p></td>
           </tr>
         </thead>
-        <tbody>
+        <tbody v-if="json.length > 0">
           <tr v-for="item in json">
             <td v-bind:style="{width:'25%'}"><p>{{item.hierarchy}}</p></td>
             <td v-bind:style="{width:'25%'}"><p>{{item.HierarchyName}}</p></td>
@@ -51,30 +51,28 @@
           </tr>
         </tbody>
       </table>
-      <div class="pages clearfix">
+      <div class="pages clearfix" v-if="json.length > 0">
         <el-pagination layout="prev, pager, next" :total="1000" class="pull-right"></el-pagination>
+      </div>
+      <div class="no_result" v-if="json.length == 0">
+        <img v-bind:src="loading_error.img">
+        <p>{{loading_error.tip}}</p>
       </div>
     </div>
   </div>  
 </template>
 <script>
-  let json = []
   let $self = ''
-  for (let i = 0; i < 10; i++) {
-    let data = {
-      i: i,
-      hierarchy: i,
-      HierarchyName: '一级用户',
-      user: i * i
-    }
-    json.push(data)
-  }
   import system from '../../assets/js/system'
   export default {
     name: 'hierarchy',
     data () {
       return {
-        json: json,
+        loading_error: {
+          img: require('../../assets/images/no_result.png'),
+          tip: '暂无数据'
+        },
+        json: [],
         time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
         commision: system.commision,
         commision_value: 'c1'
@@ -82,9 +80,21 @@
     },
     created () {
       $self = this
-      console.log($self)
+      $self.init()
     },
-    'methods': {}
+    'methods': {
+      'init': function () {
+        for (let i = 0; i < 10; i++) {
+          let data = {
+            i: i,
+            hierarchy: i,
+            HierarchyName: '一级用户',
+            user: i * i
+          }
+          $self.json.push(data)
+        }
+      }
+    }
   }
 </script>
 <style lang="scss" scoped>

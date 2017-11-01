@@ -49,7 +49,7 @@
             <td v-bind:style="{width:'8%'}"><p>状态</p></td>
           </tr>
         </thead>
-        <tbody>
+        <tbody v-if="json.length > 0">
           <tr v-for="(item, index) in json">
             <td v-bind:style="{width:'10%'}"><p>{{item.belong}}</p></td>
             <td v-bind:style="{width:'10%'}"><p>{{item.account}}</p></td>
@@ -71,39 +71,18 @@
           </tr>
         </tbody>
       </table>
-      <div class="pages clearfix">
+      <div class="pages clearfix" v-if="json.length > 0">
         <el-pagination layout="prev, pager, next" :total="1000" class="pull-right"></el-pagination>
+      </div>
+      <div class="no_result" v-if="json.length == 0">
+        <img v-bind:src="loading_error.img">
+        <p>{{loading_error.tip}}</p>
       </div>
     </div>
   </div>
 </template>
 <script>
-  let json = []
   let $self = ''
-  for (let i = 0; i < 10; i++) {
-    let data = {
-      id: i,
-      belong: '侯亮平',
-      account: '015749' + i + i * 5,
-      name: '赵东来',
-      accountname: '赚他一个亿公司',
-      order: '431231' + i + i * 4,
-      type: '买入',
-      Varieties: 'GBPUSD',
-      volume: '600.00',
-      unit_price: '1.04562',
-      unit_time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
-      time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
-      Stop: '1.40527',
-      profit: '1.40527',
-      status: '1'
-    }
-    if (i % 3 === 2) {
-      data.status = '0'
-      data.type = '卖出'
-    }
-    json.push(data)
-  }
   import sheet from '../../assets/js/sheet'
   import attach from '../../assets/js/attach'
   import searchAccount from '../../assets/js/search_account'
@@ -111,9 +90,13 @@
     name: 'pendingorder',
     data () {
       return {
+        loading_error: {
+          img: require('../../assets/images/no_result.png'),
+          tip: '暂无数据'
+        },
         ids: [],
         checkAll: false,
-        json: json,
+        json: [],
         time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
         attach: attach,
         attach_value: '1',
@@ -125,8 +108,35 @@
     },
     created () {
       $self = this
+      $self.init()
     },
     'methods': {
+      'init': function () {
+        for (let i = 0; i < 10; i++) {
+          let data = {
+            id: i,
+            belong: '侯亮平',
+            account: '015749' + i + i * 5,
+            name: '赵东来',
+            accountname: '赚他一个亿公司',
+            order: '431231' + i + i * 4,
+            type: '买入',
+            Varieties: 'GBPUSD',
+            volume: '600.00',
+            unit_price: '1.04562',
+            unit_time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
+            time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)',
+            Stop: '1.40527',
+            profit: '1.40527',
+            status: '1'
+          }
+          if (i % 3 === 2) {
+            data.status = '0'
+            data.type = '卖出'
+          }
+          $self.json.push(data)
+        }
+      },
       'select': function (id, event) {
         if (event.currentTarget.checked) {
           console.log($self.ids)

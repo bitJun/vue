@@ -52,3 +52,18 @@
 .download_view table td .edit {
   margin-right: 15px;
 }
+.download_view .no_result {
+  height: 500px;
+  background: #ffffff;
+  text-align: center;
+}
+.download_view .no_result img {
+  width: 132px;
+  height: 82px;
+  margin-top: 190px;
+  margin-bottom: 22px;
+}
+.download_view .no_result p {
+  font-size: 14px;
+  color: #c0c5cc;
+}
