@@ -33,6 +33,7 @@
   </div>
 </template>
 <script>
+import {errorMsg} from '../../assets/js/tool'
 import reg from '../../assets/js/reg'
 let $self = ''
 export default {
@@ -106,9 +107,7 @@ export default {
             params,
             emulateJSON: true
           }).then((res) => {
-          }, (error) => {
-            console.log('error', error)
-          })
+          }).catch(errorMsg)
       }
     },
     'register': function () {
@@ -153,9 +152,7 @@ export default {
               $self.error_msg = res.result
               return false
             }
-          }, (error) => {
-            console.log('error', error)
-          })
+          }).catch(errorMsg)
       }
     }
   }

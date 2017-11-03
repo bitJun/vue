@@ -115,6 +115,11 @@
     .login:hover, .register:hover, .next:hover, .reset:hover, .getcode:hover {
       background: #46987a;
     }
+    .btn_1.disabled:hover {
+      border-color: #e8e8e8;
+      background: #e8e8e8;
+      color: #999999;
+    }
     .doregister, .dologin {
       background: #ffffff;
       border: 1px solid #5fb897;

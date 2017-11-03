@@ -43,51 +43,129 @@
   </div>
 </template>
 <script>
-  import reg from '../../assets/js/reg'
-  let $self = ''
-  export default {
-    name: 'forgotpwd',
-    data () {
-      return {
-        step1: true,
-        step2: false,
-        wait: 60,
-        iscode: false,
-        repassword: '',
-        data: {
-          mobile: '',
-          password: '',
-          code: ''
-        },
-        iserror: false,
-        error_msg: '',
-        noregister: false
+import {errorMsg} from '../../assets/js/tool'
+import reg from '../../assets/js/reg'
+let $self = ''
+export default {
+  name: 'forgotpwd',
+  data () {
+    return {
+      step1: true,
+      step2: false,
+      wait: 60,
+      iscode: false,
+      repassword: '',
+      data: {
+        mobile: '',
+        password: '',
+        code: ''
+      },
+      iserror: false,
+      error_msg: '',
+      noregister: false
+    }
+  },
+  created () {
+    $self = this
+    $self.onresize()
+  },
+  'methods': {
+    'onresize': function () {
+      let windowHeight = document.documentElement.clientHeight
+      let logintop = windowHeight - 600
+      logintop = logintop / 2
+      let windowWidth = document.documentElement.clientWidth
+      let loginleft = windowWidth - 1000
+      loginleft = loginleft / 2
+      let top = logintop
+      let left = loginleft
+      $self.size = {
+        top: top,
+        left: left
       }
     },
-    created () {
-      $self = this
-      $self.onresize()
+    'checkphone': function () {
+      let params = {
+        mobile: $self.data.mobile
+      }
+      $self.$http.get('/customer-point/customer/mobile-check',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'charset': 'utf-8'
+          },
+          params,
+          emulateJSON: true
+        }).then((res) => {
+          console.log(res.body)
+          if (res.body.result === true) {
+            $self.noregister = true
+            $self.iserror = true
+            $self.error_msg = '该手机未注册！'
+            return false
+          } else {
+            $self.noregister = false
+            $self.iserror = false
+            $self.error_msg = ''
+          }
+        }).catch(errorMsg)
     },
-    'methods': {
-      'onresize': function () {
-        let windowHeight = document.documentElement.clientHeight
-        let logintop = windowHeight - 600
-        logintop = logintop / 2
-        let windowWidth = document.documentElement.clientWidth
-        let loginleft = windowWidth - 1000
-        loginleft = loginleft / 2
-        let top = logintop
-        let left = loginleft
-        $self.size = {
-          top: top,
-          left: left
-        }
-      },
-      'checkphone': function () {
+    'next': function () {
+      let json = $self.data
+      $self.iserror = false
+      $self.error_msg = ''
+      if ($self.noregister === true) {
+        $self.iserror = true
+        $self.error_msg = '该手机未注册！'
+        return false
+      }
+      if (json.mobile === '') {
+        $self.iserror = true
+        $self.error_msg = '请输入手机号！'
+        return false
+      }
+      if (json.code === '') {
+        $self.iserror = true
+        $self.error_msg = '请输入验证码！'
+        return false
+      } else {
+        $self.step1 = !$self.step1
+        $self.step2 = !$self.step2
+      }
+    },
+    'update': function () {
+      $self.iscode = true
+      if ($self.wait <= 0) {
+        $self.wait = 60
+        $self.iscode = false
+        clearInterval($self.Interval)
+      } else {
+        $self.wait--
+      }
+    },
+    'getsms': function () {
+      if ($self.noregister === true) {
+        $self.iserror = true
+        $self.error_msg = '该手机未注册！'
+        return false
+      }
+      if ($self.data.mobile === '') {
+        $self.iserror = true
+        $self.error_msg = '请输入手机号！'
+        return false
+      }
+      if (!reg.phone.test($self.data.mobile)) {
+        $self.iserror = true
+        $self.error_msg = '手机号有误！'
+        return false
+      } else {
+        $self.iserror = false
+        $self.error_msg = ''
+        $self.Interval = setInterval($self.update, 1000)
         let params = {
           mobile: $self.data.mobile
         }
-        $self.$http.get('/customer-point/customer/mobile-check',
+        $self.$http.get('/customer-point/customer/create-phone-code',
           {
             headers: {
               'Content-Type': 'application/json',
@@ -96,134 +174,58 @@
             params,
             emulateJSON: true
           }).then((res) => {
-            console.log(res.body)
-            if (res.body.result === true) {
-              $self.noregister = true
-              $self.iserror = true
-              $self.error_msg = '该手机未注册！'
-              return false
-            } else {
-              $self.noregister = false
-              $self.iserror = false
-              $self.error_msg = ''
-            }
-          }, (error) => {
-            console.log('error', error)
-          })
-      },
-      'next': function () {
-        let json = $self.data
-        $self.iserror = false
-        $self.error_msg = ''
-        if ($self.noregister === true) {
-          $self.iserror = true
-          $self.error_msg = '该手机未注册！'
-          return false
-        }
-        if (json.mobile === '') {
-          $self.iserror = true
-          $self.error_msg = '请输入手机号！'
-          return false
-        }
-        if (json.code === '') {
-          $self.iserror = true
-          $self.error_msg = '请输入验证码！'
-          return false
-        } else {
-          $self.step1 = !$self.step1
-          $self.step2 = !$self.step2
-        }
-      },
-      'update': function () {
-        $self.iscode = true
-        if ($self.wait <= 0) {
-          $self.wait = 60
-          $self.iscode = false
-          clearInterval($self.Interval)
-        } else {
-          $self.wait--
-        }
-      },
-      'getsms': function () {
-        if ($self.noregister === true) {
-          $self.iserror = true
-          $self.error_msg = '该手机未注册！'
-          return false
-        }
-        if ($self.data.mobile === '') {
-          $self.iserror = true
-          $self.error_msg = '请输入手机号！'
-          return false
-        }
-        if (!reg.phone.test($self.data.mobile)) {
-          $self.iserror = true
-          $self.error_msg = '手机号有误！'
-          return false
-        } else {
-          $self.iserror = false
-          $self.error_msg = ''
-          $self.Interval = setInterval($self.update, 1000)
-          let params = {
-            mobile: $self.data.mobile
-          }
-          $self.$http.get('/customer-point/customer/create-phone-code',
-            {
-              headers: {
-                'Content-Type': 'application/json',
-                'charset': 'utf-8'
-              },
-              params,
-              emulateJSON: true
-            }).then((res) => {
-            }, (error) => {
-              console.log('error', error)
-            })
-        }
-      },
-      'submit': function () {
-        if ($self.data.password === '') {
-          $self.iserror = true
-          $self.error_msg = '请填写用户密码！'
-          return false
-        }
-        if ($self.repassword === '') {
-          $self.iserror = true
-          $self.error_msg = '请填写确认密码！'
-          return false
-        }
-        if ($self.data.password !== $self.repassword) {
-          $self.iserror = true
-          $self.error_msg = '两次密码输入不一致！'
-          return false
-        } else {
-          let params = {
-            password: $self.data.password,
-            code: $self.data.code,
-            mobile: $self.data.mobile
-          }
-          $self.$http.post('/customer-point/customer/reset-password',
-            params,
-            {
-              headers: {
-                'Content-Type': 'application/json',
-                'charset': 'utf-8'
-              },
-              params,
-              emulateJSON: true
-            }).then((res) => {
-              if (res.body.code === 10000) {
-                alert(1)
-              } else {
-                $self.iserror = true
-                $self.error_msg = res.body.result
-              }
-            }, (error) => {
-              console.log('error', error)
-            })
-        }
+          }).catch(errorMsg)
       }
+    },
+    'submit': function () {
+      if ($self.data.password === '') {
+        $self.iserror = true
+        $self.error_msg = '请填写用户密码！'
+        return false
+      }
+      if ($self.repassword === '') {
+        $self.iserror = true
+        $self.error_msg = '请填写确认密码！'
+        return false
+      }
+      if ($self.data.password !== $self.repassword) {
+        $self.iserror = true
+        $self.error_msg = '两次密码输入不一致！'
+        return false
+      } else {
+        let params = {
+          password: $self.data.password,
+          code: $self.data.code,
+          mobile: $self.data.mobile
+        }
+        $self.$http.post('/customer-point/customer/reset-password',
+          params,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'charset': 'utf-8'
+            },
+            emulateJSON: true
+          }).then((res) => {
+            if (res.body.code === 10000) {
+              $self.$message({
+                message: '操作成功',
+                type: 'success',
+                duration: '2000'
+              })
+              setTimeout($self.gologin(), 3000)
+            } else {
+              $self.iserror = true
+              $self.error_msg = res.body.result
+            }
+          }).catch(errorMsg)
+      }
+    },
+    'gologin': function () {
+      $self.$router.push('/login')
     }
   }
+}
 </script>
 <style lang="scss" scoped>
   @import '../../assets/sass/login.scss'

@@ -35,134 +35,128 @@
   </div>
 </template>
 <script>
-  let $self = ''
-  export default {
-    name: 'login',
-    data () {
-      return {
-        wait: 60,
-        iscode: false,
-        data: {
-          mobile: '',
-          password: '',
-          code: ''
-        },
-        iserror: false,
-        error_msg: '',
-        codeImg: '',
-        checked: false,
-        errorTime: '',
-        showCode: false
+import {errorMsg} from '../../assets/js/tool'
+let $self = ''
+export default {
+  name: 'login',
+  data () {
+    return {
+      wait: 60,
+      iscode: false,
+      data: {
+        mobile: '',
+        password: '',
+        code: ''
+      },
+      iserror: false,
+      error_msg: '',
+      codeImg: '',
+      checked: false,
+      errorTime: '',
+      showCode: false
+    }
+  },
+  created () {
+    $self = this
+    if (this.$cookies.isKey('remberme')) {
+      $self.data.mobile = this.$cookies.get('mobile')
+      $self.data.password = this.$cookies.get('password')
+      $self.checked = true
+    } else {
+      $self.data.mobile = ''
+      $self.data.password = ''
+      $self.checked = false
+    }
+    $self.onresize()
+  },
+  'methods': {
+    'onresize': function () {
+      let windowHeight = document.documentElement.clientHeight
+      let logintop = windowHeight - 600
+      logintop = logintop / 2
+      let windowWidth = document.documentElement.clientWidth
+      let loginleft = windowWidth - 1000
+      loginleft = loginleft / 2
+      let top = logintop
+      let left = loginleft
+      $self.size = {
+        top: top,
+        left: left
       }
     },
-    created () {
-      $self = this
-      if (this.$cookies.isKey('remberme')) {
-        $self.data.mobile = this.$cookies.get('mobile')
-        $self.data.password = this.$cookies.get('password')
-        $self.checked = true
-      } else {
-        $self.data.mobile = ''
-        $self.data.password = ''
-        $self.checked = false
-      }
-      $self.onresize()
+    'getcode': function () {
+      let stamp = new Date().getTime()
+      $self.$http.get('/customer-point/customer/create-img-code?' + stamp + '',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'charset': 'utf-8'
+          },
+          emulateJSON: true
+        }).then((res) => {
+          $self.codeImg = res.url
+        }).catch(errorMsg)
     },
-    'methods': {
-      'onresize': function () {
-        let windowHeight = document.documentElement.clientHeight
-        let logintop = windowHeight - 600
-        logintop = logintop / 2
-        let windowWidth = document.documentElement.clientWidth
-        let loginleft = windowWidth - 1000
-        loginleft = loginleft / 2
-        let top = logintop
-        let left = loginleft
-        $self.size = {
-          top: top,
-          left: left
-        }
-      },
-      'getcode': function () {
-        let stamp = new Date().getTime()
-        $self.$http.get('/customer-point/customer/create-img-code?' + stamp + '',
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'charset': 'utf-8'
-            },
-            emulateJSON: true
-          }).then((res) => {
-            $self.codeImg = res.url
-          }, (error) => {
-            console.log('error', error)
-          })
-      },
-      'checkErrorTimes': function () {
-        let params = {
-          mobile: $self.data.mobile
-        }
-        $self.$http.get('/customer-point/customer/login-err-times',
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'charset': 'utf-8'
-            },
-            params,
-            emulateJSON: true
-          }).then((res) => {
-            console.log(res.body)
-            if (res.body.code === 10000) {
-              if (res.body.result > 3) {
-                $self.showCode = true
-              }
-            }
-          }, (error) => {
-            console.log('error', error)
-          })
-      },
-      'login': function () {
-        let params = $self.data
-        $self.$http.post('/customer-point/customer/login',
+    'checkErrorTimes': function () {
+      let params = {
+        mobile: $self.data.mobile
+      }
+      $self.$http.get('/customer-point/customer/login-err-times',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'charset': 'utf-8'
+          },
           params,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'charset': 'utf-8'
-            },
-            emulateJSON: true
-          }).then((response) => {
-            let res = response.body
-            if (res.code === 10000) {
-              if ($self.checked === true) {
-                $self.$cookies.set('remberme', true, '7d')
-                $self.$cookies.set('mobile', $self.data.mobile, '7d')
-                $self.$cookies.set('password', $self.data.password, '7d')
-              } else {
-                $self.$cookies.remove('remberme')
-                $self.$cookies.remove('mobile')
-                $self.$cookies.remove('password')
-              }
-              $self.$router.push('/accountoverview')
-            } else {
-              $self.iserror = true
-              $self.error_msg = res.result
-              $self.checkErrorTimes()
-              return false
+          emulateJSON: true
+        }).then((res) => {
+          if (res.body.code === 10000) {
+            if (res.body.result > 3) {
+              $self.showCode = true
             }
-          }, (error) => {
-            console.log('error', error)
-          })
-      }
+          }
+        }).catch(errorMsg)
     },
-    watch: {
-      'showCode' (val, oldVal) {
-        if (val !== oldVal && val === true) {
-          $self.getcode()
-        }
+    'login': function () {
+      let params = $self.data
+      $self.$http.post('/customer-point/customer/login',
+        params,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'charset': 'utf-8'
+          },
+          emulateJSON: true
+        }).then((response) => {
+          let res = response.body
+          if (res.code === 10000) {
+            if ($self.checked === true) {
+              $self.$cookies.set('remberme', true, '7d')
+              $self.$cookies.set('mobile', $self.data.mobile, '7d')
+              $self.$cookies.set('password', $self.data.password, '7d')
+            } else {
+              $self.$cookies.remove('remberme')
+              $self.$cookies.remove('mobile')
+              $self.$cookies.remove('password')
+            }
+            $self.$router.push('/accountoverview')
+          } else {
+            $self.iserror = true
+            $self.error_msg = res.result
+            $self.checkErrorTimes()
+            return false
+          }
+        }).catch(errorMsg)
+    }
+  },
+  watch: {
+    'showCode' (val, oldVal) {
+      if (val !== oldVal && val === true) {
+        $self.getcode()
       }
     }
   }
+}
 </script>
 <style lang="scss" scoped>
   @import '../../assets/sass/login.scss'

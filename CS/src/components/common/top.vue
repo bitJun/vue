@@ -19,7 +19,7 @@
   </div>
 </template>
 <<script>
-import {loginHandle, errorRequestHandle} from '../../assets/js/tool'
+import {loginHandle, errorRequestHandle, errorMsg} from '../../assets/js/tool'
 export default {
   name: 'topbar',
   props: {
@@ -67,7 +67,6 @@ export default {
           },
           emulateJSON: true
         }).then(loginHandle).then((res) => {
-          console.log(res)
           if (res.body.result === null) {
             this.$router.push('/login')
           } else {
@@ -88,9 +87,7 @@ export default {
           if (res.body.code === 10000) {
             this.$router.push('/login')
           }
-        }, (error) => {
-          console.log('error', error)
-        })
+        }).catch(errorMsg)
     }
   }
 }

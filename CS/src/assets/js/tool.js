@@ -28,3 +28,13 @@ export function errorRequestHandle (res) {
     this.init()
   }
 }
+export function errorMsg (res) {
+  let result = res.body
+  if (result.code !== 10000) {
+    this.$message({
+      message: result.result,
+      type: 'error',
+      duration: '2000'
+    })
+  }
+}
