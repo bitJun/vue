@@ -12,18 +12,19 @@ export default {
   name: 'app',
   data () {
     return {
-      flag: true,
+      flag: false,
       height: 0,
       bgcolor: '',
       to: 'accountoverview'
     }
   },
   created () {
-    if (this.$route.name === 'login') {
+    if (this.$route.name === 'login' || this.$route.name === 'register' || this.$route.name === 'forgotpwd') {
       this.flag = false
       this.bgcolor = ''
       this.height = document.documentElement.clientHeight
     } else {
+      this.flag = true
       this.bgcolor = 'container'
       this.height = document.documentElement.clientHeight - 60
     }
@@ -33,12 +34,13 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      console.log(to.name)
+      console.log('to', to)
       this.to = to.fullPath.split('/')[1].split('-')[0]
       if (to.name !== 'login' || to.name !== 'register' || to.name !== 'forgotpwd') {
         this.flag = true
         this.bgcolor = 'container'
-      } else if (to.name === 'login' || to.name === 'register' || to.name === 'forgotpwd') {
+      }
+      if (to.name === 'login' || to.name === 'register' || to.name === 'forgotpwd') {
         console.log(11)
         this.flag = false
         this.bgcolor = ''
