@@ -8,16 +8,13 @@
             登录<span>Sign In</span>
           </h4>
           <div class="form-group clearfix">
-            <input type="text" v-model="data.mobile">
-            <span>手机</span>
+            <input type="text" v-model="data.mobile" @blur="checkErrorTimes()" placeholder="手机">
           </div>
           <div class="form-group clearfix">
-            <input type="password" v-model="data.password">
-            <span>密码</span>
+            <input type="password" v-model="data.password" placeholder="密码">
           </div>
-          <div class="form-group Captcha clearfix">
-            <input class="code pull-left" type="text" v-model="data.code">
-            <span>验证码</span>
+          <div class="form-group Captcha clearfix" v-if="showCode">
+            <input class="code pull-left" type="text" v-model="data.code" placeholder="验证码">
             <img class="codeImg pull-left" v-bind:src="codeImg" @click="getcode()">
           </div>
           <div class="operate clearfix">
@@ -53,18 +50,23 @@
         iserror: false,
         error_msg: '',
         codeImg: '',
-        checked: true,
-        errorTime: ''
+        checked: false,
+        errorTime: '',
+        showCode: false
       }
     },
     created () {
       $self = this
-      if (this.$cookies.isKey('mobile')) {
+      if (this.$cookies.isKey('remberme')) {
         $self.data.mobile = this.$cookies.get('mobile')
         $self.data.password = this.$cookies.get('password')
+        $self.checked = true
+      } else {
+        $self.data.mobile = ''
+        $self.data.password = ''
+        $self.checked = false
       }
       $self.onresize()
-      $self.getcode()
     },
     'methods': {
       'onresize': function () {
@@ -96,6 +98,29 @@
             console.log('error', error)
           })
       },
+      'checkErrorTimes': function () {
+        let params = {
+          mobile: $self.data.mobile
+        }
+        $self.$http.get('/customer-point/customer/login-err-times',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'charset': 'utf-8'
+            },
+            params,
+            emulateJSON: true
+          }).then((res) => {
+            console.log(res.body)
+            if (res.body.code === 10000) {
+              if (res.body.result > 3) {
+                $self.showCode = true
+              }
+            }
+          }, (error) => {
+            console.log('error', error)
+          })
+      },
       'login': function () {
         let params = $self.data
         $self.$http.post('/customer-point/customer/login',
@@ -110,30 +135,31 @@
             let res = response.body
             if (res.code === 10000) {
               if ($self.checked === true) {
+                $self.$cookies.set('remberme', true, '7d')
                 $self.$cookies.set('mobile', $self.data.mobile, '7d')
                 $self.$cookies.set('password', $self.data.password, '7d')
+              } else {
+                $self.$cookies.remove('remberme')
+                $self.$cookies.remove('mobile')
+                $self.$cookies.remove('password')
               }
               $self.$router.push('/accountoverview')
             } else {
               $self.iserror = true
               $self.error_msg = res.result
-              $self.$http.get('/customer-point/customer/login-err-times',
-                {
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'charset': 'utf-8'
-                  },
-                  emulateJSON: true
-                }).then((res) => {
-                  console.log(res.body)
-                }, (error) => {
-                  console.log('error', error)
-                })
+              $self.checkErrorTimes()
               return false
             }
           }, (error) => {
             console.log('error', error)
           })
+      }
+    },
+    watch: {
+      'showCode' (val, oldVal) {
+        if (val !== oldVal && val === true) {
+          $self.getcode()
+        }
       }
     }
   }

@@ -8,20 +8,16 @@
             注册<span>Sign UP</span>
           </h4>
           <div class="form-group clearfix">
-            <input type="text" v-model="data.realname">
-            <span>真实姓名</span>
+            <input type="text" v-model="data.realname" placeholder="真实姓名">
           </div>
           <div class="form-group clearfix">
-            <input type="text" v-model="data.mobile">
-            <span>手机</span>
+            <input type="text" v-model="data.mobile" placeholder="手机">
           </div>
           <div class="form-group clearfix">
-            <input type="password" v-model="data.password">
-            <span>密码</span>
+            <input type="password" v-model="data.password" placeholder="密码">
           </div>
           <div class="form-group Captcha clearfix">
-            <input class="code pull-left" type="text" v-model="data.code">
-            <span>验证码</span>
+            <input class="code pull-left" type="text" v-model="data.code" placeholder="验证码">
             <a class="btn_1 getcode pull-left" v-if="iscode == false" @click="getsms()">获取验证码</a>
             <a class="btn_1 getcode disabled pull-left" v-if="iscode">({{wait}}s)后重新获取</a>
           </div>

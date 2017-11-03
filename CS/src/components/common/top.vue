@@ -10,7 +10,7 @@
           <a to="/" class="user">{{username}}</a>
         </li>
         <li class="exit">
-          <a>
+          <a @click="exit()">
             <i class="iconfont icon-tuichu"></i>
           </a>
         </li>
@@ -75,6 +75,22 @@ export default {
             localStorage.setItem('UserId', res.body.result.id)
           }
         }).catch(errorRequestHandle)
+    },
+    'exit': function () {
+      this.$http.get('/customer-point/customer/logout',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'charset': 'utf-8'
+          },
+          emulateJSON: true
+        }).then((res) => {
+          if (res.body.code === 10000) {
+            this.$router.push('/login')
+          }
+        }, (error) => {
+          console.log('error', error)
+        })
     }
   }
 }
