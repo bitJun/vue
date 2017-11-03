@@ -167,6 +167,11 @@ table {
   background: #ffffff;
   color: #5fb897;
 }
+.error_tips {
+  color: #e75757;
+  font-size: 12px;
+  line-height: 20px;
+}
 /* vue-layer reset */
 .notify .notify-alert h2.notice-title {
   display: none;

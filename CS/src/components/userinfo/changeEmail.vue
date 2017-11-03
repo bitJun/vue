@@ -31,6 +31,7 @@
 </template>
 <script>
 import {loginHandle, errorRequestHandle} from '../../assets/js/tool'
+let $self = ''
 export default {
   name: 'changeEmail',
   data () {
@@ -41,13 +42,16 @@ export default {
       }
     }
   },
+  created () {
+    $self = this
+  },
   'methods': {
     'init': function () {
-      this.data.email = this.$parent.data.email
+      $self.data.email = $self.$parent.data.email
     },
     'submit': function () {
-      let params = this.data
-      this.$http.post('/customer-point/customer/modify-email',
+      let params = $self.data
+      $self.$http.post('/customer-point/customer/modify-email',
         params,
         {
           headers: {
@@ -59,9 +63,18 @@ export default {
           console.log(res.body)
           let json = res.body
           if (json.code === 10000) {
-            this.$parent().init()
+            $self.$message({
+              message: '操作成功',
+              type: 'success',
+              duration: '2000'
+            })
+            $self.cancel()
+            $self.$parent().init()
           }
         }).catch(errorRequestHandle)
+    },
+    'cancel': function () {
+      $self.$layer.closeAll()
     }
   }
 }

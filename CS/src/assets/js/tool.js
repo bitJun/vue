@@ -1,9 +1,14 @@
 export function loginHandle (res) {
   if (res.body.code === 10000) {
     let result = res.body
-    if (result.message === '未登录') {
+    if (result.code === 20000) {
+      this.$message({
+        message: '请登录',
+        type: 'error',
+        duration: '2000'
+      })
       localStorage.removeItem('username')
-      window.appEvent.emit('login')
+      this.$router.push('/login')
       throw res
     } else {
       return res
@@ -13,4 +18,13 @@ export function loginHandle (res) {
   }
 }
 export function errorRequestHandle (res) {
+  let result = res.body
+  if (result.code !== 10000) {
+    this.$message({
+      message: result.result,
+      type: 'error',
+      duration: '2000'
+    })
+    this.init()
+  }
 }

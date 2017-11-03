@@ -9,11 +9,13 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import './assets/js/filiter'
 import VueClipboards from 'vue-clipboards'
+import VueCookie from 'vue-cookies'
 
 Vue.config.productionTip = false
 Vue.use(VueResource)
 Vue.use(ElementUI)
 Vue.use(VueClipboards)
+Vue.use(VueCookie)
 Vue.prototype.$layer = layer(Vue)
 
 /* eslint-disable no-new */

@@ -67,6 +67,11 @@
         margin-right: 25px;
         text-indent: 15px;
       }
+      .readonly {
+        background: #f3f3f3;
+        border-color: #f3f3f3;
+        color: #999999;
+      }
       .control-input:focus {
         background: #eef4f9;
         border: 1px solid #eef4f9;
@@ -246,10 +251,41 @@
   .input-control {
     height: 38px;
     width: 298px;
+    text-indent: 20px;
     border: 1px solid #dadada;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+  }
+  .input-control.getcode {
+    width: 148px;
+    margin-right: 25px;
+  }
+  .Captcha {
+    display: block;
+    height: 38px;
+    width: 128px;
+    line-height: 38px;
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid #5fb897;
+    background: #5fb897;
+  }
+  .Captcha.disabled {
+    border-color: #e8e8e8;
+    background: #e8e8e8;
+    color: #999999;
+  }
+  .Captcha:hover {
+    background: #46987a;
+  }
+  .error_tips {
+    height: 10px;
+    text-indent: 80px;
   }
   .confirm {
     padding: 25px 0px 55px 0px;
@@ -266,5 +302,8 @@
       font-size: 16px;
       color: #333333;
     }
+  }
+  .operate {
+    margin-right: 67px;
   }
 }

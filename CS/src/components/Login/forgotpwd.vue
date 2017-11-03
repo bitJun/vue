@@ -9,7 +9,7 @@
           </h4>
           <div class="step1" v-if="step1">
             <div class="form-group clearfix">
-              <input type="text" v-model="data.mobile">
+              <input type="text" v-model="data.mobile" @blur="checkphone()">
               <span>手机号</span>
             </div>
             <div class="form-group Captcha clearfix">
@@ -85,6 +85,24 @@
           top: top,
           left: left
         }
+      },
+      'checkphone': function () {
+        let params = {
+          mobile: $self.data.mobile
+        }
+        $self.$http.get('/customer-point/customer/mobile-check',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'charset': 'utf-8'
+            },
+            params,
+            emulateJSON: true
+          }).then((res) => {
+            console.log(res.body)
+          }, (error) => {
+            console.log('error', error)
+          })
       },
       'next': function () {
         let json = $self.data

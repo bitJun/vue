@@ -35,6 +35,7 @@
 </template>
 <script>
 import {loginHandle, errorRequestHandle} from '../../assets/js/tool'
+let $self = ''
 export default {
   name: 'changePwd',
   data () {
@@ -46,16 +47,19 @@ export default {
       repwd: ''
     }
   },
+  created () {
+    $self = this
+  },
   'methods': {
     'sumbit': function () {
-      let params = this.data
-      if (params.originalpwd === '' || params.newpwd === '' || this.repwd === '') {
+      let params = $self.data
+      if (params.originalpwd === '' || params.newpwd === '' || $self.repwd === '') {
         return false
       }
-      if (params.newpwd !== this.repwd) {
+      if (params.newpwd !== $self.repwd) {
         return false
       } else {
-        this.$http.post('/customer-point/customer/modify-password',
+        $self.$http.post('/customer-point/customer/modify-password',
           params,
           {
             headers: {
@@ -67,15 +71,23 @@ export default {
             console.log(res.body)
             let json = res.body
             if (json.code === 10000) {
-              this.$message({
-                message: '恭喜你，这是一条成功消息',
-                type: 'success'
+              $self.$message({
+                message: '操作成功',
+                type: 'success',
+                duration: '2000'
               })
-              localStorage.removeItem('UserId')
-              this.$router.push('/login')
+              $self.cancel()
+              setTimeout($self.gologin(), 3000)
             }
           }).catch(errorRequestHandle)
       }
+    },
+    'gologin': function () {
+      localStorage.removeItem('UserId')
+      $self.$router.push('/login')
+    },
+    'cancel': function () {
+      $self.$layer.closeAll()
     }
   }
 }

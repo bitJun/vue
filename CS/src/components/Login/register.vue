@@ -37,133 +37,133 @@
   </div>
 </template>
 <script>
-  import reg from '../../assets/js/reg'
-  let $self = ''
-  export default {
-    name: 'register',
-    data () {
-      return {
-        wait: 60,
-        iscode: false,
-        data: {
-          realname: '',
-          mobile: '',
-          password: '',
-          code: ''
-        },
-        iserror: false,
-        error_msg: ''
+import reg from '../../assets/js/reg'
+let $self = ''
+export default {
+  name: 'register',
+  data () {
+    return {
+      wait: 60,
+      iscode: false,
+      data: {
+        realname: '',
+        mobile: '',
+        password: '',
+        code: ''
+      },
+      iserror: false,
+      error_msg: ''
+    }
+  },
+  created () {
+    $self = this
+    $self.onresize()
+  },
+  'methods': {
+    'onresize': function () {
+      let windowHeight = document.documentElement.clientHeight
+      let logintop = windowHeight - 600
+      logintop = logintop / 2
+      let windowWidth = document.documentElement.clientWidth
+      let loginleft = windowWidth - 1000
+      loginleft = loginleft / 2
+      let top = logintop
+      let left = loginleft
+      $self.size = {
+        top: top,
+        left: left
       }
     },
-    created () {
-      $self = this
-      $self.onresize()
+    'update': function () {
+      $self.iscode = true
+      if ($self.wait <= 0) {
+        $self.wait = 60
+        $self.iscode = false
+        clearInterval($self.Interval)
+      } else {
+        $self.wait--
+      }
     },
-    'methods': {
-      'onresize': function () {
-        let windowHeight = document.documentElement.clientHeight
-        let logintop = windowHeight - 600
-        logintop = logintop / 2
-        let windowWidth = document.documentElement.clientWidth
-        let loginleft = windowWidth - 1000
-        loginleft = loginleft / 2
-        let top = logintop
-        let left = loginleft
-        $self.size = {
-          top: top,
-          left: left
-        }
-      },
-      'update': function () {
-        $self.iscode = true
-        if ($self.wait <= 0) {
-          $self.wait = 60
-          $self.iscode = false
-          clearInterval($self.Interval)
-        } else {
-          $self.wait--
-        }
-      },
-      'getsms': function () {
-        if ($self.data.mobile === '') {
-          $self.iserror = true
-          $self.error_msg = '请输入手机号！'
-          return false
-        }
-        if (!reg.phone.test($self.data.mobile)) {
-          $self.iserror = true
-          $self.error_msg = '手机号有误！'
-          return false
-        } else {
-          $self.iserror = false
-          $self.error_msg = ''
-          $self.Interval = setInterval($self.update, 1000)
-          let params = {
-            mobile: $self.data.mobile
-          }
-          $self.$http.get('/customer-point/customer/create-phone-code',
-            {
-              headers: {
-                'Content-Type': 'application/json',
-                'charset': 'utf-8'
-              },
-              params,
-              emulateJSON: true
-            }).then((res) => {
-            }, (error) => {
-              console.log('error', error)
-            })
-        }
-      },
-      'register': function () {
+    'getsms': function () {
+      if ($self.data.mobile === '') {
+        $self.iserror = true
+        $self.error_msg = '请输入手机号！'
+        return false
+      }
+      if (!reg.phone.test($self.data.mobile)) {
+        $self.iserror = true
+        $self.error_msg = '手机号有误！'
+        return false
+      } else {
         $self.iserror = false
         $self.error_msg = ''
-        let params = $self.data
-        if (params.realname === '') {
-          $self.iserror = true
-          $self.error_msg = '真实姓名不能为空'
-          return false
+        $self.Interval = setInterval($self.update, 1000)
+        let params = {
+          mobile: $self.data.mobile
         }
-        if (params.mobile === '') {
-          $self.iserror = true
-          $self.error_msg = '请输入手机号！'
-          return false
-        }
-        if (params.password === '') {
-          $self.iserror = true
-          $self.error_msg = '密码不能为空！'
-          return false
-        }
-        if (params.code === '') {
-          $self.iserror = true
-          $self.error_msg = '验证码不能为空！'
-          return false
-        } else {
-          $self.$http.post('/customer-point/customer/registry',
+        $self.$http.get('/customer-point/customer/create-phone-code',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'charset': 'utf-8'
+            },
             params,
-            {
-              headers: {
-                'Content-Type': 'application/json',
-                'charset': 'utf-8'
-              },
-              emulateJSON: true
-            }).then((response) => {
-              console.log(response.body)
-              let res = response.body
-              if (res.code === 10000) {
-                $self.$router.push('/login')
-              } else {
-                $self.iserror = true
-                $self.error_msg = res.result
-                return false
-              }
-            }, (error) => {
-              console.log('error', error)
-            })
-        }
+            emulateJSON: true
+          }).then((res) => {
+          }, (error) => {
+            console.log('error', error)
+          })
+      }
+    },
+    'register': function () {
+      $self.iserror = false
+      $self.error_msg = ''
+      let params = $self.data
+      if (params.realname === '') {
+        $self.iserror = true
+        $self.error_msg = '真实姓名不能为空'
+        return false
+      }
+      if (params.mobile === '') {
+        $self.iserror = true
+        $self.error_msg = '请输入手机号！'
+        return false
+      }
+      if (params.password === '') {
+        $self.iserror = true
+        $self.error_msg = '密码不能为空！'
+        return false
+      }
+      if (params.code === '') {
+        $self.iserror = true
+        $self.error_msg = '验证码不能为空！'
+        return false
+      } else {
+        $self.$http.post('/customer-point/customer/registry',
+          params,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'charset': 'utf-8'
+            },
+            emulateJSON: true
+          }).then((response) => {
+            console.log(response.body)
+            let res = response.body
+            if (res.code === 10000) {
+              $self.$router.push('/login')
+            } else {
+              $self.iserror = true
+              $self.error_msg = res.result
+              return false
+            }
+          }, (error) => {
+            console.log('error', error)
+          })
       }
     }
   }
+}
 </script>
 <style lang="scss" scoped>
   @import '../../assets/sass/login.scss'

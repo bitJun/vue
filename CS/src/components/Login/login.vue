@@ -18,11 +18,11 @@
           <div class="form-group Captcha clearfix">
             <input class="code pull-left" type="text" v-model="data.code">
             <span>验证码</span>
-            <img class="codeImg pull-left" v-bind:src="codeImg">
+            <img class="codeImg pull-left" v-bind:src="codeImg" @click="getcode()">
           </div>
           <div class="operate clearfix">
             <label class="choose pull-left">
-              <input type="checkbox">记住我
+               <el-checkbox v-model="checked">记住我</el-checkbox>
             </label>
             <router-link to="/forgotpwd" class="forget_pwd pull-right">忘记密码？</router-link>
           </div>
@@ -38,8 +38,6 @@
   </div>
 </template>
 <script>
-  import {loginHandle, errorRequestHandle} from '../../assets/js/tool'
-  import reg from '../../assets/js/reg'
   let $self = ''
   export default {
     name: 'login',
@@ -54,12 +52,19 @@
         },
         iserror: false,
         error_msg: '',
-        codeImg: ''
+        codeImg: '',
+        checked: true,
+        errorTime: ''
       }
     },
     created () {
       $self = this
+      if (this.$cookies.isKey('mobile')) {
+        $self.data.mobile = this.$cookies.get('mobile')
+        $self.data.password = this.$cookies.get('password')
+      }
       $self.onresize()
+      $self.getcode()
     },
     'methods': {
       'onresize': function () {
@@ -76,45 +81,20 @@
           left: left
         }
       },
-      'update': function () {
-        $self.iscode = true
-        if ($self.wait <= 0) {
-          $self.wait = 60
-          $self.iscode = false
-          clearInterval($self.Interval)
-        } else {
-          $self.wait--
-        }
-      },
-      'getsms': function () {
-        if ($self.data.mobile === '') {
-          $self.iserror = true
-          $self.error_msg = '请输入手机号！'
-          return false
-        }
-        if (!reg.phone.test($self.data.mobile)) {
-          $self.iserror = true
-          $self.error_msg = '手机号有误！'
-          return false
-        } else {
-          $self.iserror = false
-          $self.error_msg = ''
-          $self.Interval = setInterval($self.update, 1000)
-          let params = {
-            mobile: $self.data.mobile
-          }
-          $self.$http.get('/customer-point/customer/create-phone-code',
-            {
-              headers: {
-                'Content-Type': 'application/json',
-                'charset': 'utf-8'
-              },
-              params,
-              emulateJSON: true
-            }).then(loginHandle).then((response) => {
-              // let json = JSON.parse(response.bodyText)
-            }).catch(errorRequestHandle)
-        }
+      'getcode': function () {
+        let stamp = new Date().getTime()
+        $self.$http.get('/customer-point/customer/create-img-code?' + stamp + '',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'charset': 'utf-8'
+            },
+            emulateJSON: true
+          }).then((res) => {
+            $self.codeImg = res.url
+          }, (error) => {
+            console.log('error', error)
+          })
       },
       'login': function () {
         let params = $self.data
@@ -129,10 +109,26 @@
           }).then((response) => {
             let res = response.body
             if (res.code === 10000) {
+              if ($self.checked === true) {
+                $self.$cookies.set('mobile', $self.data.mobile, '7d')
+                $self.$cookies.set('password', $self.data.password, '7d')
+              }
               $self.$router.push('/accountoverview')
             } else {
               $self.iserror = true
               $self.error_msg = res.result
+              $self.$http.get('/customer-point/customer/login-err-times',
+                {
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'charset': 'utf-8'
+                  },
+                  emulateJSON: true
+                }).then((res) => {
+                  console.log(res.body)
+                }, (error) => {
+                  console.log('error', error)
+                })
               return false
             }
           }, (error) => {
