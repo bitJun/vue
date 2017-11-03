@@ -46,6 +46,7 @@
 import filiter from './filiter.vue'
 import Dialog from './editBank.vue'
 import Tip from './tip.vue'
+import {loginHandle, errorRequestHandle} from '../../assets/js/tool'
 let $self = ''
 export default {
   name: 'Ubankinfo',
@@ -63,17 +64,21 @@ export default {
   },
   'methods': {
     'init': function () {
-      for (let i = 0; i < 6; i++) {
-        let data = {
-          id: i,
-          account: '**** **** **** **** 9384',
-          payee: '景田',
-          SWIFT: 'HSHS',
-          branch: '高新支行',
-          address: '杭州文二西路'
-        }
-        $self.bank.push(data)
+      let params = {
+        customerId: localStorage.getItem('UserId')
       }
+      $self.$http.get('/customer-point/bank/get-bankaccountlist',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'charset': 'utf-8'
+          },
+          params,
+          emulateJSON: true
+        }).then(loginHandle).then((res) => {
+          let json = res.body.result
+          $self.bank = json
+        }).catch(errorRequestHandle)
     },
     'edit': function (id) {
       $self.$layer.iframe({

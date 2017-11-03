@@ -19,6 +19,7 @@
   </div>
 </template>
 <<script>
+import {loginHandle, errorRequestHandle} from '../../assets/js/tool'
 export default {
   name: 'topbar',
   props: {
@@ -28,7 +29,7 @@ export default {
   },
   data () {
     return {
-      username: '叶茂科技',
+      username: '',
       routes: [
         {
           name: '账户总览',
@@ -51,6 +52,29 @@ export default {
           link: '/userinfo/basicinfo'
         }
       ]
+    }
+  },
+  created () {
+    this.init()
+  },
+  'methods': {
+    'init': function () {
+      this.$http.get('/customer-point/customer/login-data',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'charset': 'utf-8'
+          },
+          emulateJSON: true
+        }).then(loginHandle).then((res) => {
+          console.log(res)
+          if (res.body.result === null) {
+            this.$router.push('/login')
+          } else {
+            this.username = res.body.result.realname
+            localStorage.setItem('UserId', res.body.result.id)
+          }
+        }).catch(errorRequestHandle)
     }
   }
 }

@@ -7,32 +7,32 @@
         <div class="form-group">
           <p class="tli">
             用户名
-            <lanel><span class="must">*</span>设置后无法修改</lanel>
+            <label><span class="must">*</span>设置后无法修改</label>
           </p>
           <div class="clearfix">
-            <input class="control-input pull-left" type="text">
+            <input class="control-input pull-left" type="text" v-model="data.username">
             <a class="btn sure pull-left">确认</a>
           </div>
         </div>
         <div class="form-group">
           <p class="tli">登录密码</p>
           <div class="clearfix">
-            <input class="control-input pull-left" type="text">
-            <a class="btn edit pull-left">修改</a>
+            <input class="control-input pull-left" type="password" v-model="data.password" readonly>
+            <a class="btn edit pull-left" @click="changePwd()">修改</a>
           </div>
         </div>
         <div class="form-group">
           <p class="tli">绑定邮箱</p>
           <div class="clearfix">
-            <input class="control-input pull-left" type="text">
-            <a class="btn edit pull-left">修改</a>
+            <input class="control-input pull-left" type="text" v-model="data.email" readonly>
+            <a class="btn edit pull-left" @click="changeEmail()">修改</a>
           </div>
         </div>
         <div class="form-group">
           <p class="tli">绑定手机</p>
           <div class="clearfix">
-            <input class="control-input pull-left" type="text">
-            <a class="btn edit pull-left">修改</a>
+            <input class="control-input pull-left" type="text" v-model="data.mobile" readonly>
+            <a class="btn edit pull-left" @click="changePhone()">修改</a>
           </div>
         </div>
       </form>
@@ -41,10 +41,74 @@
 </template>
 <script>
 import filiter from './filiter.vue'
+import changeEmail from './changeEmail.vue'
+import changePhone from './changePhone.vue'
+import changePwd from './changePwd.vue'
+import {loginHandle, errorRequestHandle} from '../../assets/js/tool'
+let $self = ''
 export default {
   name: 'Ubasicinfo',
+  data () {
+    return {
+      data: {}
+    }
+  },
   components: {
     'filiter': filiter
+  },
+  created () {
+    $self = this
+    $self.init()
+  },
+  'methods': {
+    'init': function () {
+      $self.$http.get('/customer-point/customer/login-data',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'charset': 'utf-8'
+          },
+          emulateJSON: true
+        }).then(loginHandle).then((res) => {
+          $self.data = res.body.result
+          console.log($self.data)
+          localStorage.setItem('UserId', res.body.result.id)
+          // let json = JSON.parse(response.bodyText)
+        }).catch(errorRequestHandle)
+    },
+    'changeEmail': function () {
+      $self.$layer.iframe({
+        title: '',
+        content: {
+          content: changeEmail,
+          parent: $self,
+          data: []
+        },
+        area: ['500px', 'auto']
+      })
+    },
+    'changePhone': function () {
+      $self.$layer.iframe({
+        title: '',
+        content: {
+          content: changePhone,
+          parent: $self,
+          data: []
+        },
+        area: ['500px', 'auto']
+      })
+    },
+    'changePwd': function () {
+      $self.$layer.iframe({
+        title: '',
+        content: {
+          content: changePwd,
+          parent: $self,
+          data: []
+        },
+        area: ['500px', 'auto']
+      })
+    }
   }
 }
 </script>

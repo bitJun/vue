@@ -32,11 +32,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        '/support-center': {
-            target: 'http://172.16.220.188:8080/support-center/',
+        '/customer-point': {
+            target: 'http://172.16.60.180:8080/customer-point/',
             changeOrigin: true,
             pathRewrite: { //需要rewrite重写的, 如果在服务器端做了处理则可以不要这段
-                '^/support-center': ''
+                '^/customer-point': ''
             }
         }
     },

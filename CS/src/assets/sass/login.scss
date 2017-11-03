@@ -11,8 +11,25 @@
     float: right;
     width: 575px;
     height: 600px;
+    position: relative;
     form {
       padding: 100px 115px 0px 110px;
+    }
+    .error_tips {
+      position: absolute;
+      width: 350px;
+      height: 40px;
+      top: 13px;
+      left: 110px;
+      background: #e75757;
+      opacity: 0.5;
+      color: #ffffff;
+      font-size: 12px;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      line-height: 40px;
+      text-align: center;
     }
     h4 {
       font-size: 30px;
@@ -93,6 +110,11 @@
       border-radius: 5px;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
+    }
+    .btn_1.disabled {
+      border-color: #e8e8e8;
+      background: #e8e8e8;
+      color: #999999;
     }
     .login, .register, .next, .reset {
       background: #5fb897;

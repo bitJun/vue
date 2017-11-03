@@ -46,11 +46,33 @@
   </div>
 </template>
 <script>
+import {loginHandle, errorRequestHandle} from '../../assets/js/tool'
 export default {
   name: 'addbank',
+  created () {
+    this.init()
+  },
   'methods': {
+    'init': function () {
+      this.getBank()
+    },
     'cancel': function () {
       this.$layer.closeAll()
+    },
+    'getBank': function () {
+      this.$http.get('/customer-point/bank/get-banklist',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'charset': 'utf-8'
+          },
+          emulateJSON: true
+        }).then(loginHandle).then((res) => {
+          console.log(res)
+          this.username = res.body.result.realname
+          localStorage.setItem('UserId', res.body.result.id)
+          // let json = JSON.parse(response.bodyText)
+        }).catch(errorRequestHandle)
     }
   }
 }

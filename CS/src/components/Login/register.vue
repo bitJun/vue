@@ -3,32 +3,30 @@
     <div class="login" v-bind:style="{top:size.top+'px', left:size.left+'px'}">
       <div class="login_template">
         <form>
+          <p class="error_tips" v-if="iserror">{{error_msg}}</p>
           <h4>
             注册<span>Sign UP</span>
           </h4>
           <div class="form-group clearfix">
-            <input type="text">
+            <input type="text" v-model="data.realname">
             <span>真实姓名</span>
-            <p class="tips"></p>
           </div>
           <div class="form-group clearfix">
-            <input type="text">
+            <input type="text" v-model="data.mobile">
             <span>手机</span>
-            <p class="tips"></p>
           </div>
           <div class="form-group clearfix">
-            <input type="text">
+            <input type="password" v-model="data.password">
             <span>密码</span>
-            <p class="tips"></p>
           </div>
           <div class="form-group Captcha clearfix">
-            <input class="code pull-left" type="text">
+            <input class="code pull-left" type="text" v-model="data.code">
             <span>验证码</span>
-            <a class="btn_1 getcode pull-left">获取验证码</a>
-            <p class="tips"></p>
+            <a class="btn_1 getcode pull-left" v-if="iscode == false" @click="getsms()">获取验证码</a>
+            <a class="btn_1 getcode disabled pull-left" v-if="iscode">({{wait}}s)后重新获取</a>
           </div>
           <div class="form-group clearfix">
-            <a class="login btn_1">注册</a>
+            <a class="login btn_1" @click="register()">注册</a>
           </div>
           <div class="form-group clearfix">
             <router-link to="/login" class="dologin btn_1">已有账号，直接登录</router-link>
@@ -39,9 +37,24 @@
   </div>
 </template>
 <script>
+  import reg from '../../assets/js/reg'
   let $self = ''
   export default {
     name: 'register',
+    data () {
+      return {
+        wait: 60,
+        iscode: false,
+        data: {
+          realname: '',
+          mobile: '',
+          password: '',
+          code: ''
+        },
+        iserror: false,
+        error_msg: ''
+      }
+    },
     created () {
       $self = this
       $self.onresize()
@@ -59,6 +72,94 @@
         $self.size = {
           top: top,
           left: left
+        }
+      },
+      'update': function () {
+        $self.iscode = true
+        if ($self.wait <= 0) {
+          $self.wait = 60
+          $self.iscode = false
+          clearInterval($self.Interval)
+        } else {
+          $self.wait--
+        }
+      },
+      'getsms': function () {
+        if ($self.data.mobile === '') {
+          $self.iserror = true
+          $self.error_msg = '请输入手机号！'
+          return false
+        }
+        if (!reg.phone.test($self.data.mobile)) {
+          $self.iserror = true
+          $self.error_msg = '手机号有误！'
+          return false
+        } else {
+          $self.iserror = false
+          $self.error_msg = ''
+          $self.Interval = setInterval($self.update, 1000)
+          let params = {
+            mobile: $self.data.mobile
+          }
+          $self.$http.get('/customer-point/customer/create-phone-code',
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                'charset': 'utf-8'
+              },
+              params,
+              emulateJSON: true
+            }).then((res) => {
+            }, (error) => {
+              console.log('error', error)
+            })
+        }
+      },
+      'register': function () {
+        $self.iserror = false
+        $self.error_msg = ''
+        let params = $self.data
+        if (params.realname === '') {
+          $self.iserror = true
+          $self.error_msg = '真实姓名不能为空'
+          return false
+        }
+        if (params.mobile === '') {
+          $self.iserror = true
+          $self.error_msg = '请输入手机号！'
+          return false
+        }
+        if (params.password === '') {
+          $self.iserror = true
+          $self.error_msg = '密码不能为空！'
+          return false
+        }
+        if (params.code === '') {
+          $self.iserror = true
+          $self.error_msg = '验证码不能为空！'
+          return false
+        } else {
+          $self.$http.post('/customer-point/customer/registry',
+            params,
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                'charset': 'utf-8'
+              },
+              emulateJSON: true
+            }).then((response) => {
+              console.log(response.body)
+              let res = response.body
+              if (res.code === 10000) {
+                $self.$router.push('/login')
+              } else {
+                $self.iserror = true
+                $self.error_msg = res.result
+                return false
+              }
+            }, (error) => {
+              console.log('error', error)
+            })
         }
       }
     }

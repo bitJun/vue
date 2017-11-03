@@ -33,11 +33,15 @@ export default {
   },
   watch: {
     '$route' (to, from) {
+      console.log(to.name)
       this.to = to.fullPath.split('/')[1].split('-')[0]
-      if (to.name !== 'login') {
+      if (to.name !== 'login' || to.name !== 'register' || to.name !== 'forgotpwd') {
         this.flag = true
-      } else if (to.name === 'login') {
+        this.bgcolor = 'container'
+      } else if (to.name === 'login' || to.name === 'register' || to.name === 'forgotpwd') {
+        console.log(11)
         this.flag = false
+        this.bgcolor = ''
       }
     }
   }
