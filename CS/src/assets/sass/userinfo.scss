@@ -152,6 +152,17 @@
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
     }
+    .banklist li .item .isDefault {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 45px;
+      height: 21px;
+      background: #5fb897;
+      color: #ffffff;
+      line-height: 21px;
+      text-align: center;
+    }
     .banklist li .item:hover {
       .mask, .btn {
         display: block;

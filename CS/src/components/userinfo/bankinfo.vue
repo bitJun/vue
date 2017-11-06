@@ -8,6 +8,7 @@
       <ul class="banklist clearfix" v-if="bank.length > 0">
         <li v-for="item in bank">
           <a class="item">
+            <label class="isDefault" v-if="Number(item.isDefault) == 1">默认</label>
             <div class="bank">
               <img src="../../assets/images/bank_icon.png">
               <p class="account">{{item.bankAccount}}</p>
