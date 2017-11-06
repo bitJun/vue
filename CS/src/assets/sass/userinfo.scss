@@ -89,10 +89,18 @@
         color: #ffffff;
         border: 1px solid #5fb897;
       }
+      .sure:hover {
+        background: #46987a;
+        border-color: #46987a;
+      }
       .edit {
         background: #ffffff;
         color: #5fb897;
         border: 1px solid #5fb897;
+      }
+      .edit:hover {
+        background: #5fb897;
+        color: #ffffff;
       }
     }
   }
@@ -117,6 +125,9 @@
       border-radius: 5px;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
+    }
+    .addBank:hover {
+      background: #46987a;
     }
     .banklist {
       padding: 0px 150px;
@@ -178,10 +189,17 @@
       color: #5fb897;
       left: 30px;
     }
+    .banklist li a .btn.delete:hover {
+      background: #5fb897;
+      color: #ffffff;
+    }
     .banklist li a .btn.edit {
       right: 27px;
       background: #5fb897;
       color: #ffffff;
+    }
+    .banklist li a .btn.edit:hover {
+      background: #46987a;
     }
     .banklist li a .bank {
       width: 100%;

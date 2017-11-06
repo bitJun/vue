@@ -22,7 +22,7 @@
           <p class="tli">支付平台</p>
           <input type="text">
         </div>
-        <div class="form-group">
+        <div class="form-group payment">
           <p class="tli">支付金额(￥)</p>
           <input type="text" placeholder="根据入金金额自动计算" disabled>
           <span class="notice">CNY (手续费: 1%，将从存款金额中扣除)实时汇率：1USD 兑 6.9286CNY</span>

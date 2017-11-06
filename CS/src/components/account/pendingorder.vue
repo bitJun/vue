@@ -14,14 +14,14 @@
             <span class="account_type">{{account_type}}</span>
          </div>
          <ul class="pull-right clearfix">
-           <li class="time_select">
+           <li class="time_select clearfix">
              <label>交易时间</label>
-             <el-date-picker v-model="time" type="daterange" align="right" placeholder="选择日期范围" :picker-options="pickerOptions2">
+             <el-date-picker v-model="time" type="daterange" align="right" placeholder="选择日期范围" :picker-options="pickerOptions2" id="time_select">
              </el-date-picker>
            </li>
-           <li>
+           <li class="Report_type">
              <label>报表类型</label>
-             <el-select v-model="trade_value" placeholder="请选择">
+             <el-select v-model="trade_value" placeholder="请选择" id="Report_type">
                 <el-option v-for="item in trade" :key="item.value" :label="item.label" :value="item.value"></el-option>
               </el-select>
            </li>
@@ -32,12 +32,12 @@
           <thead>
             <tr>
               <td v-bind:style="{width:'120px'}">订单号</td>
-              <td v-bind:style="{width:'120px'}">品种</td>
-              <td v-bind:style="{width:'60px'}">类型</td>
-              <td v-bind:style="{width:'120px'}">交易量</td>
+              <td v-bind:style="{width:'100px'}">品种</td>
+              <td v-bind:style="{width:'80px'}">类型</td>
+              <td v-bind:style="{width:'80px'}">交易量</td>
               <td v-bind:style="{width:'100px'}">开/平仓价</td>
-              <td v-bind:style="{width:'130px'}">开仓时间</td>
-              <td v-bind:style="{width:'130px'}">平仓时间</td>
+              <td v-bind:style="{width:'150px'}">开仓时间</td>
+              <td v-bind:style="{width:'150px'}">平仓时间</td>
               <td v-bind:style="{width:'80px'}">止损</td>
               <td v-bind:style="{width:'80px'}">止盈</td>
               <td v-bind:style="{width:'80px'}">佣金</td>
@@ -48,20 +48,20 @@
           <tbody v-if="json.length > 0">
             <tr v-for="item in json">
               <td v-bind:style="{width:'120px'}">{{item.orderId}}</td>
-              <td v-bind:style="{width:'120px'}">{{item.varieties}}</td>
-              <td v-bind:style="{width:'60px'}" v-if="item.type==1">
+              <td v-bind:style="{width:'100px'}">{{item.varieties}}</td>
+              <td v-bind:style="{width:'80px'}" v-if="item.type==1">
                 买入<img src='../../assets/images/left.png'>
               </td>
-              <td v-bind:style="{width:'60px'}" v-if="item.type==0">
+              <td v-bind:style="{width:'80px'}" v-if="item.type==0">
                 卖出<img src='../../assets/images/right.png'>
               </td>
-              <td v-bind:style="{width:'120px'}">{{item.volume}}</td>
+              <td v-bind:style="{width:'80px'}">{{item.volume}}</td>
               <td v-bind:style="{width:'100px'}">
                 <p>{{item.O_price}}</p>
                 <p>{{item.E_price}}</p>
               </td>
-              <td v-bind:style="{width:'130px'}">{{item.O_time | time}}</td>
-              <td v-bind:style="{width:'130px'}">{{item.E_time | time}}</td>
+              <td v-bind:style="{width:'150px'}">{{item.O_time | time}}</td>
+              <td v-bind:style="{width:'150px'}">{{item.E_time | time}}</td>
               <td v-bind:style="{width:'80px'}">{{item.stop}}</td>
               <td v-bind:style="{width:'80px'}">{{item.profit}}</td>
               <td v-bind:style="{width:'80px'}">{{item.commission}}</td>
