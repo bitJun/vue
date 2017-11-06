@@ -71,7 +71,7 @@ export default {
             this.$router.push('/login')
           } else {
             this.username = res.body.result.realname
-            localStorage.setItem('UserId', res.body.result.id)
+            localStorage.setItem('customerId', res.body.result.id)
           }
         }).catch(errorRequestHandle)
     },

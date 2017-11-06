@@ -9,12 +9,13 @@ export function loginHandle (res) {
     this.$router.push('/login')
   }
   if (result.code === 10000) {
-    throw res
+    return res
   } else {
     return res
   }
 }
 export function errorRequestHandle (res) {
+  console.log(11)
   let result = res.body
   if (result.code !== 10000) {
     this.$message({

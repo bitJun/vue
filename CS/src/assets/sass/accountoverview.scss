@@ -8,8 +8,8 @@
     padding-bottom: 75px;
   }
   .tli {
-    padding-top: 35px;
-    margin-bottom: 15px;
+    padding-top: 30px;
+    margin-bottom: 10px;
     color: #999999;
     font-size: 14px;
   }
@@ -21,7 +21,7 @@
   .realaccount {
     background: #ffffff;
     height: 200px;
-    padding: 0px 45px 0px 35px;
+    padding: 0px 50px;
   }
   .tipbar {
     width: 70px;
@@ -51,11 +51,11 @@
   .balance_num {
     font-size: 30px;
     color: #5fb897;
-    margin-top: 15px;
+    margin-top: 10px;
   }
   .infomation {
     width: 660px;
-    margin: 0px 60px;
+    margin: 0px 59px;
   }
   .infomation li {
     float: left;
@@ -112,6 +112,18 @@
     height: 55px;
     line-height: 55px;
   }
+  .list tbody td label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+  }
+  .imitate .list tbody td label {
+    background: #f7bb5d;
+  }
+  .true .list tbody td label {
+    background: #5fb897;
+  }
   .list tbody td a {
     display: block;
     width: 68px;
@@ -122,7 +134,7 @@
     color: #5fb897;
     font-size: 14px;
     float: right;
-    margin-right: 35px;
+    margin-right: 50px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;

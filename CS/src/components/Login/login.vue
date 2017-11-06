@@ -48,6 +48,10 @@ export default {
         password: '',
         code: ''
       },
+      size: {
+        top: '',
+        left: ''
+      },
       iserror: false,
       error_msg: '',
       codeImg: '',
@@ -67,7 +71,14 @@ export default {
       $self.data.password = ''
       $self.checked = false
     }
+  },
+  mounted () {
     $self.onresize()
+    document.onkeydown = function (e) {
+      if (e && e.keyCode === 13) {
+        $self.login()
+      }
+    }
   },
   'methods': {
     'onresize': function () {

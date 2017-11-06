@@ -10,27 +10,27 @@
           <a class="item">
             <div class="bank">
               <img src="../../assets/images/bank_icon.png">
-              <p class="account">{{item.account}}</p>
+              <p class="account">{{item.bankAccount}}</p>
             </div>
             <p class="info clearfix">
               <span class="pull-left">收款人</span>
-              <label class="pull-right">{{item.payee}}</label>
+              <label class="pull-right">{{item.beneficiaryName}}</label>
             </p>
             <p class="info clearfix">
               <span class="pull-left">SWIFT代码</span>
-              <label class="pull-right">{{item.SWIFT}}</label>
+              <label class="pull-right">{{item.swiftCode}}</label>
             </p>
             <p class="info clearfix">
               <span class="pull-left">支行名称</span>
-              <label class="pull-right">{{item.branch}}</label>
+              <label class="pull-right">{{item.branchName}}</label>
             </p>
             <p class="info clearfix">
               <span class="pull-left">银行地址</span>
-              <label class="pull-right">{{item.address}}</label>
+              <label class="pull-right">{{item.bankAddress}}</label>
             </p>
             <div class="mask">
             </div>
-            <a class="btn delete" @click="del()">删除</a>
+            <a class="btn delete" @click="del(item.id)">删除</a>
             <a class="btn edit" @click="edit(item.id)">编辑</a>
           </a>
         </li>
@@ -52,7 +52,10 @@ export default {
   name: 'Ubankinfo',
   data () {
     return {
-      bank: []
+      bank: [],
+      flag: true,
+      delId: '',
+      editId: ''
     }
   },
   created () {
@@ -65,7 +68,7 @@ export default {
   'methods': {
     'init': function () {
       let params = {
-        customerId: localStorage.getItem('UserId')
+        customerId: localStorage.getItem('customerId')
       }
       $self.$http.get('/customer-point/bank/get-bankaccountlist',
         {
@@ -79,19 +82,49 @@ export default {
           let json = res.body.result
           $self.bank = json
         }).catch(errorRequestHandle)
+      $self.canAdd()
+    },
+    'canAdd': function () {
+      let params = {
+        customerId: localStorage.getItem('customerId')
+      }
+      $self.$http.get('/customer-point/bank/add-check',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'charset': 'utf-8'
+          },
+          params,
+          emulateJSON: true
+        }).then(loginHandle).then((res) => {
+          let json = res.body
+          console.log(json)
+          $self.flag = json.result
+        }).catch(errorRequestHandle)
     },
     'edit': function (id) {
-      $self.$layer.iframe({
-        title: '',
-        content: {
-          content: Dialog,
-          parent: $self,
-          data: []
-        },
-        area: ['500px', 'auto']
-      })
+      if ($self.flag === false) {
+        $self.$message({
+          message: '您最多只能绑定10张银行卡',
+          type: 'warning',
+          duration: '2000'
+        })
+        return false
+      } else {
+        $self.editId = id
+        $self.$layer.iframe({
+          title: '',
+          content: {
+            content: Dialog,
+            parent: $self,
+            data: []
+          },
+          area: ['500px', 'auto']
+        })
+      }
     },
-    'del': function () {
+    'del': function (id) {
+      $self.delId = id
       $self.$layer.iframe({
         title: '',
         content: {

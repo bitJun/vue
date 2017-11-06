@@ -38,7 +38,7 @@
         <p>最近无登录</p>
       </div>
     </section>
-    <section>
+    <section class="true">
       <p class="tli">真实账户</p>
       <div class="list" v-if="json.length>0">
         <table>
@@ -54,9 +54,9 @@
           </thead>
           <tbody>
             <tr v-for="item in json">
-              <td v-bind:style="{width: '18%'}">{{item.account}}</td>
+              <td v-bind:style="{width: '18%'}"><label></label>{{item.account}}</td>
               <td v-bind:style="{width: '18%'}">{{item.name}}</td>
-              <td v-bind:style="{width: '18%'}">{{item.balance}}</td>
+              <td v-bind:style="{width: '18%', 'font-size': '16px'}">{{item.balance}}</td>
               <td v-bind:style="{width: '18%'}">{{item.platform}}</td>
               <td v-bind:style="{width: '18%'}">{{item.time | datetime}}</td>
               <td v-bind:style="{width: '10%'}">
@@ -71,7 +71,7 @@
         <p>当前暂无账户</p>
       </div>
     </section>
-    <section>
+    <section class="imitate">
       <p class="tli">模拟账户</p>
       <div class="list" v-if="json.length>0">
         <table>
@@ -87,9 +87,9 @@
           </thead>
           <tbody>
             <tr v-for="item in json">
-              <td v-bind:style="{width: '18%'}">{{item.account}}</td>
+              <td v-bind:style="{width: '18%'}"><label></label>{{item.account}}</td>
               <td v-bind:style="{width: '18%'}">{{item.name}}</td>
-              <td v-bind:style="{width: '18%'}">{{item.balance}}</td>
+              <td v-bind:style="{width: '18%', 'font-size': '16px'}">{{item.balance}}</td>
               <td v-bind:style="{width: '18%'}">{{item.platform}}</td>
               <td v-bind:style="{width: '18%'}">{{item.time | datetime}}</td>
               <td v-bind:style="{width: '10%'}">

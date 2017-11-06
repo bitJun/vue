@@ -181,3 +181,8 @@ table {
   font-size: 14px;
   color: #333333;
 }
+.el-input__inner {
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #dadada;
+}

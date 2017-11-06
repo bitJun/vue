@@ -1,11 +1,11 @@
 .userinfo_view {
   .filiter_view {
-    height: 70px;
+    height: 55px;
     background: #fafafa;
     margin-bottom: 20px;
     .menu {
       width: 230px;
-      height: 70px;
+      height: 55px;
       margin: 0px auto;
     }
     .menu li {
@@ -19,7 +19,7 @@
     .menu li a {
       display: block;
       width: 60px;
-      line-height: 70px;
+      line-height: 55px;
       text-align: center;
       color: #9baebd;
       font-size: 14px;
@@ -260,6 +260,16 @@
   .input-control.getcode {
     width: 148px;
     margin-right: 25px;
+  }
+  .select-control {
+    height: 40px;
+    width: 300px;
+  }
+  .el-select {
+    width: 100%;
+  }
+  .el-checkbox {
+    margin-left: 80px;
   }
   .Captcha {
     display: block;
