@@ -12,6 +12,15 @@
     width: 575px;
     height: 600px;
     position: relative;
+    .logo {
+      position: absolute;
+      left: -325px;
+      bottom: 53px;
+      img {
+        width: 240px;
+        height: 65px;
+      }
+    }
     form {
       padding: 100px 115px 0px 110px;
     }

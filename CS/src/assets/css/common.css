@@ -99,6 +99,9 @@ table {
   color: #ffffff;
   text-decoration: none;
 }
+.Pagination {
+  margin-top: 30px;
+}
 /* dialog */
 .dialog .panel_title {
   height: 50px;
@@ -129,8 +132,8 @@ table {
 .dialog .panel_title .icon-cha {
   position: absolute;
   font-size: 16px;
-  right: 15px;
-  top: 30px;
+  right: 21px;
+  top: 15px;
   color: #dadada;
   cursor: pointer;
 }
@@ -230,4 +233,13 @@ table {
 .el-pager li:hover,
 .el-pagination button:hover {
   color: #5fb897;
+}
+.el-select-dropdown__item.selected,
+.el-select-dropdown__item.selected.hover,
+.el-select-dropdown__item.hover {
+  background: #f4f8fb;
+  color: #333333;
+}
+.el-input__inner {
+  text-align: center;
 }

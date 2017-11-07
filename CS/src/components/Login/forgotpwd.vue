@@ -2,6 +2,9 @@
   <div class="login_view">
     <div class="login" v-bind:style="{top:size.top+'px', left:size.left+'px'}">
       <div class="login_template">
+        <div class="logo">
+          <img src="../../assets/images/login-logo.png">
+        </div>
         <form>
           <p class="error_tips" v-if="iserror">{{error_msg}}</p>
           <h4>
@@ -60,6 +63,10 @@ export default {
         password: '',
         code: ''
       },
+      size: {
+        top: '',
+        left: ''
+      },
       iserror: false,
       error_msg: '',
       noregister: false
@@ -68,6 +75,24 @@ export default {
   created () {
     $self = this
     $self.onresize()
+  },
+  mounted () {
+    window.onresize = () => {
+      return (() => {
+        let windowHeight = document.documentElement.clientHeight
+        let logintop = windowHeight - 600
+        logintop = logintop / 2
+        let windowWidth = document.documentElement.clientWidth
+        let loginleft = windowWidth - 1000
+        loginleft = loginleft / 2
+        let top = logintop
+        let left = loginleft
+        $self.size = {
+          top: top,
+          left: left
+        }
+      })()
+    }
   },
   'methods': {
     'onresize': function () {

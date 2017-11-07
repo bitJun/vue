@@ -35,8 +35,8 @@
             <textarea class="pull-left"></textarea>
           </div>
           <div class="operstes clearfix">
-            <a class="btn prev" @click="prev()">返回</a>
-            <a class="btn next" @click="next()">下一步</a>
+            <a class="btns prev" @click="prev()">返回</a>
+            <a class="btns next" @click="next()">下一步</a>
           </div>
         </form>
       </div>
@@ -80,8 +80,8 @@
             <textarea class="pull-left"></textarea>
           </div>
           <div class="operstes clearfix">
-            <a class="btn prev" @click="prev()">上一步</a>
-            <a class="btn next" @click="next()">下一步</a>
+            <a class="btns prev" @click="prev()">上一步</a>
+            <a class="btns next" @click="next()">下一步</a>
           </div>
         </form>
       </div>
@@ -143,8 +143,8 @@
             </ul>
           </div>
           <div class="operstes clearfix">
-            <a class="btn prev" @click="prev()">上一步</a>
-            <a class="btn next" @click="next()">提交</a>
+            <a class="btns prev" @click="prev()">上一步</a>
+            <a class="btns next" @click="next()">提交</a>
           </div>
         </form>
       </div>

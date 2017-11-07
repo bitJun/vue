@@ -16,7 +16,7 @@
          <ul class="pull-right clearfix">
            <li class="time_select">
              <label>交易时间</label>
-             <el-date-picker v-model="time" type="daterange" align="right" placeholder="选择日期范围" :picker-options="pickerOptions2">
+             <el-date-picker v-model="time" type="daterange" align="right" placeholder="选择日期范围" :picker-options="pickerOptions2" id="time_select">
              </el-date-picker>
            </li>
            <li class="single">
@@ -43,29 +43,29 @@
         <table>
           <thead>
             <tr>
-              <td>申请ID</td>
-              <td>入金金额($)</td>
-              <td>创建时间</td>
-              <td>支付金额($)</td>
-              <td>支付状态</td>
-              <td>申请状态</td>
-              <td>处理时间</td>
-              <td><p>备注</p></td>
+              <td v-bind:style="{width:'170px'}">申请ID</td>
+              <td v-bind:style="{width:'110px'}">入金金额($)</td>
+              <td v-bind:style="{width:'170px'}">创建时间</td>
+              <td v-bind:style="{width:'110px'}">支付金额($)</td>
+              <td v-bind:style="{width:'150px'}">支付状态</td>
+              <td v-bind:style="{width:'150px'}">申请状态</td>
+              <td v-bind:style="{width:'170px'}">处理时间</td>
+              <td v-bind:style="{width:'120px'}"><p>备注</p></td>
             </tr>
           </thead>
           <tbody v-if="json.length > 0">
             <tr v-for="item in json">
-              <td>{{item.applyId}}</td>
-              <td>{{item.entry}}</td>
-              <td>{{item.Ctime | time}}</td>
-              <td>{{item.pay}}</td>
-              <td v-if="item.pay_status == 0"><label class="paid"></label>未支付</td>
-              <td v-if="item.pay_status == 1"><label class="unpaid"></label>已支付</td>
-              <td v-if="item.apply_status == 0"><label class="refuse"></label>拒绝</td>
-              <td v-if="item.apply_status == 1"><label class="process"></label>处理中</td>
-              <td v-if="item.apply_status == 2"><label class="completed"></label>已完成</td>
-              <td>{{item.dealTime | time}}</td>
-              <td><p>无</p></td>
+              <td v-bind:style="{width:'170px'}">{{item.applyId}}</td>
+              <td v-bind:style="{width:'110px'}">{{item.entry}}</td>
+              <td v-bind:style="{width:'170px'}">{{item.Ctime | time}}</td>
+              <td v-bind:style="{width:'110px'}">{{item.pay}}</td>
+              <td v-bind:style="{width:'150px'}" v-if="item.pay_status == 0"><label class="paid"></label>未支付</td>
+              <td v-bind:style="{width:'150px'}" v-if="item.pay_status == 1"><label class="unpaid"></label>已支付</td>
+              <td v-bind:style="{width:'150px'}" v-if="item.apply_status == 0"><label class="refuse"></label>拒绝</td>
+              <td v-bind:style="{width:'150px'}" v-if="item.apply_status == 1"><label class="process"></label>处理中</td>
+              <td v-bind:style="{width:'150px'}" v-if="item.apply_status == 2"><label class="completed"></label>已完成</td>
+              <td v-bind:style="{width:'170px'}">{{item.dealTime | time}}</td>
+              <td v-bind:style="{width:'120px'}"><p>无</p></td>
             </tr>
           </tbody>
         </table>
