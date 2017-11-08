@@ -1,4 +1,4 @@
-<<template>
+<template>
   <div class="top_view clearfix">
     <div class="main">
       <router-link to="/" class="logo pull-left">Spire Trader</router-link>
@@ -18,7 +18,7 @@
     </div>
   </div>
 </template>
-<<script>
+<script>
 import {loginHandle, errorRequestHandle, errorMsg} from '../../assets/js/tool'
 export default {
   name: 'topbar',
@@ -92,6 +92,6 @@ export default {
   }
 }
 </script>
-<<style lang="scss" scoped>
+<style lang="scss" scoped>
 @import '../../assets/sass/top.scss'
 </style>
