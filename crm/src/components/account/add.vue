@@ -356,11 +356,11 @@
         radio: '1'
       }
     },
-    'methods': {
-      'cancel': function () {
+    methods: {
+      cancel () {
         this.$layer.closeAll()
       },
-      'next': function () {
+      next () {
         if (this.nowstep === 3) {
           return false
         }
@@ -388,7 +388,7 @@
             break
         }
       },
-      'prev': function () {
+      prev () {
         if (this.nowstep === 1) {
           return false
         }

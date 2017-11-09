@@ -54,11 +54,11 @@
         time: 'Tue Oct 10 2017 09:16:04 GMT+0800 (中国标准时间)'
       }
     },
-    'methods': {
-      'handleSuccess': function (e) {
+    methods: {
+      handleSuccess (e) {
         alert('success')
       },
-      'handleError': function (e) {
+      handleError (e) {
         alert('error')
       }
     }

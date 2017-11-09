@@ -179,8 +179,8 @@ export default {
     'filiter': filiter,
     'Pages': Pages
   },
-  'methods': {
-    'init': function () {
+  methods: {
+    init () {
       for (let i = 0; i < 10; i++) {
         let data = {
           id: i,

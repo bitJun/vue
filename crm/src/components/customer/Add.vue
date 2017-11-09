@@ -60,11 +60,11 @@
         sex_value: 's1'
       }
     },
-    'methods': {
-      'cancel': function () {
+    methods: {
+      cancel () {
         this.$layer.closeAll()
       },
-      'sure': function () {
+      sure () {
         console.log(11)
       }
     }

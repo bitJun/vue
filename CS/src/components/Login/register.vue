@@ -81,8 +81,8 @@ export default {
       })()
     }
   },
-  'methods': {
-    'onresize': function () {
+  methods: {
+    onresize () {
       let windowHeight = document.documentElement.clientHeight
       let logintop = windowHeight - 600
       logintop = logintop / 2
@@ -96,7 +96,7 @@ export default {
         left: left
       }
     },
-    'update': function () {
+    update () {
       $self.iscode = true
       if ($self.wait <= 0) {
         $self.wait = 60
@@ -106,7 +106,7 @@ export default {
         $self.wait--
       }
     },
-    'getsms': function () {
+    getsms () {
       if ($self.data.mobile === '') {
         $self.iserror = true
         $self.error_msg = '请输入手机号！'
@@ -135,7 +135,7 @@ export default {
           }).catch(errorMsg)
       }
     },
-    'register': function () {
+    register () {
       $self.iserror = false
       $self.error_msg = ''
       let params = $self.data

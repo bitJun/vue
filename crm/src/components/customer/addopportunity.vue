@@ -60,8 +60,8 @@
         type_value: 't1'
       }
     },
-    'methods': {
-      'cancel': function () {
+    methods: {
+      cancel () {
         this.$layer.closeAll()
       }
     }

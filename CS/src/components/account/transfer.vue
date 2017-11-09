@@ -18,7 +18,7 @@
           <input type="text">
           <span class="notice">最低入金金额：100USD   最高入金金额：1000USD</span>
         </div>
-        <div class="form-group">
+        <div class="form-group payment">
           <p class="tli">转入账户</p>
           <input type="text">
         </div>

@@ -77,15 +77,15 @@ export default {
   created () {
     $self = this
   },
-  'methods': {
-    'onFileChange': function (e) {
+  methods: {
+    onFileChange (e) {
       let files = e.target.files || e.dataTransfer.files
       if (!files.length) {
         return
       }
       this.createImage(files[0], e.target.id)
     },
-    'createImage': function (file, id) {
+    createImage (file, id) {
       let reader = new FileReader()
       reader.onload = (e) => {
         let params = e.target.result

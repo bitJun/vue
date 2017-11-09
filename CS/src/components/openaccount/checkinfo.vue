@@ -153,8 +153,8 @@ export default {
       checked: true
     }
   },
-  'methods': {
-    'back': function () {
+  methods: {
+    back () {
       this.$router.go(-1)
     }
   }

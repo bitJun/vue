@@ -87,9 +87,9 @@
         json: json
       }
     },
-    'methods': {
-      'init': function () {},
-      'close': function () {
+    methods: {
+      init () {},
+      close () {
         this.$layer.closeAll()
       }
     }

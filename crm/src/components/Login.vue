@@ -65,8 +65,8 @@
         })()
       }
     },
-    'methods': {
-      'onresize': function () {
+    methods: {
+      onresize () {
         let windowHeight = document.documentElement.clientHeight
         let logintop = windowHeight - $('.main').height()
         logintop = logintop / 2
@@ -80,7 +80,7 @@
           left: left
         }
       },
-      'getImgCode': function () {
+      getImgCode () {
         let stamp = new Date().getTime()
         $self.$http.get('/support-center/admin-user/create-img-code?' + stamp + '',
           {
@@ -95,10 +95,10 @@
             console.log('error', error)
           })
       },
-      'reloadCode': function () {
+      reloadCode () {
         $self.getImgCode()
       },
-      'doLogin': function () {
+      doLogin () {
       }
     },
     watch: {

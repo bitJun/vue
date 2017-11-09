@@ -94,8 +94,8 @@ export default {
       })()
     }
   },
-  'methods': {
-    'onresize': function () {
+  methods: {
+    onresize () {
       let windowHeight = document.documentElement.clientHeight
       let logintop = windowHeight - 600
       logintop = logintop / 2
@@ -109,7 +109,7 @@ export default {
         left: left
       }
     },
-    'checkphone': function () {
+    checkphone () {
       let params = {
         mobile: $self.data.mobile
       }
@@ -135,7 +135,7 @@ export default {
           }
         }).catch(errorMsg)
     },
-    'next': function () {
+    next () {
       let json = $self.data
       $self.iserror = false
       $self.error_msg = ''
@@ -158,7 +158,7 @@ export default {
         $self.step2 = !$self.step2
       }
     },
-    'update': function () {
+    update () {
       $self.iscode = true
       if ($self.wait <= 0) {
         $self.wait = 60
@@ -168,7 +168,7 @@ export default {
         $self.wait--
       }
     },
-    'getsms': function () {
+    getsms () {
       if ($self.noregister === true) {
         $self.iserror = true
         $self.error_msg = '该手机未注册！'
@@ -202,7 +202,7 @@ export default {
           }).catch(errorMsg)
       }
     },
-    'submit': function () {
+    submit () {
       if ($self.data.password === '') {
         $self.iserror = true
         $self.error_msg = '请填写用户密码！'
@@ -246,7 +246,7 @@ export default {
           }).catch(errorMsg)
       }
     },
-    'gologin': function () {
+    gologin () {
       $self.$router.push('/login')
     }
   }

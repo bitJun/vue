@@ -51,8 +51,8 @@
       'opportunity': opportunity,
       'record': record
     },
-    'methods': {
-      'tab': function (index, event) {
+    methods: {
+      tab (index, event) {
         let $div = $(event.currentTarget)
         $div.parent().siblings().find('a').removeClass('active')
         $div.addClass('active')
@@ -74,7 +74,7 @@
             break
         }
       },
-      'cancel': function () {
+      cancel () {
         this.$layer.closeAll()
       }
     }

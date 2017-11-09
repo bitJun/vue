@@ -126,24 +126,9 @@ export default {
   created () {
     $self = this
     $self.init()
-    /*
-      $self.$http.get('/chugui-web/inquiry/inquiryCount',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'charset': 'utf-8'
-          },
-          emulateJSON: true
-        }).then(loginHandle).then((res) => {
-          if (res.ok){
-            $self.Quoted = res.body.body[1] || 0
-            $self.wait_Quoted = res.body.body[0] || 0
-          }
-        }).catch(errorRequestHandle)
-    */
   },
-  'methods': {
-    'init': function () {
+  methods: {
+    init () {
       let json = []
       for (let i = 0; i < 5; i++) {
         let data = {

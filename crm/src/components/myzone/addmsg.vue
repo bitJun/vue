@@ -30,11 +30,11 @@
 </template>
 <script>
   export default {
-    'methods': {
-      'cancel': function () {
+    methods: {
+      cancel () {
         this.$layer.closeAll()
       },
-      'sure': function () {
+      sure () {
         console.log(11)
       }
     }

@@ -165,8 +165,8 @@
       $self = this
       $self.init()
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         for (let i = 0; i < 10; i++) {
           let data = {
             id: i,
@@ -195,7 +195,7 @@
           $self.json.push(data)
         }
       },
-      'select': function (id, event) {
+      select (id, event) {
         if (event.currentTarget.checked) {
           console.log($self.ids)
           if ($self.ids.length === $self.json.length) {
@@ -205,7 +205,7 @@
           $self.checkAll = false
         }
       },
-      'selectAll': function (event) {
+      selectAll (event) {
         if (!event.currentTarget.checked) {
           $self.ids = []
         } else {
@@ -215,7 +215,7 @@
           })
         }
       },
-      'strlen': function (str) {
+      strlen (str) {
         var len = 0
         for (var i = 0; i < str.length; i++) {
           var length = str.charCodeAt(i)

@@ -70,8 +70,8 @@
         json: json
       }
     },
-    'methods': {
-      'back': function () {
+    methods: {
+      back () {
         this.$router.go(-1)
       }
     }

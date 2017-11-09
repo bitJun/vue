@@ -87,8 +87,8 @@
     created () {
       $self = this
     },
-    'methods': {
-      'add': function () {
+    methods: {
+      add () {
         $self.$layer.iframe({
           title: '',
           content: {
@@ -99,7 +99,7 @@
           area: ['600px', 'auto']
         })
       },
-      'del': function () {
+      del () {
         $self.$layer.iframe({
           title: '',
           content: {
@@ -111,7 +111,7 @@
         })
         return false
       },
-      'detail': function (event) {
+      detail (event) {
         if (event.target.className === 'del') {
           return false
         }

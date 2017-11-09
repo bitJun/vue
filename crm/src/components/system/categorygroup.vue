@@ -88,7 +88,7 @@
       $self = this
       console.log($self)
     },
-    'methods': {}
+    methods: {}
   }
 </script>
 <style lang="scss" scoped>

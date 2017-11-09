@@ -210,15 +210,15 @@
       }
       this.init()
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         this.gettrend()
         this.getnewaccount()
         this.getnewcustomer()
         this.getvolume()
         this.getdesposit()
       },
-      'gettrend': function () {
+      gettrend () {
         this.trendData = {
           columns: ['日期', '销售额-1季度'],
           rows: [
@@ -232,10 +232,10 @@
         }
         this.chartSettings = {}
       },
-      'getnewaccount': function () {},
-      'getnewcustomer': function () {},
-      'getvolume': function () {},
-      'getdesposit': function () {}
+      getnewaccount () {},
+      getnewcustomer () {},
+      getvolume () {},
+      getdesposit () {}
     },
     components: { VeLine, VeBar },
     watch: {

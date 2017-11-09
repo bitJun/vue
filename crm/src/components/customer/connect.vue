@@ -76,8 +76,8 @@
     created () {
       $self = this
     },
-    'methods': {
-      'add': function () {
+    methods: {
+      add () {
         $self.$layer.iframe({
           title: '',
           content: {

@@ -99,8 +99,8 @@ export default {
       })()
     }
   },
-  'methods': {
-    'onresize': function () {
+  methods: {
+    onresize () {
       let windowHeight = document.documentElement.clientHeight
       let logintop = windowHeight - 600
       logintop = logintop / 2
@@ -114,7 +114,7 @@ export default {
         left: left
       }
     },
-    'getcode': function () {
+    getcode () {
       let stamp = new Date().getTime()
       $self.$http.get('/customer-point/customer/create-img-code?' + stamp + '',
         {
@@ -127,7 +127,7 @@ export default {
           $self.codeImg = res.url
         }).catch(errorMsg)
     },
-    'checkErrorTimes': function () {
+    checkErrorTimes () {
       let params = {
         mobile: $self.data.mobile
       }
@@ -147,7 +147,7 @@ export default {
           }
         }).catch(errorMsg)
     },
-    'login': function () {
+    login () {
       let params = $self.data
       $self.$http.post('/customer-point/customer/login',
         params,

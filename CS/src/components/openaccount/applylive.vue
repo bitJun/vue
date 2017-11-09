@@ -167,8 +167,8 @@ export default {
   created () {
     $self = this
   },
-  'methods': {
-    'next': function () {
+  methods: {
+    next () {
       if ($self.step === 1) {
         $self.step1 = false
         $self.step2 = true
@@ -188,7 +188,7 @@ export default {
         return false
       }
     },
-    'prev': function () {
+    prev () {
       if ($self.step === 1) {
         $self.$router.go(-1)
         return false
@@ -208,14 +208,14 @@ export default {
         return false
       }
     },
-    'onFileChange': function (e) {
+    onFileChange (e) {
       let files = e.target.files || e.dataTransfer.files
       if (!files.length) {
         return
       }
       this.createImage(files[0], e.target.id)
     },
-    'createImage': function (file, id) {
+    createImage (file, id) {
       let reader = new FileReader()
       reader.onload = (e) => {
         let params = e.target.result

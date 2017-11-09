@@ -84,8 +84,8 @@
       $self = this
       $self.init()
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         for (let i = 0; i < 10; i++) {
           let data = {
             i: i,

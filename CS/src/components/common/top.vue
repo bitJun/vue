@@ -57,8 +57,8 @@ export default {
   created () {
     this.init()
   },
-  'methods': {
-    'init': function () {
+  methods: {
+    init () {
       this.$http.get('/customer-point/customer/login-data',
         {
           headers: {
@@ -75,7 +75,7 @@ export default {
           }
         }).catch(errorRequestHandle)
     },
-    'exit': function () {
+    exit () {
       this.$http.get('/customer-point/customer/logout',
         {
           headers: {

@@ -70,8 +70,8 @@ export default {
   created () {
     $self = this
   },
-  'methods': {
-    'comfirm': function () {
+  methods: {
+    comfirm () {
       $self.$layer.iframe({
         title: '',
         content: {

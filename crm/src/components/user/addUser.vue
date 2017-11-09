@@ -83,8 +83,8 @@
         radio: '1'
       }
     },
-    'methods': {
-      'cancel': function () {
+    methods: {
+      cancel () {
         this.$layer.closeAll()
       }
     }

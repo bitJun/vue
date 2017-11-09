@@ -61,11 +61,11 @@
         step_value: 's1'
       }
     },
-    'methods': {
-      'cancel': function () {
+    methods: {
+      cancel () {
         this.$layer.closeAll()
       },
-      'close': function () {
+      close () {
         this.$layer.closeAll('iframe')
       }
     }

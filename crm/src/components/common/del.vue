@@ -22,8 +22,8 @@
     props: {
       data: object
     },
-    'methods': {
-      'cancel': function () {
+    methods: {
+      cancel () {
         this.$layer.closeAll()
       }
     }

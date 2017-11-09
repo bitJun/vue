@@ -30,8 +30,8 @@
 </template>
 <script>
   export default {
-    'methods': {
-      'cancel': function () {
+    methods: {
+      cancel () {
         this.$layer.closeAll()
       }
     }

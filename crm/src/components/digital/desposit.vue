@@ -144,13 +144,13 @@
         value7: ''
       }
     },
-    'methods': {
-      'update': function () {
+    methods: {
+      update () {
         let date = new Date()
         this.time = date
         this.init()
       },
-      'init': function () {
+      init () {
         console.log(11)
       }
     }

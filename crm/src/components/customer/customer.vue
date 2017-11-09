@@ -131,8 +131,8 @@
       $self = this
       $self.init()
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         for (let i = 0; i < 10; i++) {
           let data = {
             id: i,
@@ -151,7 +151,7 @@
           $self.json.push(data)
         }
       },
-      'select': function (id, event) {
+      select (id, event) {
         if (event.currentTarget.checked) {
           console.log($self.ids)
           if ($self.ids.length === $self.json.length) {
@@ -161,7 +161,7 @@
           $self.checkAll = false
         }
       },
-      'selectAll': function (event) {
+      selectAll (event) {
         if (!event.currentTarget.checked) {
           $self.ids = []
         } else {
@@ -171,7 +171,7 @@
           })
         }
       },
-      'add': function () {
+      add () {
         $self.$layer.iframe({
           title: '',
           content: {
@@ -182,7 +182,7 @@
           area: ['550px', 'auto']
         })
       },
-      'SwitchUser': function () {
+      SwitchUser () {
         $self.$layer.iframe({
           title: '',
           content: {
@@ -193,7 +193,7 @@
           area: ['550px', 'auto']
         })
       },
-      'Userdetail': function () {
+      Userdetail () {
         $self.$layer.iframe({
           title: '',
           content: {
