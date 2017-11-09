@@ -49,12 +49,12 @@
       let left = (windowWidth - tabwidth) / 2
       this.toLeft = left
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         $self.lever()
         $self.payment()
       },
-      'lever': function () {
+      lever () {
         let params = {
           dictName: 'lever'
         }
@@ -85,7 +85,7 @@
             console.log('error', error)
           })
       },
-      'payment': function () {
+      payment () {
         let params = {
           dictName: 'payment'
         }
@@ -117,7 +117,7 @@
             console.log('error', error)
           })
       },
-      'tab': function (e, type) {
+      tab (e, type) {
         let elme = $(e.currentTarget)
         elme.parent().siblings().find('a').removeClass('active')
         elme.addClass('active')

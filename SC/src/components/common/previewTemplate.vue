@@ -41,8 +41,8 @@
       $self = this
       $self.init()
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         let params = {
           id: $self.$parent.template_id,
           type: $self.$parent.type
@@ -67,7 +67,7 @@
             console.log('error', error)
           })
       },
-      'cancel': function () {
+      cancel () {
         $self.$layer.closeAll()
       }
     }

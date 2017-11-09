@@ -93,8 +93,8 @@
       $self = this
       $self.init()
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         $self.$http.get('/support-center/crm/info',
           {
             headers: {
@@ -128,7 +128,7 @@
             console.log('error', error)
           })
       },
-      'save': function () {
+      save () {
         let params = $self.configure
         delete params.createDate
         delete params.modifyDate
@@ -162,14 +162,14 @@
             console.log('error', error)
           })
       },
-      'onFileChange': function (e) {
+      onFileChange (e) {
         let files = e.target.files || e.dataTransfer.files
         if (!files.length) {
           return
         }
         this.createImage(files[0], e.target.className)
       },
-      'createImage': function (file, type) {
+      createImage (file, type) {
         let reader = new FileReader()
         reader.onload = (e) => {
           let params = e.target.result

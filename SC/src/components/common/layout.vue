@@ -56,8 +56,8 @@
     data () {
       return {}
     },
-    'methods': {
-      'showmenu': function (e) {
+    methods: {
+      showmenu (e) {
         let elme = $(e.currentTarget)
         elme.parent().find('.menu').addClass('actived').removeClass('bg')
         elme.parent().siblings().find('.menu').addClass('bg').removeClass('actived')
@@ -69,7 +69,7 @@
           elme.parent().find('.submenu').show()
         }
       },
-      'golink': function (e) {
+      golink (e) {
         let elme = $(e.currentTarget)
         elme.removeClass('bg')
         elme.parent().siblings().find('.menu').addClass('bg').removeClass('actived')

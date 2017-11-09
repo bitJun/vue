@@ -71,8 +71,8 @@
       $self.init()
       $self.params.type = $self.$parent.type
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         if ($self.$parent.download_id === '') {
           $self.params = {
             brokerId: 1,
@@ -116,10 +116,10 @@
             })
         }
       },
-      'cancel': function () {
+      cancel () {
         $self.$layer.closeAll()
       },
-      'sure': function () {
+      sure () {
         let id = $self.$parent.download_id
         let params = $self.params
         if (id === '') {

@@ -73,11 +73,11 @@
           })
       }
     },
-    'methods': {
-      'cancel': function () {
+    methods: {
+      cancel () {
         this.$layer.closeAll()
       },
-      'sure': function () {
+      sure () {
         let id = this.$parent.download_id
         let params = this.downloadInfo
         this.errorNmae = ''

@@ -63,7 +63,7 @@
       }
     },
     'methods': {
-      'init': function () {
+      init () {
         let params = {
           id: $self.$parent.template_id
         }
@@ -87,10 +87,10 @@
             console.log('error', error)
           })
       },
-      'cancel': function () {
+      cancel () {
         $self.$layer.closeAll()
       },
-      'sure': function () {
+      sure () {
         let params = $self.json
         delete params.createDate
         delete params.modifyDate

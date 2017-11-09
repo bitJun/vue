@@ -119,8 +119,8 @@
       $self = this
       $self.init()
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         $self.platformId = $self.$parent.platformId
         let params = {
           platformId: $self.platformId
@@ -129,7 +129,7 @@
         $self.openconfigure(params)
         $self.platform()
       },
-      contains: function (arr, obj) {
+      contains (arr, obj) {
         let i = arr.length
         while (i--) {
           if (arr[i] === obj) {
@@ -138,7 +138,7 @@
         }
         return false
       },
-      'openconfigure': function () {
+      openconfigure () {
         let params = {
           platformId: $self.platformId
         }
@@ -201,7 +201,7 @@
             console.log('error', error)
           })
       },
-      'Editopenconfigure': function () {
+      Editopenconfigure () {
         let params = {}
         params = $self.realopen
         delete params.createDate
@@ -234,7 +234,7 @@
             console.log('error', error)
           })
       },
-      'simulationlist': function (params) {
+      simulationlist (params) {
         $self.$http.get('/support-center/simulation/get-simulationlist',
           {
             headers: {
@@ -259,7 +259,7 @@
             console.log('error', error)
           })
       },
-      'platform': function () {
+      platform () {
         let params = {
           id: $self.$parent.platformId
         }
@@ -285,7 +285,7 @@
             console.log('error', error)
           })
       },
-      'addType': function (index) {
+      addType (index) {
         $self.type_id = index
         $self.$layer.iframe({
           title: '',
@@ -297,7 +297,7 @@
           area: ['700px', 'auto']
         })
       },
-      'del': function (index) {
+      del (index) {
         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -333,7 +333,7 @@
         }).catch(() => {
         })
       },
-      'editriskDisclosure': function () {
+      editriskDisclosure () {
         $self.platformId = $self.$parent.platformId
         let params = {
           id: $self.risk_id,
@@ -395,7 +395,7 @@
             console.log('error', error)
           })
       },
-      'resetriskDisclosure': function () {
+      resetriskDisclosure () {
         let id = $self.$parent.platformId
         let params = {
           id: id

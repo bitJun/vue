@@ -48,12 +48,12 @@
       $self = this
       $self.resize()
     },
-    'methods': {
-      'handleCurrentChange': function (val) {
+    methods: {
+      handleCurrentChange (val) {
         console.log(`当前页: ${val}`)
         $self.$parent.nowpage = val
       },
-      'resize': function (current) {
+      resize (current) {
         $self.pagesize = []
         let size = Number($self.pages.totalpage)
         if (current === undefined) {
@@ -76,14 +76,14 @@
           $self.next = true
         }
       },
-      'pagechoose': function (page) {
+      pagechoose (page) {
         $self.pages.current = page
         $self.$parent.pages.current = page
         let start = page * $self.pages.size - $self.pages.size
         $self.$parent.start = start
         $self.resize()
       },
-      'prevpage': function () {
+      prevpage () {
         let current = Number($self.pages.current)
         let prevpage = current - 1
         let start = prevpage * $self.pages.size - $self.pages.size
@@ -91,7 +91,7 @@
         $self.$parent.pages.current = prevpage
         $self.resize(prevpage)
       },
-      'nextpage': function () {
+      nextpage () {
         let current = Number($self.pages.current)
         let nextpage = current + 1
         let start = nextpage * $self.pages.size - $self.pages.size
@@ -99,7 +99,7 @@
         $self.$parent.pages.current = nextpage
         $self.resize(nextpage)
       },
-      'gotopage': function () {
+      gotopage () {
         let total = Number($self.pages.totalpage)
         $self.pages.current = $self.topage
         let current = Number($self.pages.current)

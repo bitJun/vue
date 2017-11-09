@@ -57,8 +57,8 @@
       let nowpage = $self.nowpage
       $self.init(nowpage)
     },
-    'methods': {
-      'init': function (nowpage) {
+    methods: {
+      init (nowpage) {
         let params = {
           brokerId: '1',
           page: nowpage,
@@ -96,7 +96,7 @@
             console.log('error', error)
           })
       },
-      'preview': function (index) {
+      preview (index) {
         $self.template_id = index
         $self.$layer.iframe({
           title: '',
@@ -108,7 +108,7 @@
           area: ['700px', 'auto']
         })
       },
-      'edit': function (index) {
+      edit (index) {
         $self.template_id = index
         $self.$layer.iframe({
           title: '',

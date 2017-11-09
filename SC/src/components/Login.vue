@@ -69,8 +69,8 @@ export default {
       }
     }
   },
-  'methods': {
-    'getImgCode': function () {
+  methods: {
+    getImgCode () {
       let stamp = new Date().getTime()
       $self.$http.get('/support-center/admin-user/create-img-code?' + stamp + '',
         {
@@ -85,10 +85,10 @@ export default {
           console.log('error', error)
         })
     },
-    'reloadCode': function () {
+    reloadCode () {
       $self.getImgCode()
     },
-    'doLogin': function () {
+    doLogin () {
       $self.erroremail = ''
       $self.errorpassword = ''
       $self.errorcode = ''

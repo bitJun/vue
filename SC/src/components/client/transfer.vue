@@ -68,8 +68,8 @@
       $self = this
       $self.init()
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         let id = $self.$parent.platformId
         let params = {
           platformId: id
@@ -99,7 +99,7 @@
             console.log('error', error)
           })
       },
-      'save': function () {
+      save () {
         let params = {
           id: $self.tradeconfigure.id,
           requiredAddress: $self.tradeconfigure.requiredAddress,

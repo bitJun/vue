@@ -116,8 +116,8 @@
       $self.init()
       $self.payment()
     },
-    'methods': {
-      contains: function (arr, obj) {
+    methods: {
+      contains (arr, obj) {
         let i = arr.length
         while (i--) {
           if (arr[i] === obj) {
@@ -126,7 +126,7 @@
         }
         return false
       },
-      'init': function () {
+      init () {
         let platformId = $self.$parent.platformId
         let params = {
           platformId: platformId
@@ -179,7 +179,7 @@
             console.log('error', error)
           })
       },
-      'autorate': function () {
+      autorate () {
         $self.$http.get('/support-center/rateSpider/get-rate',
           {
             headers: {
@@ -211,7 +211,7 @@
             console.log('error', error)
           })
       },
-      'handrate': function () {
+      handrate () {
         $self.$http.get('/support-center/rate/get-rate',
           {
             headers: {
@@ -232,13 +232,13 @@
             console.log('error', error)
           })
       },
-      'payment': function () {
+      payment () {
         let json = digital.digital.payment
         for (let i = 0; i < json.length; i++) {
           $self.data.push({key: json[i].value, label: json[i].text})
         }
       },
-      'save': function () {
+      save () {
         let reg = /^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/
         let checkreg = /^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,5})))$/
         let float = /^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/

@@ -66,8 +66,8 @@
       $self = this
       $self.init()
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         $self.$http.get('/support-center/download/get-downloadlist',
           {
             headers: {
@@ -88,7 +88,7 @@
             console.log('error', error)
           })
       },
-      'del': function (index) {
+      del (index) {
         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -121,7 +121,7 @@
         }).catch(() => {
         })
       },
-      'edit': function (index) {
+      edit (index) {
         let params = {
           id: index
         }
@@ -154,7 +154,7 @@
             console.log('error', error)
           })
       },
-      'addLink': function (index) {
+      addLink (index) {
         $self.download_id = index
         $self.$layer.iframe({
           title: '',

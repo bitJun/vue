@@ -62,8 +62,8 @@
       console.log(digital.digital.lever)
       $self.init()
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         if ($self.$parent.type_id !== '') {
           let params = {
             id: $self.$parent.type_id
@@ -94,7 +94,7 @@
             })
         }
       },
-      'sure': function () {
+      sure () {
         let reg = /^\+?[1-9]\d*$/
         let id = $self.$parent.type_id
         let leverids = ''
@@ -184,7 +184,7 @@
             })
         }
       },
-      'cancel': function () {
+      cancel () {
         $self.$layer.closeAll()
       }
     }

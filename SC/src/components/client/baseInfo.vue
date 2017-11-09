@@ -127,8 +127,8 @@
       $self = this
       $self.init()
     },
-    'methods': {
-      'init': function () {
+    methods: {
+      init () {
         let id = $self.$parent.platformId
         let params = {
           id: id
@@ -163,7 +163,7 @@
             console.log('error', error)
           })
       },
-      'save': function () {
+      save () {
         let leverids = ''
         for (let i = 0; i < $self.items.length; i++) {
           if (leverids === '') {
@@ -207,14 +207,14 @@
             })
         }
       },
-      'onFileChange': function (e) {
+      onFileChange (e) {
         let files = e.target.files || e.dataTransfer.files
         if (!files.length) {
           return
         }
         this.createImage(files[0])
       },
-      'createImage': function (file) {
+      createImage (file) {
         let reader = new FileReader()
         reader.onload = (e) => {
           let params = e.target.result

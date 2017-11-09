@@ -16,8 +16,8 @@
     created () {
       this.getinfo()
     },
-    'methods': {
-      'getinfo': function () {
+    methods: {
+      getinfo () {
         this.$http.get('/support-center/admin-user/login-data',
           {
             headers: {
@@ -36,7 +36,7 @@
             console.log('error', error)
           })
       },
-      'exit': function () {
+      exit () {
         this.$http.post('/support-center/admin-user/logout',
           {
             headers: {

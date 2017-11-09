@@ -36,8 +36,8 @@
       let left = (windowWidth - emailWitdh) / 2
       $self.toLeft = left
     },
-    'methods': {
-      'tab': function (e, type) {
+    methods: {
+      tab (e, type) {
         let elme = $(e.currentTarget)
         elme.parent().siblings().find('a').removeClass('active')
         elme.addClass('active')

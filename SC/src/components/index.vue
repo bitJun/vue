@@ -91,8 +91,8 @@ export default {
     $self = this
     $self.init()
   },
-  'methods': {
-    'init': function () {}
+  methods: {
+    init () {}
   }
 }
 </script>
