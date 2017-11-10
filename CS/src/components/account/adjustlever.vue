@@ -108,8 +108,8 @@ export default {
       if (JSON.parse(localStorage.getItem('lever')) !== null) {
         expectlever = JSON.parse(localStorage.getItem('lever'))
       }
-      $self.lever = expectlever
-      if ($self.lever.length === 0) {
+      $self.expect = expectlever
+      if ($self.expect.length === 0) {
         let params = {
           dictName: 'lever'
         }
