@@ -15,18 +15,6 @@ export function loginHandle (res) {
   }
 }
 export function errorRequestHandle (res) {
-  console.log(11)
-  let result = res.body
-  if (result.code !== 10000) {
-    this.$message({
-      message: result.result,
-      type: 'error',
-      duration: '2000'
-    })
-    this.init()
-  }
-}
-export function errorMsg (res) {
   let result = res.body
   if (result.code !== 10000) {
     this.$message({

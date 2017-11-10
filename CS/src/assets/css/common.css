@@ -240,6 +240,6 @@ table {
   background: #f4f8fb;
   color: #333333;
 }
-.el-input__inner {
+.center .el-input__inner {
   text-align: center;
 }

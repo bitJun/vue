@@ -40,7 +40,7 @@
 </template>
 <script>
 import reg from '../../assets/js/reg'
-import {loginHandle, errorRequestHandle, errorMsg} from '../../assets/js/tool'
+import {loginHandle, errorRequestHandle} from '../../assets/js/tool'
 let $self = ''
 export default {
   name: 'changePhone',
@@ -105,7 +105,7 @@ export default {
             params,
             emulateJSON: true
           }).then((res) => {
-          }).catch(errorMsg)
+          }).catch(errorRequestHandle)
       }
     },
     'submit': function () {

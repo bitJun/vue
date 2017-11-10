@@ -255,6 +255,11 @@
     color: #999999;
     text-align: center;
   }
+  input[type="text"].readonly {
+    background: #f3f3f3;
+    border-color: #f3f3f3;
+    color: #999999;
+  }
   .notice {
     margin-left: 15px;
     color: #999999;

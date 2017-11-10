@@ -20,19 +20,19 @@
              </el-date-picker>
            </li>
            <li class="single">
-              <el-select v-model="record_value" placeholder="请选择">
+              <el-select v-model="record_value" placeholder="请选择" class="center">
                 <el-option v-for="item in record" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
               </el-select>
            </li>
            <li class="single">
-              <el-select v-model="pay_value" placeholder="请选择">
+              <el-select v-model="pay_value" placeholder="请选择" class="center">
                 <el-option v-for="item in pay" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
               </el-select>
            </li>
            <li class="single">
-              <el-select v-model="apply_value" placeholder="请选择">
+              <el-select v-model="apply_value" placeholder="请选择" class="center">
                 <el-option v-for="item in apply" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
               </el-select>

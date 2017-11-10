@@ -46,7 +46,7 @@
   </div>
 </template>
 <script>
-import {errorMsg} from '../../assets/js/tool'
+import {errorRequestHandle} from '../../assets/js/tool'
 import reg from '../../assets/js/reg'
 let $self = ''
 export default {
@@ -133,7 +133,7 @@ export default {
             $self.iserror = false
             $self.error_msg = ''
           }
-        }).catch(errorMsg)
+        }).catch(errorRequestHandle)
     },
     next () {
       let json = $self.data
@@ -199,7 +199,7 @@ export default {
             params,
             emulateJSON: true
           }).then((res) => {
-          }).catch(errorMsg)
+          }).catch(errorRequestHandle)
       }
     },
     submit () {
@@ -243,7 +243,7 @@ export default {
               $self.iserror = true
               $self.error_msg = res.body.result
             }
-          }).catch(errorMsg)
+          }).catch(errorRequestHandle)
       }
     },
     gologin () {

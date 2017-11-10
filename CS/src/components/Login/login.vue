@@ -38,7 +38,7 @@
   </div>
 </template>
 <script>
-import {errorMsg} from '../../assets/js/tool'
+import {errorRequestHandle} from '../../assets/js/tool'
 let $self = ''
 export default {
   name: 'login',
@@ -125,7 +125,7 @@ export default {
           emulateJSON: true
         }).then((res) => {
           $self.codeImg = res.url
-        }).catch(errorMsg)
+        }).catch(errorRequestHandle)
     },
     checkErrorTimes () {
       let params = {
@@ -145,7 +145,7 @@ export default {
               $self.showCode = true
             }
           }
-        }).catch(errorMsg)
+        }).catch(errorRequestHandle)
     },
     login () {
       let params = $self.data
@@ -176,7 +176,7 @@ export default {
             $self.checkErrorTimes()
             return false
           }
-        }).catch(errorMsg)
+        }).catch(errorRequestHandle)
     }
   },
   watch: {

@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import {loginHandle, errorRequestHandle, errorMsg} from '../../assets/js/tool'
+import {loginHandle, errorRequestHandle} from '../../assets/js/tool'
 export default {
   name: 'topbar',
   props: {
@@ -87,7 +87,7 @@ export default {
           if (res.body.code === 10000) {
             this.$router.push('/login')
           }
-        }).catch(errorMsg)
+        }).catch(errorRequestHandle)
     }
   }
 }
