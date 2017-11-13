@@ -138,13 +138,13 @@
         }
         if (id === '') {
           params.platformId = $self.$parent.platformId
-          $self.$http.get('/support-center/simulation/add-simulation',
+          $self.$http.post('/support-center/simulation/add-simulation',
+            params,
             {
               headers: {
                 'Content-Type': 'application/json',
                 'charset': 'utf-8'
               },
-              params,
               emulateJSON: true
             }).then((res) => {
               if (res.data.code === 20000) {
@@ -161,13 +161,13 @@
               console.log('error', error)
             })
         } else {
-          $self.$http.get('/support-center/simulation/edit-simulation',
+          $self.$http.post('/support-center/simulation/edit-simulation',
+            params,
             {
               headers: {
                 'Content-Type': 'application/json',
                 'charset': 'utf-8'
               },
-              params,
               emulateJSON: true
             }).then((res) => {
               if (res.data.code === 20000) {

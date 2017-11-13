@@ -10,29 +10,38 @@
       <div class="step1" v-if="step1==true">
         <h4>第一步<span>基本资料填写</span></h4>
         <form>
-          <div class="form-group clearfix">
-            <label class="label-control pull-left">姓名<span class="must">*</span></label>
-            <input class="input-control pull-left" type="text">
+          <div class="form-group">
+            <div class="infoItem clearfix">
+              <label class="label-control pull-left">姓名<span class="must">*</span></label>
+              <input class="input-control pull-left" type="text" v-model="openInfo.username">
+            </div>
+            <p v-if="error.username != ''" class="error_tips">{{error.username}}</p>
           </div>
-          <div class="form-group clearfix">
-            <label class="label-control pull-left">邮箱<span class="must">*</span></label>
-            <input class="input-control pull-left" type="text">
+          <div class="form-group">
+            <div class="infoItem clearfix">
+              <label class="label-control pull-left">邮箱<span class="must">*</span></label>
+              <input class="input-control pull-left" type="text" v-model="openInfo.email">
+            </div>
+            <p v-if="error.email != ''" class="error_tips">{{error.email}}</p>
           </div>
-          <div class="form-group clearfix">
-            <label class="label-control pull-left">手机<span class="must">*</span></label>
-            <input class="input-control pull-left" type="text">
+          <div class="form-group">
+            <div class="infoItem clearfix">
+              <label class="label-control pull-left">手机<span class="must">*</span></label>
+              <input class="input-control pull-left" type="text" v-model="openInfo.mobile">
+            </div>
+            <p v-if="error.mobile != ''" class="error_tips">{{error.mobile}}</p>
           </div>
           <div class="form-group clearfix">
             <label class="label-control pull-left">社交通讯</label>
-            <input class="input-control pull-left" type="text">
+            <input class="input-control pull-left" type="text" v-model="openInfo.communicatio">
           </div>
           <div class="form-group clearfix">
             <label class="label-control pull-left">出生地</label>
-            <input class="input-control pull-left" type="text">
+            <input class="input-control pull-left" type="text" v-model="openInfo.birth">
           </div>
           <div class="form-group clearfix">
             <label class="label-control pull-left">备注</label>
-            <textarea class="pull-left"></textarea>
+            <textarea class="pull-left" v-model="openInfo.notice"></textarea>
           </div>
           <div class="operstes clearfix">
             <a class="btns prev" @click="prev()">返回</a>
@@ -96,7 +105,7 @@
             <label class="label-control pull-left">投资年数</label>
             <input class="input-control pull-left" type="text">
           </div>
-          <div class="form-group clearfix">
+          <div class="form-group clearfix" v-bind:style="{'margin-bottom': '30px'}">
             <label class="label-control pull-left">投资目的</label>
             <ul class="imgs idcards pull-left clearfix">
               <li>
@@ -119,7 +128,7 @@
               </li>
             </ul>
           </div>
-          <div class="form-group clearfix">
+          <div class="form-group clearfix" v-bind:style="{'margin-bottom': '50px'}">
             <label class="label-control pull-left">开户银行</label>
             <ul class="imgs address pull-left clearfix">
               <li>
@@ -142,6 +151,11 @@
               </li>
             </ul>
           </div>
+          <div class="agree" id="agree">
+            <el-checkbox v-model="checked">
+              我已阅读并理解提供的信息，包括<a>用户协议及风险披露声明</a>，并愿意继续开户申请
+            </el-checkbox>
+          </div>
           <div class="operstes clearfix">
             <a class="btns prev" @click="prev()">上一步</a>
             <a class="btns next" @click="next()">提交</a>
@@ -161,7 +175,21 @@ export default {
       step2: false,
       step3: false,
       step: 1,
-      checkList: []
+      checkList: [],
+      openInfo: {
+        username: '',
+        email: '',
+        mobile: '',
+        communicatio: '',
+        birth: '',
+        notice: ''
+      },
+      error: {
+        username: '',
+        mobile: '',
+        email: ''
+      },
+      checked: false
     }
   },
   created () {
@@ -169,43 +197,69 @@ export default {
   },
   methods: {
     next () {
-      if ($self.step === 1) {
-        $self.step1 = false
-        $self.step2 = true
-        $self.step3 = false
-        $self.step = 2
-        return false
-      }
-      if ($self.step === 2) {
-        $self.step1 = false
-        $self.step2 = false
-        $self.step3 = true
-        $self.step = 3
-        return false
-      }
-      if ($self.step === 3) {
-        $self.$router.push('/openaccount/accountconfirm')
-        return false
+      let step = $self.step
+      switch (step) {
+        case 1:
+          $self.error.username = ''
+          $self.error.email = ''
+          $self.error.mobile = ''
+          if ($self.openInfo.username === '') {
+            $self.error.username = '请填写姓名！'
+            break
+          }
+          if ($self.openInfo.email === '') {
+            $self.error.email = '请填写邮箱！'
+            break
+          }
+          if ($self.openInfo.mobile === '') {
+            $self.error.mobile = '请填写手机号！'
+            break
+          } else {
+            $self.step1 = false
+            $self.step2 = true
+            $self.step3 = false
+            $self.step = 2
+            break
+          }
+        case 2:
+          $self.step1 = false
+          $self.step2 = false
+          $self.step3 = true
+          $self.step = 3
+          break
+        case 3:
+          if ($self.checked === false) {
+            return false
+          } else {
+            $self.$router.push('/openaccount/accountconfirm')
+          }
+          break
+        default:
+          $self.step1 = false
+          $self.step2 = true
+          $self.step3 = false
+          $self.step = 2
+          break
       }
     },
     prev () {
-      if ($self.step === 1) {
-        $self.$router.go(-1)
-        return false
-      }
-      if ($self.step === 2) {
-        $self.step1 = true
-        $self.step2 = false
-        $self.step3 = false
-        $self.step = 1
-        return false
-      }
-      if ($self.step === 3) {
-        $self.step1 = false
-        $self.step2 = true
-        $self.step3 = false
-        $self.step = 2
-        return false
+      let step = $self.step
+      switch (step) {
+        case 1:
+          $self.$router.go(-1)
+          break
+        case 2:
+          $self.step1 = true
+          $self.step2 = false
+          $self.step3 = false
+          $self.step = 1
+          break
+        case 3:
+          $self.step1 = false
+          $self.step2 = true
+          $self.step3 = false
+          $self.step = 2
+          break
       }
     },
     onFileChange (e) {
@@ -236,17 +290,29 @@ export default {
                 if (res.body.code === 10000) {
                   $self.platformInfo.platformLogo = res.body.result
                 } else {
-                  // toast(res.body.msg, 2000, 'error')
+                  $self.$message({
+                    message: res.body.msg,
+                    type: 'error',
+                    duration: '2000'
+                  })
                 }
               }, (error) => {
                 console.log('error', error)
               })
             return true
           } else {
-            // toast('请选择小于5M的图片', 2000, 'error')
+            $self.$message({
+              message: '请选择小于5M的图片',
+              type: 'error',
+              duration: '2000'
+            })
           }
         } else {
-          // toast('请选择格式为*.png、*.jpeg、*.jpg、*.gif、*.ico 的图片', 2000, 'error')
+          $self.$message({
+            message: '请选择格式为*.png、*.jpeg、*.jpg、*.gif、*.ico 的图片',
+            type: 'error',
+            duration: '2000'
+          })
         }
       }
       reader.readAsDataURL(file)

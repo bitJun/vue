@@ -183,13 +183,13 @@
           toast('未选择图片', 2000, 'error')
           return false
         } else {
-          $self.$http.get('/support-center/platform/edit-platform',
+          $self.$http.post('/support-center/platform/edit-platform',
+            params,
             {
               headers: {
                 'Content-Type': 'application/json',
                 'charset': 'utf-8'
               },
-              params,
               emulateJSON: true
             }).then((res) => {
               if (res.data.code === 20000) {

@@ -172,13 +172,13 @@ export default {
         return false
       } else {
         if ($self.isedit === false) {
-          $self.$http.get('/customer-point/bank/add-bank',
+          $self.$http.post('/customer-point/bank/add-bank',
+            params,
             {
               headers: {
                 'Content-Type': 'application/json',
                 'charset': 'utf-8'
               },
-              params,
               emulateJSON: true
             }).then(loginHandle).then((res) => {
               let json = res.body
@@ -194,13 +194,13 @@ export default {
             })
         } else {
           params.id = $self.$parent.editId
-          $self.$http.get('/customer-point/bank/edit-bank',
+          $self.$http.post('/customer-point/bank/edit-bank',
+            params,
             {
               headers: {
                 'Content-Type': 'application/json',
                 'charset': 'utf-8'
               },
-              params,
               emulateJSON: true
             }).then(loginHandle).then((res) => {
               let json = res.body

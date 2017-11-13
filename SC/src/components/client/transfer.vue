@@ -117,13 +117,13 @@
           toast('对外转账设置最多输入200字', 2000, 'error')
           return false
         }
-        $self.$http.get('/support-center/trade/edit-tradeconfigure',
+        $self.$http.post('/support-center/trade/edit-tradeconfigure',
+          params,
           {
             headers: {
               'Content-Type': 'application/json',
               'charset': 'utf-8'
             },
-            params,
             emulateJSON: true
           }).then((res) => {
             if (res.data.code === 20000) {

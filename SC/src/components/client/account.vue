@@ -206,13 +206,13 @@
         params = $self.realopen
         delete params.createDate
         delete params.modifyDate
-        $self.$http.get('/support-center/open/edit-openconfigure',
+        $self.$http.post('/support-center/open/edit-openconfigure',
+          params,
           {
             headers: {
               'Content-Type': 'application/json',
               'charset': 'utf-8'
             },
-            params,
             emulateJSON: true
           }).then((res) => {
             if (res.data.code === -1) {
@@ -349,13 +349,13 @@
           toast('真实开户风险披露设置最多输入1000字', 2000, 'error')
           return false
         }
-        $self.$http.get('/support-center/platform/edit-risk',
+        $self.$http.post('/support-center/platform/edit-risk',
+          params,
           {
             headers: {
               'Content-Type': 'application/json',
               'charset': 'utf-8'
             },
-            params,
             emulateJSON: true
           }).then((res) => {
             if (res.data.code === -1) {

@@ -99,13 +99,13 @@
           return false
         }
         if (id === '') {
-          this.$http.get('/support-center/download/add-download',
+          this.$http.post('/support-center/download/add-download',
+            params,
             {
               headers: {
                 'Content-Type': 'application/json',
                 'charset': 'utf-8'
               },
-              params,
               emulateJSON: true
             }).then((res) => {
               if (res.data.code === 20000) {
@@ -123,13 +123,13 @@
             })
         } else {
           params.id = id
-          this.$http.get('/support-center/download/edit-download',
+          this.$http.post('/support-center/download/edit-download',
+            params,
             {
               headers: {
                 'Content-Type': 'application/json',
                 'charset': 'utf-8'
               },
-              params,
               emulateJSON: true
             }).then((res) => {
               if (res.data.code === 20000) {

@@ -314,13 +314,13 @@
           toast('电汇入金设置最多输入1000字', 2000, 'error')
           return false
         }
-        $self.$http.get('/support-center/trade/edit-deposit',
+        $self.$http.post('/support-center/trade/edit-deposit',
+          params,
           {
             headers: {
               'Content-Type': 'application/json',
               'charset': 'utf-8'
             },
-            params,
             emulateJSON: true
           }).then((res) => {
             if (res.data.code === 20000) {

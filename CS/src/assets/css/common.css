@@ -243,3 +243,11 @@ table {
 .center .el-input__inner {
   text-align: center;
 }
+#agree .el-checkbox__label {
+  font-size: 12px;
+  color: #999999;
+}
+#agree .el-checkbox__label a {
+  font-size: 12px;
+  color: #333333;
+}

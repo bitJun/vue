@@ -153,13 +153,13 @@ export default {
         expectLeverageLast: '500',
         leverageRemark: $self.accountInfo.leverageRemark
       }
-      $self.$http.get('/customer-point/account/edit-account',
+      $self.$http.post('/customer-point/account/edit-account',
+        params,
         {
           headers: {
             'Content-Type': 'application/json',
             'charset': 'utf-8'
           },
-          params,
           emulateJSON: true
         }).then(loginHandle).then((res) => {
           let json = res.body
