@@ -85,12 +85,16 @@ export default {
         }).catch(errorRequestHandle)
     },
     accountlist () {
+      let params = {
+        customerId: localStorage.getItem('customerId')
+      }
       $self.$http.get('/customer-point/account/get-accountlist',
         {
           headers: {
             'Content-Type': 'application/json',
             'charset': 'utf-8'
           },
+          params,
           emulateJSON: true
         }).then(loginHandle).then((res) => {
           let json = res.body
